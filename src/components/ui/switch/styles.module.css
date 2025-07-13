@@ -1,0 +1,60 @@
+.switch {
+  display: inline-flex;
+  align-items: center;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 4.5);
+  border-radius: var(--radius-rounded);
+  outline: none;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-xs);
+  border: 1px solid transparent;
+  transition-property: background-color, border-color;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+
+  /* State */
+  &[data-state="checked"] {
+    background-color: var(--primary);
+
+    .switch-thumb {
+      transform: translateX(calc(100% - var(--spacing) + 2px));
+
+      &:dir(rtl) {
+        transform: translateX(calc(-100% + var(--spacing) - 2px));
+      }
+    }
+  }
+
+  &[data-state="unchecked"] {
+    background-color: var(--input);
+
+    .switch-thumb {
+      transform: translateX(0);
+    }
+  }
+
+  /* Focus */
+  &:focus-visible {
+    border-color: var(--ring);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+
+  /* Disabled */
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.switch-thumb {
+  display: block;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  background-color: var(--background);
+  border-radius: var(--radius-rounded);
+  transition-property: transform;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+}
