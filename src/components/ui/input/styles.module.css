@@ -1,0 +1,55 @@
+.input {
+  display: flex;
+  outline: none;
+  border-radius: var(--radius-md);
+  width: 100%;
+  height: calc(var(--spacing) * 9);
+  color: var(--foreground);
+  background-color: transparent;
+  border: 1px solid var(--input);
+  box-shadow: var(--shadow-xs);
+  padding-inline: calc(var(--spacing) * 3);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  transition: all var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  &[aria-invalid="true"] {
+    border-color: var(--destructive);
+  }
+
+  &::placeholder {
+    color: var(--muted-foreground);
+  }
+
+  &::selection {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  &::file-selector-button {
+    border: none;
+    height: 100%;
+    color: var(--foreground);
+    background-color: transparent;
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+  }
+
+  &:focus {
+    &:not([aria-invalid="true"]) {
+      border-color: var(--ring);
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+    }
+
+    &[aria-invalid="true"] {
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--destructive) 20%, transparent);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
