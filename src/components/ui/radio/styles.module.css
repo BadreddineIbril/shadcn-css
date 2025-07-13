@@ -1,38 +1,46 @@
-.checkbox {
+.radio-group {
+  display: grid;
+  gap: calc(var(--spacing) * 3);
+}
+
+.radio-group-item {
   outline: none;
   flex-shrink: 0;
-  border-radius: 4px;
+  aspect-ratio: 1 / 1;
   box-shadow: var(--shadow-xs);
   width: calc(var(--spacing) * 4);
   height: calc(var(--spacing) * 4);
+  color: var(--primary);
   background-color: transparent;
   border: 1px solid var(--input);
-  transition: box-shadow var(--default-transition-duration)
+  border-radius: var(--radius-rounded);
+  transition: color var(--default-transition-duration)
     var(--default-transition-timing-function);
 
-  /* Checked */
-  &[data-state="checked"] {
-    border-color: var(--primary);
-    color: var(--primary-foreground);
-    background-color: var(--primary);
+  /* Indicator */
+  [data-slot="radio-group-indicator"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    svg {
+      fill: currentColor;
+      width: calc(var(--spacing) * 2);
+      height: calc(var(--spacing) * 2);
+    }
   }
 
   /* Invalid */
   &[aria-invalid="true"] {
+    color: var(--destructive);
     border-color: var(--destructive);
-
-    &[data-state="checked"] {
-      background-color: var(--destructive);
-    }
   }
 
   /* Focus */
   &:focus-visible {
+    border-color: var(--ring);
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
-
-    &[data-state="unchecked"] {
-      border-color: var(--ring);
-    }
 
     &[aria-invalid="true"] {
       border-color: var(--destructive);
@@ -45,16 +53,5 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-  }
-}
-
-.checkbox-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    width: calc(var(--spacing) * 3.5);
-    height: calc(var(--spacing) * 3.5);
   }
 }
