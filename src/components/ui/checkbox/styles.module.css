@@ -1,0 +1,45 @@
+.checkbox {
+  outline: none;
+  flex-shrink: 0;
+  border-radius: 4px;
+  box-shadow: var(--shadow-xs);
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  background-color: transparent;
+  border: 1px solid var(--input);
+  transition: box-shadow var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  /* Checked */
+  &[data-state="checked"] {
+    border-color: var(--primary);
+    color: var(--primary-foreground);
+    background-color: var(--primary);
+  }
+
+  /* Focus */
+  &:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+
+    &[data-state="unchecked"] {
+      border-color: var(--ring);
+    }
+  }
+
+  /* Disabled */
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.checkbox-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: calc(var(--spacing) * 3.5);
+    height: calc(var(--spacing) * 3.5);
+  }
+}
