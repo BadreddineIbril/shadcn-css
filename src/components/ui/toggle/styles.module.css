@@ -1,0 +1,94 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-sm--line-height);
+  transition: color var(--default-transition-duration),
+    box-shadow var(--default-transition-duration);
+
+  /* Variant */
+  &[data-variant="default"] {
+    &:hover:not([data-state="on"]) {
+      background-color: var(--muted);
+      color: var(--muted-foreground);
+    }
+  }
+
+  &[data-variant="outline"] {
+    box-shadow: var(--shadow-xs);
+    border-color: var(--input);
+
+    &:hover:not([data-state="on"]) {
+      background-color: var(--muted);
+    }
+  }
+
+  /* Size */
+  &[data-size="sm"] {
+    gap: calc(var(--spacing) * 1.5);
+    border-radius: var(--radius-sm);
+    height: calc(var(--spacing) * 8);
+    padding-inline: calc(var(--spacing) * 1.75);
+  }
+
+  &[data-size="md"] {
+    height: calc(var(--spacing) * 9);
+    padding-inline: calc(var(--spacing) * 2.25);
+  }
+
+  &[data-size="lg"] {
+    height: calc(var(--spacing) * 10);
+    padding-inline: calc(var(--spacing) * 2.75);
+  }
+
+  &[data-size="md"],
+  &[data-size="lg"] {
+    gap: calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+  }
+
+  /* Icon */
+  & > svg {
+    flex-shrink: 0;
+    pointer-events: none;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+  }
+
+  /* State */
+  &[data-state="on"] {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+  }
+
+  /* Invalid */
+  &[aria-invalid="true"] {
+    box-shadow: 0 0 0 2px
+      color-mix(in oklab, var(--destructive) 20%, transparent);
+
+    &[data-variant="outline"] {
+      border-color: var(--destructive);
+    }
+  }
+
+  /* Focus */
+  &:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+
+    &[data-variant="outline"] {
+      border-color: var(--ring);
+    }
+  }
+
+  /* Disabled */
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
