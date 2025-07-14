@@ -1,0 +1,25 @@
+.avatar {
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  width: calc(var(--spacing) * 8);
+  height: calc(var(--spacing) * 8);
+  border-radius: var(--radius-rounded);
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--muted);
+  border-radius: var(--radius-rounded);
+}
