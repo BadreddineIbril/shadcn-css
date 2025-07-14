@@ -1,0 +1,82 @@
+.accordion-item {
+  border-block-end: 1px solid var(--border);
+
+  & > [data-slot="accordion-header"] {
+    display: flex;
+  }
+}
+
+.accordion-trigger {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--spacing) * 4);
+  justify-content: space-between;
+  gap: calc(var(--spacing) * 4);
+  padding-block: calc(var(--spacing) * 4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-sm--line-height);
+  border: none;
+  outline: none;
+  text-align: start;
+  color: var(--color-neutral-800);
+  background-color: transparent;
+  transition: all var(--default-transition-duration)
+    var(--default-transition-timing-function);
+
+  /* Icon */
+  & > svg {
+    flex-shrink: 0;
+    pointer-events: none;
+    color: var(--muted-foreground);
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    rotate: 0deg;
+    translate: 0 calc(var(--spacing) * 0.5);
+  }
+
+  /* State */
+  &[data-state="open"] > svg {
+    rotate: 180deg;
+    transition: rotate var(--default-transition-duration)
+      var(--default-transition-timing-function);
+  }
+
+  /* Hover */
+  &:hover {
+    text-decoration: underline;
+  }
+
+  /* Focus */
+  &:focus-visible {
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+
+  /* Disabled */
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.accordion-content {
+  overflow: hidden;
+  color: var(--color-neutral-800);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+
+  & > div {
+    padding-block-end: calc(var(--spacing) * 4);
+  }
+
+  /* State */
+  &[data-state="open"] {
+    animation: var(--animate-accordion-down);
+  }
+
+  &[data-state="closed"] {
+    animation: var(--animate-accordion-up);
+  }
+}
