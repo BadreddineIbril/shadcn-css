@@ -1,0 +1,53 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 6);
+  color: var(--card-foreground);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  border-radius: var(--radius-xl);
+  padding-block: calc(var(--spacing) * 6);
+}
+
+.card-header {
+  display: grid;
+  align-items: start;
+  grid-auto-rows: min-content;
+  grid-template-rows: auto auto;
+  gap: calc(var(--spacing) * 1.5);
+  padding-inline: calc(var(--spacing) * 6);
+
+  &:has([data-slot="card-action"]) {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+.card-title {
+  line-height: var(--leading-none);
+  font-weight: var(--font-weight-semibold);
+}
+
+.card-description {
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  color: var(--muted-foreground);
+}
+
+.card-action {
+  align-self: start;
+  justify-self: end;
+  grid-row-start: 1;
+  grid-row-end: span 2;
+  grid-column-start: 2;
+}
+
+.card-content {
+  padding-inline: calc(var(--spacing) * 6);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding-inline: calc(var(--spacing) * 6);
+}
