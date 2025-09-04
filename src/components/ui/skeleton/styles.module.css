@@ -1,0 +1,5 @@
+.skeleton {
+  border-radius: var(--radius-xl);
+  background-color: var(--accent);
+  animation: var(--animate-pulse);
+}

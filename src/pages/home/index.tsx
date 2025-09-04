@@ -1,4 +1,5 @@
 import Button from "@/components/ui/button";
+import Skeleton from "@/components/ui/skeleton";
 import { Bookmark } from "lucide-react";
 
 function Home() {
@@ -6,6 +7,8 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Skeleton style={{ width: "100px", height: "100px" }} />
+
         <div style={{ display: "grid", gap: "1em", width: "fit-content" }}>
           <Button variant="primary" size="icon">
             <Bookmark />
