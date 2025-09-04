@@ -1,5 +1,6 @@
 import Button from "@/components/ui/button";
 import Skeleton from "@/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Bookmark } from "lucide-react";
 
 function Home() {
@@ -7,6 +8,17 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Tabs defaultValue="account" style={{ width: "400px" }}>
+          <TabsList>
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+          </TabsList>
+          <TabsContent value="account">
+            Make changes to your account here.
+          </TabsContent>
+          <TabsContent value="password">Change your password here.</TabsContent>
+        </Tabs>
+
         <Skeleton style={{ width: "100px", height: "100px" }} />
 
         <div style={{ display: "grid", gap: "1em", width: "fit-content" }}>
