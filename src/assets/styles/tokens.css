@@ -456,8 +456,8 @@
   --percentage-95: 0.95;
   --percentage-100: 1;
 
-  --animate-in: enter var(--tw-duration, 0.15s) var(--tw-ease, ease);
-  --animate-out: exit var(--tw-duration, 0.15s) var(--tw-ease, ease);
+  --animate-in: fade-in;
+  --animate-out: fade-out;
   --animate-accordion-down: accordion-down var(--tw-duration, 0.2s) ease-out;
   --animate-accordion-up: accordion-up var(--tw-duration, 0.2s) ease-out;
   --animate-caret-blink: caret-blink 1.25s ease-out infinite;
