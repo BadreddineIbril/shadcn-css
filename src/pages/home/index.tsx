@@ -9,6 +9,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Button from "@/components/ui/button";
 import {
   HoverCard,
@@ -29,6 +30,16 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <AspectRatio ratio={16 / 9}>
+          <img
+            src="https://www.shutterstock.com/editorial/image-editorial/NaDeQ913MdT5Eb0bMDAxMQ==/adolf-hitler-1889-1945-german-politician-leader-nazi-440nw-4423909a.jpg"
+            alt="Adolf"
+            width="100%"
+            height="100%"
+            style={{ objectFit: "cover" }}
+          />
+        </AspectRatio>
+
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="outline">Show Dialog</Button>
