@@ -26,18 +26,33 @@ import {
 } from "@/components/ui/hover-card";
 import Skeleton from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Bookmark } from "lucide-react";
+import { Bold, Bookmark, Italic, Underline } from "lucide-react";
 
 function Home() {
   return (
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <ToggleGroup type="single" size="lg">
+          <ToggleGroupItem value="bold" aria-label="Toggle bold">
+            <Bold style={{ width: "1rem", height: "1rem" }} />
+          </ToggleGroupItem>
+          <ToggleGroupItem value="italic" aria-label="Toggle italic">
+            <Italic style={{ width: "1rem", height: "1rem" }} />
+          </ToggleGroupItem>
+          <ToggleGroupItem
+            value="strikethrough"
+            aria-label="Toggle strikethrough">
+            <Underline style={{ width: "1rem", height: "1rem" }} />
+          </ToggleGroupItem>
+        </ToggleGroup>
+
         <div style={{ padding: "2em" }}>
           <Carousel style={{ width: "100%" }}>
             <CarouselContent style={{ marginLeft: "-1rem" }}>
