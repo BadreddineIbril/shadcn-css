@@ -2,6 +2,7 @@ import { useLayoutEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navigation from "@/components/layout/_partials/navigation";
 import Footer from "@/components/layout/_partials/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 function Layout() {
   const { pathname } = useLocation();
@@ -15,6 +16,7 @@ function Layout() {
       <Navigation />
       <Outlet />
       <Footer />
+      <Toaster />
     </>
   );
 }

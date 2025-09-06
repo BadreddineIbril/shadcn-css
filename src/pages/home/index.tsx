@@ -45,12 +45,27 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Bold, Bookmark, Italic, Underline } from "lucide-react";
+import { toast } from "sonner";
 
 function Home() {
   return (
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Button
+          variant="outline"
+          onClick={() =>
+            toast("Event has been created", {
+              description: "Sunday, December 03, 2023 at 9:00 AM",
+              action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }>
+          Show Toast
+        </Button>
+
         <ResizablePanelGroup
           direction="horizontal"
           style={{
