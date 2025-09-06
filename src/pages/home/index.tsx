@@ -11,6 +11,14 @@ import {
 } from "@/components/ui/alert-dialog";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Button from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import {
   HoverCard,
   HoverCardContent,
@@ -30,6 +38,32 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <div style={{ padding: "2em" }}>
+          <Carousel style={{ width: "100%" }}>
+            <CarouselContent style={{ marginLeft: "-1rem" }}>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index} style={{ paddingLeft: "1rem" }}>
+                  <div style={{ padding: "1rem" }}>
+                    <Card>
+                      <CardContent
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          padding: "6rem",
+                        }}>
+                        <span>{index + 1}</span>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
         <AspectRatio ratio={16 / 9}>
           <img
             src="https://www.shutterstock.com/editorial/image-editorial/NaDeQ913MdT5Eb0bMDAxMQ==/adolf-hitler-1889-1945-german-politician-leader-nazi-440nw-4423909a.jpg"
