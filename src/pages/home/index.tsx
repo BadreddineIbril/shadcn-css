@@ -31,6 +31,11 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
@@ -52,6 +57,13 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline">Open popover</Button>
+          </PopoverTrigger>
+          <PopoverContent>Place content for the popover here.</PopoverContent>
+        </Popover>
+
         <Button
           variant="outline"
           onClick={() =>
