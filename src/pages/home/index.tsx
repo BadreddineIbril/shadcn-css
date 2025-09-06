@@ -31,6 +31,7 @@ import {
   InputOTPSlot,
 } from "@/components/ui/input-otp";
 import Skeleton from "@/components/ui/skeleton";
+import Slider from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
@@ -45,6 +46,8 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Slider defaultValue={[33]} max={100} step={1} />
+
         <InputOTP maxLength={6}>
           <InputOTPGroup>
             <InputOTPSlot index={0} />
