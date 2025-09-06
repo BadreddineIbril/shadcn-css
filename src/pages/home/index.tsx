@@ -40,6 +40,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Skeleton from "@/components/ui/skeleton";
 import Slider from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -57,6 +58,18 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <ScrollArea
+          style={{ height: "200px", width: "350px", padding: "1rem" }}>
+          Jokester began sneaking into the castle in the middle of the night and
+          leaving jokes all over the place: under the king's pillow, in his
+          soup, even in the royal toilet. The king was furious, but he couldn't
+          seem to stop Jokester. And then, one day, the people of the kingdom
+          discovered that the jokes left by Jokester were so funny that they
+          couldn't help but laugh. And once they started laughing, they couldn't
+          stop.
+          <ScrollBar />
+        </ScrollArea>
+
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline">Open popover</Button>
