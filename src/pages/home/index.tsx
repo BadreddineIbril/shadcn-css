@@ -1,4 +1,9 @@
 import Button from "@/components/ui/button";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import Skeleton from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -13,6 +18,15 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <HoverCard>
+          <HoverCardTrigger asChild>
+            <Button variant="link">@nextjs</Button>
+          </HoverCardTrigger>
+          <HoverCardContent side="right">
+            The React Framework – created and maintained by @vercel.
+          </HoverCardContent>
+        </HoverCard>
+
         <Tooltip>
           <TooltipTrigger asChild>
             <Button variant="outline">Hover</Button>
