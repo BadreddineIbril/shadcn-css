@@ -465,6 +465,8 @@
   --animate-select-bottom: fade-in, zoom-in, slide-in-from-top;
   --animate-select-left: fade-in, zoom-in, slide-in-from-right;
   --animate-select-right: fade-in, zoom-in, slide-in-from-left;
+  --animate-tooltip-in: fade-in, zoom-in;
+  --animate-tooltip-out: fade-out, zoom-out;
 
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;

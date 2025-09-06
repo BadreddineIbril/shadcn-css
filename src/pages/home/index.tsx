@@ -1,6 +1,11 @@
 import Button from "@/components/ui/button";
 import Skeleton from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Bookmark } from "lucide-react";
 
 function Home() {
@@ -8,6 +13,15 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button variant="outline">Hover</Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Add to library</p>
+          </TooltipContent>
+        </Tooltip>
+
         <Tabs defaultValue="account" style={{ width: "400px" }}>
           <TabsList>
             <TabsTrigger value="account">Account</TabsTrigger>

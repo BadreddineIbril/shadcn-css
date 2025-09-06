@@ -1,0 +1,45 @@
+.tooltip-content {
+  z-index: 50;
+  width: fit-content;
+  color: var(--primary-foreground);
+  background-color: var(--color-primary);
+  text-wrap: balance;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  border-radius: var(--radius-md);
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
+  transform-origin: var(--radix-tooltip-content-transform-origin);
+  animation-timing-function: var(--ease-out);
+  animation-duration: var(--default-transition-duration);
+
+  &[data-side="top"] {
+    animation-name: var(--animate-select-top);
+  }
+
+  &[data-side="bottom"] {
+    animation-name: var(--animate-select-bottom);
+  }
+
+  &[data-side="left"] {
+    animation-name: var(--animate-select-left);
+  }
+
+  &[data-side="right"] {
+    animation-name: var(--animate-select-right);
+  }
+
+  &[data-state="closed"] {
+    animation-name: var(--animate-tooltip-out);
+  }
+}
+
+.tooltip-arrow {
+  z-index: 50;
+  rotate: 45deg;
+  border-end-end-radius: 2px;
+  fill: var(--color-primary);
+  translate: 0 calc(-50% - 2px);
+  background-color: var(--color-primary);
+  width: calc(var(--spacing) * 2.5);
+  height: calc(var(--spacing) * 2.5);
+}
