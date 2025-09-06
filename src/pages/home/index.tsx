@@ -30,6 +30,11 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
 import Skeleton from "@/components/ui/skeleton";
 import Slider from "@/components/ui/slider";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -46,6 +51,36 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <ResizablePanelGroup
+          direction="horizontal"
+          style={{
+            border: "1px solid var(--border)",
+            borderRadius: "1rem",
+            overflow: "hidden",
+          }}>
+          <ResizablePanel defaultSize={50}>
+            <div style={{ height: "200px", padding: "6rem" }}>
+              <span className="font-semibold">One</span>
+            </div>
+          </ResizablePanel>
+          <ResizableHandle withHandle />
+          <ResizablePanel defaultSize={50}>
+            <ResizablePanelGroup direction="vertical">
+              <ResizablePanel defaultSize={25}>
+                <div style={{ height: "100%", padding: "6rem" }}>
+                  <span className="font-semibold">Two</span>
+                </div>
+              </ResizablePanel>
+              <ResizableHandle />
+              <ResizablePanel defaultSize={75}>
+                <div style={{ height: "100%", padding: "6rem" }}>
+                  <span className="font-semibold">Three</span>
+                </div>
+              </ResizablePanel>
+            </ResizablePanelGroup>
+          </ResizablePanel>
+        </ResizablePanelGroup>
+
         <Slider defaultValue={[33]} max={100} step={1} />
 
         <InputOTP maxLength={6}>
