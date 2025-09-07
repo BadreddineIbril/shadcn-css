@@ -98,8 +98,8 @@
   }
 
   &[data-size="icon"] {
-    width: calc(var(--spacing) * 8);
-    height: calc(var(--spacing) * 8);
+    width: calc(var(--spacing) * 9);
+    height: calc(var(--spacing) * 9);
   }
 
   &[data-size="xs"],
