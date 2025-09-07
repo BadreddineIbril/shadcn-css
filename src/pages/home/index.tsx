@@ -20,6 +20,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
@@ -58,6 +63,16 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Collapsible>
+          <CollapsibleTrigger asChild>
+            <Button variant="outline">Can I use this in my project?</Button>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            Yes. Free to use for personal and commercial projects. No
+            attribution required.
+          </CollapsibleContent>
+        </Collapsible>
+
         <ScrollArea
           style={{ height: "200px", width: "350px", padding: "1rem" }}>
           Jokester began sneaking into the castle in the middle of the night and
