@@ -468,6 +468,11 @@
   --animate-tooltip-in: fade-in, zoom-in;
   --animate-tooltip-out: fade-out, zoom-out;
 
+  --animate-navigation-from-start: fade-in, zoom-in, slide-in-from-left-52;
+  --animate-navigation-from-end: fade-in, zoom-in, slide-in-from-right-52;
+  --animate-navigation-to-start: fade-in, zoom-in, slide-in-to-left-52;
+  --animate-navigation-to-end: fade-in, zoom-in, slide-in-to-right-52;
+
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
 
@@ -611,6 +616,42 @@
   }
   to {
     translate: 0;
+  }
+}
+
+@keyframes slide-in-from-left-52 {
+  from {
+    transform: translateX(-13rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-from-right-52 {
+  from {
+    transform: translateX(13rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-to-left-52 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-13rem);
+  }
+}
+
+@keyframes slide-out-to-right-52 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(13rem);
   }
 }
 

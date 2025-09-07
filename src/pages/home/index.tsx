@@ -51,6 +51,14 @@ import {
   MenubarTrigger,
 } from "@/components/ui/menubar";
 import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import {
   Pagination,
   PaginationContent,
   PaginationEllipsis,
@@ -88,6 +96,19 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <NavigationMenu>
+          <NavigationMenuList>
+            {[...Array(5)].map((_, i) => (
+              <NavigationMenuItem key={i}>
+                <NavigationMenuTrigger>Item One {i + 1}</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <NavigationMenuLink>Link {i + 1}</NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+
         <Menubar>
           <MenubarMenu>
             <MenubarTrigger>File</MenubarTrigger>
