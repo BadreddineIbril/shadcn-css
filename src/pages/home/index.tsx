@@ -40,6 +40,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Progress from "@/components/ui/progress";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -63,6 +64,8 @@ function Home() {
     <main>
       Home
       <div style={{ display: "grid", gap: "2em", padding: "2em" }}>
+        <Progress value={99} />
+
         <Collapsible>
           <CollapsibleTrigger asChild>
             <Button variant="outline">Can I use this in my project?</Button>
