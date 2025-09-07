@@ -44,7 +44,6 @@ function ToggleGroupItem({
   Pick<ToggleProps, "size" | "variant">) {
   const context = useContext(ToggleGroupContext);
 
-  console.log(context);
   return (
     <ToggleGroupPrimitive.Item
       data-slot="toggle-group-item"

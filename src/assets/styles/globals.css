@@ -111,6 +111,12 @@ a {
   text-decoration: none;
 }
 
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
 html {
   scroll-behavior: smooth;
 }

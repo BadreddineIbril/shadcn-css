@@ -1,0 +1,96 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+
+  .table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+
+    .table-header {
+      & > tr {
+        border-block-end: 1px solid var(--color-border);
+      }
+    }
+
+    .table-body {
+      & > tr:last-child {
+        border: 0;
+      }
+    }
+
+    .table-footer {
+      background-color: color-mix(
+        in oklch,
+        var(--color-muted) 50%,
+        transparent
+      );
+      font-weight: var(--font-weight-medium);
+      border-block-start: 1px solid var(--color-border);
+
+      & > tr {
+        border-block-end: 0;
+      }
+    }
+
+    .table-row {
+      border-block-end: 1px solid var(--color-border);
+      transition-property: color, background-color, border-color;
+      transition-duration: var(--default-transition-duration);
+      transition-timing-function: var(--default-transition-timing-function);
+
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          var(--color-muted) 50%,
+          transparent
+        );
+      }
+
+      &[data-state="selected"] {
+        background-color: var(--color-muted);
+      }
+    }
+
+    .table-head {
+      text-align: start;
+      white-space: nowrap;
+      vertical-align: middle;
+      color: var(--color-foreground);
+      height: calc(var(--spacing) * 10);
+      font-weight: var(--font-weight-medium);
+      padding-inline: calc(var(--spacing) * 2);
+
+      &:has([role="checkbox"]) {
+        padding-inline-end: 0;
+
+        & > [role="checkbox"] {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    .table-cell {
+      white-space: nowrap;
+      vertical-align: middle;
+      padding: calc(var(--spacing) * 2);
+
+      &:has([role="checkbox"]) {
+        padding-inline-end: 0;
+
+        & > [role="checkbox"] {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    .table-caption {
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+      color: var(--color-muted-foreground);
+      margin-block-start: calc(var(--spacing) * 4);
+    }
+  }
+}
