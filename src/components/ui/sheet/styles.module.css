@@ -26,6 +26,19 @@
   box-shadow: var(--shadow-lg);
   gap: calc(var(--spacing) * 4);
 
+  /* State */
+  &[data-state="open"] {
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--ease-out);
+  }
+
+  &[data-state="closed"] {
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: var(--ease-in);
+  }
+
   /* Side */
   &[data-side="left"],
   &[data-side="right"] {
@@ -45,11 +58,11 @@
     border-inline-start: 1px solid var(--color-border);
 
     &[data-state="open"] {
-      animation: slide-in-from-right 0.5s var(--ease-out) forwards;
+      animation-name: slide-in-from-right;
     }
 
     &[data-state="closed"] {
-      animation: slide-out-to-right 0.2s var(--ease-in) forwards;
+      animation-name: slide-out-to-right;
     }
   }
 
@@ -58,22 +71,38 @@
     border-inline-end: 1px solid var(--color-border);
 
     &[data-state="open"] {
-      animation: slide-in-from-left 0.5s var(--ease-out) forwards;
+      animation-name: slide-in-from-left;
     }
 
     &[data-state="closed"] {
-      animation: slide-out-to-left 0.2s var(--ease-in) forwards;
+      animation-name: slide-out-to-left;
     }
   }
 
   &[data-side="top"] {
     inset-block-start: 0;
     border-block-end: 1px solid var(--color-border);
+
+    &[data-state="open"] {
+      animation-name: slide-in-from-top;
+    }
+
+    &[data-state="closed"] {
+      animation-name: slide-out-to-top;
+    }
   }
 
   &[data-side="bottom"] {
     inset-block-end: 0;
     border-block-start: 1px solid var(--color-border);
+
+    &[data-state="open"] {
+      animation-name: slide-in-from-bottom;
+    }
+
+    &[data-state="closed"] {
+      animation-name: slide-out-to-bottom;
+    }
   }
 
   .sheet-close {
@@ -142,7 +171,7 @@
 }
 
 @media (width >= 640px) {
-  .sheet-content {
+  .sheet-content:is([data-side="left"], [data-side="right"]) {
     max-width: 24rem;
   }
 }
