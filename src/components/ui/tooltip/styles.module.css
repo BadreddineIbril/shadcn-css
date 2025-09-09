@@ -1,17 +1,18 @@
 .tooltip-content {
   z-index: 50;
   width: fit-content;
-  color: var(--primary-foreground);
-  background-color: var(--color-primary);
-  text-wrap: balance;
-  font-size: var(--text-xs);
-  line-height: var(--text-xs--line-height);
-  border-radius: var(--radius-md);
   padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 3);
   transform-origin: var(--radix-tooltip-content-transform-origin);
-  animation-timing-function: var(--ease-out);
   animation-duration: var(--default-transition-duration);
+  animation-timing-function: var(--ease-out);
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  text-wrap: balance;
 
+  /* Side */
   &[data-side="top"] {
     animation-name: var(--animate-select-top);
   }
@@ -35,11 +36,11 @@
 
 .tooltip-arrow {
   z-index: 50;
-  rotate: 45deg;
-  border-end-end-radius: 2px;
-  fill: var(--color-primary);
-  translate: 0 calc(-50% - 2px);
-  background-color: var(--color-primary);
   width: calc(var(--spacing) * 2.5);
   height: calc(var(--spacing) * 2.5);
+  background-color: var(--color-primary);
+  fill: var(--color-primary);
+  rotate: 45deg;
+  border-end-end-radius: 2px;
+  translate: 0 calc(-50% - 2px);
 }

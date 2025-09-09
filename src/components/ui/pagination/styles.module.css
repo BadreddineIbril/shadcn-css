@@ -1,14 +1,14 @@
 .pagination {
-  width: 100%;
-  margin-inline: auto;
   display: flex;
   justify-content: center;
+  width: 100%;
+  margin-inline: auto;
 
   .pagination-content {
     display: flex;
-    gap: var(--spacing);
-    align-items: center;
     flex-direction: row;
+    align-items: center;
+    gap: var(--spacing);
 
     .pagination-previous,
     .pagination-next {
@@ -35,7 +35,7 @@
   }
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .pagination {
     .pagination-content {
       .pagination-previous,

@@ -2,29 +2,30 @@
 .dropdown-menu-sub-trigger {
   display: flex;
   align-items: center;
-  border-radius: var(--radius-sm);
   padding: var(--spacing) calc(var(--spacing) * 2);
   border: none;
+  border-radius: var(--radius-sm);
   outline: none;
-  user-select: none;
   background-color: transparent;
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--text-sm--line-height);
+  user-select: none;
 
+  /* Focus & Open */
   &:focus,
   &[data-state="open"] {
-    color: var(--color-accent-foreground);
     background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
   }
 
   &.dropdown-menu-sub-trigger {
     padding-block: calc(var(--spacing) * 1.5);
 
     & > svg {
-      margin-inline-start: auto;
       width: calc(var(--spacing) * 4);
       height: calc(var(--spacing) * 4);
+      margin-inline-start: auto;
     }
 
     &[data-inset] {
@@ -35,25 +36,26 @@
 
 .dropdown-menu-content,
 .dropdown-menu-sub-content {
-  z-index: 50;
   position: relative;
-  overflow: hidden auto;
-  padding: var(--spacing);
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
-  color: var(--color-popover-foreground);
-  background-color: var(--color-popover);
+  z-index: 50;
   min-width: 8rem;
   max-height: var(--radix-dropdown-menu-content-available-height);
+  padding: var(--spacing);
+  overflow: hidden auto;
   transform-origin: var(--radix-dropdown-menu-content-transform-origin);
-  animation-timing-function: var(--ease-out);
   animation-duration: var(--default-transition-duration);
+  animation-timing-function: var(--ease-out);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-popover);
+  box-shadow: var(--shadow-md);
+  color: var(--color-popover-foreground);
 
   &.dropdown-menu-sub-content {
     box-shadow: var(--shadow-lg);
   }
 
+  /* Side */
   &[data-side="top"] {
     animation-name: var(--animate-select-top);
   }
@@ -76,24 +78,26 @@
 
   .dropdown-menu-item {
     display: flex;
-    align-items: center;
-    gap: calc(var(--spacing) * 2);
-    outline: none;
-    cursor: default;
-    user-select: none;
     position: relative;
+    align-items: center;
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
     border-radius: var(--radius-sm);
+    outline: none;
     font-size: var(--text-sm);
     line-height: var(--text-sm--line-height);
-    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    cursor: default;
+    user-select: none;
+    gap: calc(var(--spacing) * 2);
 
+    /* Icon */
     & > svg {
       flex-shrink: 0;
-      pointer-events: none;
       width: calc(var(--spacing) * 4);
       height: calc(var(--spacing) * 4);
+      pointer-events: none;
     }
 
+    /* Variant */
     &[data-variant="destructive"] {
       color: var(--color-destructive);
 
@@ -102,24 +106,27 @@
       }
     }
 
+    /* Focus */
     &:focus {
-      color: var(--color-accent-foreground);
       background-color: var(--color-accent);
+      color: var(--color-accent-foreground);
 
       &[data-variant="destructive"] {
-        color: var(--color-destructive);
         background-color: color-mix(
           in oklch,
           var(--color-destructive) 10%,
           transparent
         );
+        color: var(--color-destructive);
       }
     }
 
+    /* Inset */
     &[data-inset] {
       padding-inline-start: calc(var(--spacing) * 8);
     }
 
+    /* Disabled */
     &[data-disabled] {
       opacity: 0.5;
       pointer-events: none;
@@ -129,27 +136,28 @@
   .dropdown-menu-checkbox-item,
   .dropdown-menu-radio-item {
     display: flex;
-    align-items: center;
-    gap: calc(var(--spacing) * 2);
-    outline: none;
-    cursor: default;
-    user-select: none;
     position: relative;
-    border-radius: var(--radius-xs);
-    font-size: var(--text-sm);
-    line-height: var(--text-sm--line-height);
+    align-items: center;
     padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
     padding-inline-start: calc(var(--spacing) * 8);
+    border-radius: var(--radius-xs);
+    outline: none;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    cursor: default;
+    user-select: none;
+    gap: calc(var(--spacing) * 2);
 
+    /* Icon */
     & > span {
       display: flex;
+      position: absolute;
+      left: calc(var(--spacing) * 2);
       align-items: center;
       justify-content: center;
-      position: absolute;
-      pointer-events: none;
-      left: calc(var(--spacing) * 2);
       width: calc(var(--spacing) * 3.5);
       height: calc(var(--spacing) * 3.5);
+      pointer-events: none;
 
       & > svg {
         flex-shrink: 0;
@@ -157,11 +165,13 @@
       }
     }
 
+    /* Focus */
     &:focus {
-      color: var(--color-accent-foreground);
       background-color: var(--color-accent);
+      color: var(--color-accent-foreground);
     }
 
+    /* Disabled */
     &[data-disabled] {
       opacity: 0.5;
       pointer-events: none;
@@ -179,20 +189,21 @@
     &.dropdown-menu-radio-item {
       & > span {
         & svg {
-          fill: currentColor;
           width: calc(var(--spacing) * 2);
           height: calc(var(--spacing) * 2);
+          fill: currentcolor;
         }
       }
     }
   }
 
   .dropdown-menu-label {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
     font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     line-height: var(--text-sm--line-height);
-    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
 
+    /* Inset */
     &[data-inset] {
       padding-inline-start: calc(var(--spacing) * 8);
     }
@@ -200,15 +211,15 @@
 
   .dropdown-menu-separator {
     height: 1px;
-    background-color: var(--color-border);
     margin: var(--spacing) calc(var(--spacing) * -1);
+    background-color: var(--color-border);
   }
 
   .dropdown-menu-shortcut {
-    font-size: var(--text-xs);
-    line-height: var(--text-xs--line-height);
     margin-inline-start: auto;
     color: var(--color-muted-foreground);
+    font-size: var(--text-xs);
     letter-spacing: var(--tracking-widest);
+    line-height: var(--text-xs--line-height);
   }
 }

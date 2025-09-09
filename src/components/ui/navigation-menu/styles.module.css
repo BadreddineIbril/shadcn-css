@@ -1,30 +1,31 @@
 .navigation-menu {
   display: flex;
+  position: relative;
+  flex: 1 1 auto;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
-  position: relative;
   max-width: max-content;
 
+  /* Viewport */
   &[data-viewport="false"] {
-    overflow: hidden;
-    inset-block-start: 100%;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid currentColor;
-    border-radius: var(--radius-md);
-    color: var(--color-popover-foreground);
-    background-color: var(--color-popover);
     margin-block-start: calc(var(--spacing) * 1.5);
+    overflow: hidden;
     transition-duration: 200ms;
+    border: 1px solid currentcolor;
+    border-radius: var(--radius-md);
+    background-color: var(--color-popover);
+    box-shadow: var(--shadow-lg);
+    color: var(--color-popover-foreground);
+    inset-block-start: 100%;
   }
 
   .navigation-menu-list {
     display: flex;
-    gap: var(--spacing);
+    flex: 1 1 auto;
     align-items: center;
     justify-content: center;
-    flex: 1 1 auto;
     list-style: none;
+    gap: var(--spacing);
 
     .navigation-menu-item {
       position: relative;
@@ -35,20 +36,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: max-content;
+    height: calc(var(--spacing) * 9);
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    transition-property: color, box-shadow;
+    transition-duration: var(--default-transition-duration);
+    transition-timing-function: var(--ease-out);
     border: none;
+    border-radius: var(--radius-md);
     outline: none;
+    background-color: var(--color-background);
     font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
     line-height: var(--text-sm--line-height);
-    width: max-content;
-    height: calc(var(--spacing) * 9);
-    border-radius: var(--radius-md);
-    background-color: var(--color-background);
-    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
-    transition-property: color, box-shadow;
-    transition-timing-function: var(--ease-out);
-    transition-duration: var(--default-transition-duration);
 
+    /* Icon */
     & > svg {
       position: relative;
       inset-block-start: 1px;
@@ -58,6 +60,7 @@
       transition: transform 300ms;
     }
 
+    /* State */
     &[data-state="open"] {
       background-color: color-mix(
         in oklab,
@@ -70,17 +73,20 @@
       }
     }
 
+    /* Hover */
     &:hover,
     &:focus {
       background-color: var(--color-accent);
       color: var(--color-accent-foreground);
     }
 
+    /* Focus */
     &:focus-visible {
       outline: 1px solid var(--color-ring);
       box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
     }
 
+    /* Disabled */
     &:disabled {
       opacity: 0.5;
       pointer-events: none;
@@ -88,13 +94,14 @@
   }
 
   .navigation-menu-content {
-    width: 100%;
     position: inherit;
-    inset-block-start: 0;
-    inset-inline-start: 0;
+    width: 100%;
     padding: calc(var(--spacing) * 2);
     padding-inline-end: calc(var(--spacing) * 2.5);
+    inset-block-start: 0;
+    inset-inline-start: 0;
 
+    /* Motion */
     &[data-motion="from-start"] {
       animation-name: var(--animate-navigation-from-start);
     }
@@ -114,27 +121,28 @@
 }
 
 .navigation-menu-viewport-wrapper {
-  z-index: 50;
-  position: absolute;
-  inset-inline-start: 0;
-  inset-block-start: 100%;
   display: flex;
+  position: absolute;
+  z-index: 50;
   align-items: center;
   justify-content: center;
+  inset-inline-start: 0;
+  inset-block-start: 100%;
 
   .navigation-menu-viewport {
-    overflow: hidden;
     position: relative;
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--radius-md);
     width: 100%;
     height: var(--radix-navigation-menu-viewport-height);
-    border: 1px solid var(--color-border);
-    color: var(--color-popover-foreground);
-    background-color: var(--color-popover);
-    animation-timing-function: var(--ease-out);
+    overflow: hidden;
     animation-duration: var(--default-transition-duration);
+    animation-timing-function: var(--ease-out);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-popover);
+    box-shadow: var(--shadow-lg);
+    color: var(--color-popover-foreground);
 
+    /* State */
     &[data-state="open"] {
       animation-name: var(--animate-tooltip-in);
     }
@@ -147,30 +155,34 @@
 
 .navigation-menu-link {
   display: flex;
-  gap: var(--spacing);
   flex-direction: column;
-  outline: none;
-  border-radius: var(--radius-sm);
   padding: calc(var(--spacing) * 2);
   transition: all var(--default-transition-duration)
     var(--default-transition-timing-function);
+  border-radius: var(--radius-sm);
+  outline: none;
+  gap: var(--spacing);
 
+  /* Icon */
   & > svg {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
   }
 
+  /* Active */
   &[data-active="true"] {
-    color: var(--color-accent-foreground);
     background-color: color-mix(in oklab, var(--color-accent) 50%, transparent);
+    color: var(--color-accent-foreground);
   }
 
+  /* Hover */
   &:hover,
   &:focus {
-    color: var(--color-accent-foreground);
     background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
   }
 
+  /* Focus */
   &:focus-visible {
     outline: 1px solid var(--color-ring);
     box-shadow: 0 0 0 3px
@@ -179,38 +191,40 @@
 }
 
 .navigation-menu-indicator {
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  inset-block-start: 100%;
-  height: calc(var(--spacing) * 1.5);
   display: flex;
+  position: absolute;
+  z-index: 1;
   align-items: center;
   justify-content: center;
-  animation-timing-function: var(--ease-out);
+  height: calc(var(--spacing) * 1.5);
+  overflow: hidden;
   animation-duration: var(--default-transition-duration);
+  animation-timing-function: var(--ease-out);
+  inset-block-start: 100%;
 
+  /* State */
   &[data-state="hidden"] {
     animation-name: var(--animate-tooltip-out);
   }
 
+  /* Icon */
   & > div {
     position: relative;
-    inset-block-start: 60%;
-    transform: rotate(45deg);
-    box-shadow: var(--shadow-md);
     width: calc(var(--spacing) * 2);
     height: calc(var(--spacing) * 2);
-    background-color: var(--color-border);
+    transform: rotate(45deg);
     border-top-left-radius: var(--radius-sm);
+    background-color: var(--color-border);
+    box-shadow: var(--shadow-md);
+    inset-block-start: 60%;
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .navigation-menu {
     .navigation-menu-container {
-      width: auto;
       position: absolute;
+      width: auto;
     }
   }
 

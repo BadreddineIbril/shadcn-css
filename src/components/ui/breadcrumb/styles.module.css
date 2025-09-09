@@ -2,12 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: calc(var(--spacing) * 1.5);
-  word-break: break-word;
-  color: var(--muted-foreground);
+  color: var(--color-muted-foreground);
   font-size: var(--text-sm);
   line-height: var(--text-sm--line-height);
   list-style: none;
+  word-break: break-all;
+  gap: calc(var(--spacing) * 1.5);
 }
 
 .breadcrumb-item {
@@ -17,19 +17,19 @@
 }
 
 .breadcrumb-link {
-  color: inherit;
-  text-decoration: none;
   transition: all var(--default-transition-duration)
     var(--default-transition-timing-function);
+  color: inherit;
+  text-decoration: none;
 
   /* Hover */
   &:hover {
-    color: var(--foreground);
+    color: var(--color-foreground);
   }
 }
 
 .breadcrumb-page {
-  color: var(--foreground);
+  color: var(--color-foreground);
 }
 
 .breadcrumb-separator {

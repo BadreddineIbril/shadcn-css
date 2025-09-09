@@ -1,6 +1,7 @@
 .carousel {
   position: relative;
 
+  /* Content */
   .carousel-content {
     overflow: hidden;
 
@@ -9,13 +10,13 @@
     }
   }
 
+  /* Item */
   .carousel-item {
+    flex: 0 0 100%;
     width: 0;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 100%;
   }
 
+  /* Pagination */
   .carousel-previous,
   .carousel-next {
     position: absolute;
@@ -24,6 +25,7 @@
     border-radius: var(--radius-rounded);
   }
 
+  /* Orientation */
   &[aria-orientation="horizontal"] {
     .carousel-content {
       & > div {

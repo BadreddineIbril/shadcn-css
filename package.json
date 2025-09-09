@@ -6,8 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint:eslint": "eslint \"src/**/*.{ts,tsx,js,jsx,json}\"",
+    "lint:eslint:fix": "bun run lint:eslint -- --fix",
+    "lint:stylelint": "stylelint \"src/**/*.{css,scss}\"",
+    "lint:stylelint:fix": "bun run lint:stylelint -- --fix",
+    "lint": "bun run lint:eslint && bun run lint:stylelint",
+    "lint:fix": "bun run lint:eslint:fix && bun run lint:stylelint:fix"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",
@@ -42,6 +47,10 @@
     "react-resizable-panels": "^3.0.5",
     "react-router-dom": "^7.6.3",
     "sonner": "^2.0.7",
+    "stylelint": "^16.24.0",
+    "stylelint-config-property-sort-order-smacss": "^10.0.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-prettier": "^5.0.3",
     "vaul": "^1.1.2"
   },
   "devDependencies": {

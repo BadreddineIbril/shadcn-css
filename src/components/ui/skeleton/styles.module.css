@@ -1,5 +1,5 @@
 .skeleton {
+  animation: var(--animate-pulse);
   border-radius: var(--radius-xl);
   background-color: var(--color-accent);
-  animation: var(--animate-pulse);
 }

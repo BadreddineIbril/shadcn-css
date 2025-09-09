@@ -1,17 +1,18 @@
 .hover-card-content {
   z-index: 50;
   width: 256px;
-  outline: none;
-  border: 1px solid currentColor;
-  box-shadow: var(--shadow-md);
-  border-radius: var(--radius-md);
   padding: calc(var(--spacing) * 4);
-  color: var(--color-popover);
-  background-color: var(--color-popover-foreground);
   transform-origin: var(--radix-hover-card-content-transform-origin);
-  animation-timing-function: var(--ease-out);
   animation-duration: var(--default-transition-duration);
+  animation-timing-function: var(--ease-out);
+  border: 1px solid currentcolor;
+  border-radius: var(--radius-md);
+  outline: none;
+  background-color: var(--color-popover-foreground);
+  box-shadow: var(--shadow-md);
+  color: var(--color-popover);
 
+  /* Side */
   &[data-side="top"] {
     animation-name: var(--animate-select-top);
   }

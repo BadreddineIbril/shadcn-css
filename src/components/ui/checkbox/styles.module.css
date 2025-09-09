@@ -1,50 +1,51 @@
 .checkbox {
-  outline: none;
   flex-shrink: 0;
-  border-radius: 4px;
-  box-shadow: var(--shadow-xs);
   width: calc(var(--spacing) * 4);
   height: calc(var(--spacing) * 4);
-  background-color: transparent;
-  border: 1px solid var(--input);
   transition: box-shadow var(--default-transition-duration)
     var(--default-transition-timing-function);
+  border: 1px solid var(--color-input);
+  border-radius: 4px;
+  outline: none;
+  background-color: transparent;
+  box-shadow: var(--shadow-xs);
 
   /* Checked */
   &[data-state="checked"] {
-    border-color: var(--primary);
-    color: var(--primary-foreground);
-    background-color: var(--primary);
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
 
   /* Invalid */
   &[aria-invalid="true"] {
-    border-color: var(--destructive);
+    border-color: var(--color-destructive);
 
     &[data-state="checked"] {
-      background-color: var(--destructive);
+      background-color: var(--color-destructive);
     }
   }
 
   /* Focus */
   &:focus-visible {
-    box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--color-ring) 50%, transparent);
 
     &[data-state="unchecked"] {
-      border-color: var(--ring);
+      border-color: var(--color-ring);
     }
 
     &[aria-invalid="true"] {
-      border-color: var(--destructive);
+      border-color: var(--color-destructive);
       box-shadow: 0 0 0 2px
-        color-mix(in oklab, var(--destructive) 20%, transparent);
+        color-mix(in oklab, var(--color-destructive) 20%, transparent);
     }
   }
 
   /* Disabled */
   &:disabled {
-    cursor: not-allowed;
     opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 

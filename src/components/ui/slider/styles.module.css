@@ -1,43 +1,47 @@
 .slider {
   display: flex;
+  position: relative;
   align-items: center;
   width: 100%;
   user-select: none;
   touch-action: none;
-  position: relative;
 
+  /* Orientation */
   &[data-orientation="vertical"] {
+    flex-direction: column;
+    width: auto;
     height: 100%;
     min-height: calc(var(--spacing) * 44);
-    width: auto;
-    flex-direction: column;
   }
 
+  /* Disabled */
   &[data-disabled] {
     opacity: 0.5;
   }
 
   .slider-track {
+    position: relative;
     flex-grow: 1;
     overflow: hidden;
-    position: relative;
     border-radius: var(--radius-rounded);
     background-color: var(--color-muted);
 
+    /* Orientation */
     &[data-orientation="horizontal"] {
       width: 100%;
       height: calc(var(--spacing) * 1.5);
     }
 
     &[data-orientation="vertical"] {
-      height: 100%;
       width: calc(var(--spacing) * 1.5);
+      height: 100%;
     }
 
     .slider-range {
       position: absolute;
       background-color: var(--color-primary);
 
+      /* Orientation */
       &[data-orientation="horizontal"] {
         height: 100%;
       }
@@ -51,30 +55,33 @@
   .slider-thumb {
     display: block;
     flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
-    border-radius: var(--radius-rounded);
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
-    border: 1px solid var(--color-primary);
-    background-color: var(--color-background);
     transition-property: color, box-shadow;
     transition-duration: var(--default-transition-duration);
     transition-timing-function: var(--default-transition-timing-function);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-rounded);
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-sm);
 
+    /* Hover */
     &:hover {
       box-shadow: 0 0 0 4px
         color-mix(in oklab, var(--color-ring) 50%, transparent);
     }
 
+    /* Focus */
     &:focus-visible {
       outline: none;
       box-shadow: 0 0 0 4px
         color-mix(in oklab, var(--color-ring) 50%, transparent);
     }
 
+    /* Disabled */
     &:disabled {
-      pointer-events: none;
       opacity: 0.5;
+      pointer-events: none;
     }
   }
 }

@@ -1,10 +1,10 @@
 .avatar {
   display: flex;
-  flex-shrink: 0;
-  overflow: hidden;
   position: relative;
+  flex-shrink: 0;
   width: calc(var(--spacing) * 8);
   height: calc(var(--spacing) * 8);
+  overflow: hidden;
   border-radius: var(--radius-rounded);
 }
 
@@ -15,11 +15,11 @@
 }
 
 .avatar-fallback {
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--muted);
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-rounded);
+  background-color: var(--color-muted);
 }

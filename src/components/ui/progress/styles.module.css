@@ -1,8 +1,8 @@
 .progress {
-  overflow: hidden;
   position: relative;
   width: 100%;
   height: calc(var(--spacing) * 2);
+  overflow: hidden;
   border-radius: var(--radius-rounded);
   background-color: color-mix(in oklch, var(--color-primary) 20%, transparent);
 
@@ -10,8 +10,8 @@
     flex: 1;
     width: 100%;
     height: 100%;
-    background-color: var(--color-primary);
     transition: all var(--default-transition-duration)
       var(--default-transition-timing-function);
+    background-color: var(--color-primary);
   }
 }

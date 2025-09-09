@@ -1,11 +1,12 @@
 .drawer-overlay {
-  inset: 0;
-  z-index: 50;
   position: fixed;
-  background-color: rgb(0 0 0 / 0.5);
-  animation-timing-function: var(--ease-out);
+  z-index: 50;
   animation-duration: var(--default-transition-duration);
+  animation-timing-function: var(--ease-out);
+  background-color: rgb(0 0 0 / 50%);
+  inset: 0;
 
+  /* State */
   &[data-state="open"] {
     animation-name: var(--animate-in);
   }
@@ -16,24 +17,32 @@
 }
 
 .drawer-content {
-  z-index: 50;
-  height: auto;
-  position: fixed;
   display: flex;
+  position: fixed;
+  z-index: 50;
   flex-direction: column;
+  height: auto;
   background-color: var(--color-background);
 
   & > div:first-child {
     display: none;
     flex-shrink: 0;
-    margin-inline: auto;
-    margin-block-start: calc(var(--spacing) * 4);
     width: 100px;
     height: calc(var(--spacing) * 2);
+    margin-block-start: calc(var(--spacing) * 4);
+    margin-inline: auto;
     border-radius: var(--radius-rounded);
     background-color: var(--color-muted);
   }
 
+  .drawer-header {
+    display: flex;
+    gap: var(--spacing);
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+  }
+
+  /* Direction */
   &[data-vaul-drawer-direction="top"] {
     max-height: 80vh;
     inset-inline: 0;
@@ -80,19 +89,12 @@
     border-inline-end: 1px solid var(--color-border);
   }
 
-  .drawer-header {
-    display: flex;
-    gap: var(--spacing);
-    flex-direction: column;
-    padding: calc(var(--spacing) * 4);
-  }
-
   .drawer-footer {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing) * 2);
-    padding: calc(var(--spacing) * 2);
     margin-block-start: auto;
+    padding: calc(var(--spacing) * 2);
+    gap: calc(var(--spacing) * 2);
   }
 
   .drawer-title {
@@ -101,13 +103,13 @@
   }
 
   .drawer-description {
+    color: var(--color-muted-foreground);
     font-size: var(--text-sm);
     line-height: var(--text-sm--line-height);
-    color: var(--color-muted-foreground);
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .drawer-content {
     .drawer-header {
       text-align: start;
@@ -116,7 +118,7 @@
   }
 }
 
-@media (min-width: 640px) {
+@media (width >= 640px) {
   .drawer-content {
     &[data-vaul-drawer-direction="right"],
     &[data-vaul-drawer-direction="left"] {

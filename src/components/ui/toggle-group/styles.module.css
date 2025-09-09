@@ -4,15 +4,17 @@
   width: fit-content;
   border-radius: var(--radius-md);
 
+  /* Variant (global) */
   &[data-variant="outline"] {
     box-shadow: var(--shadow-xs);
   }
 
   .toggle-group-item {
-    min-width: 0;
     flex: 1 0 auto;
+    min-width: 0;
     border-radius: 0 !important;
 
+    /* Variant */
     &[data-variant="outline"] {
       border-inline-start-width: 0;
 
@@ -21,16 +23,19 @@
       }
     }
 
+    /* First toggle */
     &:first-child {
       border-top-left-radius: var(--radius-md) !important;
       border-bottom-left-radius: var(--radius-md) !important;
     }
 
+    /* Last toggle */
     &:last-child {
       border-top-right-radius: var(--radius-md) !important;
       border-bottom-right-radius: var(--radius-md) !important;
     }
 
+    /* Focus */
     &:focus,
     &:focus-visible {
       z-index: 10;

@@ -1,55 +1,62 @@
 .input {
   display: flex;
-  outline: none;
-  border-radius: var(--radius-md);
   width: 100%;
   height: calc(var(--spacing) * 9);
-  color: var(--foreground);
-  background-color: transparent;
-  border: 1px solid var(--input);
-  box-shadow: var(--shadow-xs);
   padding-inline: calc(var(--spacing) * 3);
-  font-size: var(--text-sm);
-  line-height: var(--text-sm--line-height);
   transition: all var(--default-transition-duration)
     var(--default-transition-timing-function);
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-md);
+  outline: none;
+  background-color: transparent;
+  box-shadow: var(--shadow-xs);
+  color: var(--color-foreground);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
 
+  /* Invalid */
   &[aria-invalid="true"] {
-    border-color: var(--destructive);
+    border-color: var(--color-destructive);
   }
 
+  /* Placeholder */
   &::placeholder {
-    color: var(--muted-foreground);
+    color: var(--color-muted-foreground);
   }
 
+  /* Selection */
   &::selection {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
   }
 
+  /* Upload */
   &::file-selector-button {
-    border: none;
     height: 100%;
-    color: var(--foreground);
+    border: none;
     background-color: transparent;
+    color: var(--color-foreground);
     font-size: var(--text-sm);
     font-weight: var(--font-weight-medium);
   }
 
+  /* Disabled */
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* Focus */
   &:focus {
     &:not([aria-invalid="true"]) {
-      border-color: var(--ring);
-      box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+      border-color: var(--color-ring);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--color-ring) 50%, transparent);
     }
 
     &[aria-invalid="true"] {
       box-shadow: 0 0 0 3px
-        color-mix(in oklab, var(--destructive) 20%, transparent);
+        color-mix(in oklab, var(--color-destructive) 20%, transparent);
     }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
   }
 }
