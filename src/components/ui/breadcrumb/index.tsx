@@ -7,27 +7,28 @@ function Breadcrumb({ ...props }: ComponentProps<"nav">) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
-function BreadcrumbList({ ...props }: ComponentProps<"ol">) {
+function BreadcrumbList({ className, ...props }: ComponentProps<"ol">) {
   return (
     <ol
       data-slot="breadcrumb-list"
+      className={`${styles["breadcrumb-list"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["breadcrumb-list"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
-function BreadcrumbItem({ ...props }: ComponentProps<"li">) {
+function BreadcrumbItem({ className, ...props }: ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-item"
+      className={`${styles["breadcrumb-item"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["breadcrumb-item"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
 function BreadcrumbLink({
+  className,
   asChild,
   ...props
 }: ComponentProps<"a"> & {
@@ -37,50 +38,50 @@ function BreadcrumbLink({
   return (
     <Comp
       data-slot="breadcrumb-link"
+      className={`${styles["breadcrumb-link"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["breadcrumb-link"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
-function BreadcrumbPage({ ...props }: ComponentProps<"span">) {
+function BreadcrumbPage({ className, ...props }: ComponentProps<"span">) {
   return (
     <span
       data-slot="breadcrumb-page"
       role="link"
       aria-disabled="true"
       aria-current="page"
+      className={`${styles["breadcrumb-page"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["breadcrumb-page"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
-function BreadcrumbSeparator({ children, ...props }: ComponentProps<"li">) {
+function BreadcrumbSeparator({
+  className,
+  children,
+  ...props
+}: ComponentProps<"li">) {
   return (
     <li
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      {...props}
-      className={`${styles["breadcrumb-separator"]} ${
-        props.className ?? ""
-      }`.trim()}>
+      className={`${styles["breadcrumb-separator"]} ${className ?? ""}`.trim()}
+      {...props}>
       {children ?? <ChevronRight />}
     </li>
   );
 }
 
-function BreadcrumbEllipsis({ ...props }: ComponentProps<"span">) {
+function BreadcrumbEllipsis({ className, ...props }: ComponentProps<"span">) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"
       role="presentation"
       aria-hidden="true"
-      {...props}
-      className={`${styles["breadcrumb-separator"]} ${
-        props.className ?? ""
-      }`.trim()}>
+      className={`${styles["breadcrumb-separator"]} ${className ?? ""}`.trim()}
+      {...props}>
       <MoreHorizontal />
       <span className="sr-only">More</span>
     </span>

@@ -2,36 +2,41 @@ import styles from "./styles.module.css";
 import type { ComponentProps } from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 
-function Avatar({ ...props }: ComponentProps<typeof AvatarPrimitive.Root>) {
+function Avatar({
+  className,
+  ...props
+}: ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
+      className={`${styles.avatar} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles.avatar} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
 function AvatarImage({
+  className,
   ...props
 }: ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
     <AvatarPrimitive.Image
       data-slot="avatar-image"
+      className={`${styles["avatar-image"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["avatar-image"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
 function AvatarFallback({
+  className,
   ...props
 }: ComponentProps<typeof AvatarPrimitive.Fallback>) {
   return (
     <AvatarPrimitive.Fallback
       data-slot="avatar-fallback"
+      className={`${styles["avatar-fallback"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["avatar-fallback"]} ${props.className ?? ""}`.trim()}
     />
   );
 }

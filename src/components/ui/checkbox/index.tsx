@@ -4,12 +4,13 @@ import * as CheckboxPrimitives from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 
 function Checkbox({
+  className,
   ...props
 }: ComponentProps<typeof CheckboxPrimitives.Root>) {
   return (
     <CheckboxPrimitives.Root
-      {...props}
-      className={`${styles.checkbox} ${props.className ?? ""}`.trim()}>
+      className={`${styles.checkbox} ${className ?? ""}`.trim()}
+      {...props}>
       <CheckboxPrimitives.Indicator className={styles["checkbox-indicator"]}>
         <Check />
       </CheckboxPrimitives.Indicator>

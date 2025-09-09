@@ -1,11 +1,11 @@
 import styles from "./styles.module.css";
 import type { ComponentProps } from "react";
 
-function Textarea({ ...props }: ComponentProps<"textarea">) {
+function Textarea({ className, ...props }: ComponentProps<"textarea">) {
   return (
     <textarea
+      className={`${styles.textarea} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles.textarea} ${props.className ?? ""}`.trim()}
     />
   );
 }

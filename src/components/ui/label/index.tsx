@@ -2,11 +2,14 @@ import type { ComponentProps } from "react";
 import styles from "./styles.module.css";
 import * as LabelPrimitive from "@radix-ui/react-label";
 
-function Label({ ...props }: ComponentProps<typeof LabelPrimitive.Root>) {
+function Label({
+  className,
+  ...props
+}: ComponentProps<typeof LabelPrimitive.Root>) {
   return (
     <LabelPrimitive.Root
+      className={`${styles.label} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles.label} ${props.className ?? ""}`.trim()}
     />
   );
 }

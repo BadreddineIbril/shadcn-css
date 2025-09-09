@@ -7,15 +7,20 @@ type BadgeProps = ComponentProps<"span"> & {
   asChild?: boolean;
 };
 
-function Badge({ variant = "primary", asChild = false, ...props }: BadgeProps) {
+function Badge({
+  className,
+  variant = "primary",
+  asChild = false,
+  ...props
+}: BadgeProps) {
   const Comp = asChild ? Slot : "span";
 
   return (
     <Comp
       data-slot="badge"
-      {...props}
-      className={`${styles.badge} ${props.className ?? ""}`.trim()}
       data-variant={variant}
+      className={`${styles.badge} ${className ?? ""}`.trim()}
+      {...props}
     />
   );
 }

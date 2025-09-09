@@ -10,29 +10,29 @@ function Accordion({
 }
 
 function AccordionItem({
+  className,
   ...props
 }: ComponentProps<typeof AccordionPrimitive.Item>) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
+      className={`${styles["accordion-item"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["accordion-item"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
 function AccordionTrigger({
   children,
+  className,
   ...props
 }: ComponentProps<typeof AccordionPrimitive.Trigger>) {
   return (
     <AccordionPrimitive.Header data-slot="accordion-header">
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
-        {...props}
-        className={`${styles["accordion-trigger"]} ${
-          props.className ?? ""
-        }`.trim()}>
+        className={`${styles["accordion-trigger"]} ${className ?? ""}`.trim()}
+        {...props}>
         {children}
         <ChevronDownIcon />
       </AccordionPrimitive.Trigger>
@@ -42,15 +42,14 @@ function AccordionTrigger({
 
 function AccordionContent({
   children,
+  className,
   ...props
 }: ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      {...props}
-      className={`${styles["accordion-content"]} ${
-        props.className ?? ""
-      }`.trim()}>
+      className={`${styles["accordion-content"]} ${className ?? ""}`.trim()}
+      {...props}>
       <div>{children}</div>
     </AccordionPrimitive.Content>
   );

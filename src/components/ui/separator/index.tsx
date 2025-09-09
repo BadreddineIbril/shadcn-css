@@ -3,6 +3,7 @@ import type { ComponentProps } from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";
 
 function Separator({
+  className,
   orientation = "horizontal",
   decorative = true,
   ...props
@@ -12,8 +13,8 @@ function Separator({
       data-slot="separator"
       decorative={decorative}
       orientation={orientation}
+      className={`${styles.separator} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles.separator} ${props.className ?? ""}`.trim()}
     />
   );
 }

@@ -20,6 +20,7 @@ function SelectValue({
 }
 
 function SelectTrigger({
+  className,
   size = "default",
   children,
   ...props
@@ -29,9 +30,9 @@ function SelectTrigger({
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
-      {...props}
-      className={`${styles["select-trigger"]} ${props.className ?? ""}`.trim()}
-      data-size={size}>
+      data-size={size}
+      className={`${styles["select-trigger"]} ${className ?? ""}`.trim()}
+      {...props}>
       {children}
       <SelectPrimitive.Icon asChild>
         <ChevronDownIcon />
@@ -42,6 +43,7 @@ function SelectTrigger({
 
 function SelectContent({
   children,
+  className,
   position = "popper",
   ...props
 }: ComponentProps<typeof SelectPrimitive.Content>) {
@@ -50,11 +52,9 @@ function SelectContent({
       <SelectPrimitive.Content
         data-slot="select-content"
         position={position}
-        {...props}
         data-is-popper={position === "popper"}
-        className={`${styles["select-content"]} ${
-          props.className ?? ""
-        }`.trim()}>
+        className={`${styles["select-content"]} ${className ?? ""}`.trim()}
+        {...props}>
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           data-is-popper={position === "popper"}
@@ -68,26 +68,28 @@ function SelectContent({
 }
 
 function SelectLabel({
+  className,
   ...props
 }: ComponentProps<typeof SelectPrimitive.Label>) {
   return (
     <SelectPrimitive.Label
       data-slot="select-label"
+      className={`${styles["select-label"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["select-label"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
 function SelectItem({
+  className,
   children,
   ...props
 }: ComponentProps<typeof SelectPrimitive.Item>) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
-      {...props}
-      className={`${styles["select-item"]} ${props.className ?? ""}`.trim()}>
+      className={`${styles["select-item"]} ${className ?? ""}`.trim()}
+      {...props}>
       <span>
         <SelectPrimitive.ItemIndicator>
           <CheckIcon />
@@ -99,44 +101,45 @@ function SelectItem({
 }
 
 function SelectSeparator({
+  className,
   ...props
 }: ComponentProps<typeof SelectPrimitive.Separator>) {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
+      className={`${styles["select-separator"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["select-separator"]} ${
-        props.className ?? ""
-      }`.trim()}
     />
   );
 }
 
 function SelectScrollUpButton({
+  className,
   ...props
 }: ComponentProps<typeof SelectPrimitive.ScrollUpButton>) {
   return (
     <SelectPrimitive.ScrollUpButton
       data-slot="select-scroll-up-button"
-      {...props}
       className={`${styles["select-scroll-up-button"]} ${
-        props.className ?? ""
-      }`.trim()}>
+        className ?? ""
+      }`.trim()}
+      {...props}>
       <ChevronUpIcon className="size-4" />
     </SelectPrimitive.ScrollUpButton>
   );
 }
 
 function SelectScrollDownButton({
+  className,
   ...props
 }: ComponentProps<typeof SelectPrimitive.ScrollDownButton>) {
   return (
     <SelectPrimitive.ScrollDownButton
       data-slot="select-scroll-down-button"
-      {...props}
       className={`${styles["select-scroll-down-button"]} ${
-        props.className ?? ""
-      }`.trim()}>
+        className ?? ""
+      }`.trim()}
+      {...props}>
       <ChevronDownIcon />
     </SelectPrimitive.ScrollDownButton>
   );

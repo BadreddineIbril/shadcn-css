@@ -5,36 +5,34 @@ type AlertProps = ComponentProps<"div"> & {
   variant?: "default" | "destructive";
 };
 
-function Alert({ variant = "default", ...props }: AlertProps) {
+function Alert({ variant = "default", className, ...props }: AlertProps) {
   return (
     <div
       data-slot="alert"
       role="alert"
-      {...props}
-      className={`${styles.alert} ${props.className ?? ""}`.trim()}
       data-variant={variant}
+      className={`${styles.alert} ${className ?? ""}`.trim()}
+      {...props}
     />
   );
 }
 
-function AlertTitle({ ...props }: ComponentProps<"div">) {
+function AlertTitle({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-title"
+      className={`${styles["alert-title"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["alert-title"]} ${props.className ?? ""}`.trim()}
     />
   );
 }
 
-function AlertDescription({ ...props }: ComponentProps<"div">) {
+function AlertDescription({ className, ...props }: ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-description"
+      className={`${styles["alert-description"]} ${className ?? ""}`.trim()}
       {...props}
-      className={`${styles["alert-description"]} ${
-        props.className ?? ""
-      }`.trim()}
     />
   );
 }

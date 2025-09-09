@@ -7,13 +7,18 @@ type ToggleProps = ComponentProps<typeof TogglePrimitive.Root> & {
   size?: "sm" | "md" | "lg";
 };
 
-function Toggle({ variant = "default", size = "md", ...props }: ToggleProps) {
+function Toggle({
+  className,
+  variant = "default",
+  size = "md",
+  ...props
+}: ToggleProps) {
   return (
     <TogglePrimitive.Root
-      {...props}
-      className={`${styles.toggle} ${props.className ?? ""}`.trim()}
-      data-variant={variant}
       data-size={size}
+      data-variant={variant}
+      className={`${styles.toggle} ${className ?? ""}`.trim()}
+      {...props}
     />
   );
 }

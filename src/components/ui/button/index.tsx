@@ -15,6 +15,7 @@ type ButtonProps = ComponentProps<"button"> & {
 };
 
 function Button({
+  className,
   variant = "primary",
   size = "md",
   asChild = false,
@@ -24,10 +25,10 @@ function Button({
 
   return (
     <Comp
-      {...props}
-      className={`${styles.button} ${props.className ?? ""}`.trim()}
-      data-variant={variant}
       data-size={size}
+      data-variant={variant}
+      className={`${styles.button} ${className ?? ""}`.trim()}
+      {...props}
     />
   );
 }
