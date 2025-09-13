@@ -1,4 +1,5 @@
 {
   "name": "command",
+  "description": "Fast, composable, unstyled command menu for React.",
   "dependencies": ["cmdk"]
 }

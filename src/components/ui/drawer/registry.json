@@ -1,4 +1,5 @@
 {
   "name": "drawer",
+  "description": "A drawer component for React.",
   "dependencies": ["vaul"]
 }

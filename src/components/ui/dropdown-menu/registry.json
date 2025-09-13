@@ -1,4 +1,5 @@
 {
   "name": "dropdown-menu",
+  "description": "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
   "dependencies": ["@radix-ui/react-dropdown-menu"]
 }

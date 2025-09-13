@@ -1,4 +1,5 @@
 {
   "name": "resizable",
+  "description": "Accessible resizable panel groups and layouts with keyboard support.",
   "dependencies": ["react-resizable-panels"]
 }

@@ -1,4 +1,5 @@
 {
   "name": "input-otp",
+  "description": "Accessible one-time password component with copy paste functionality.",
   "dependencies": ["input-otp"]
 }

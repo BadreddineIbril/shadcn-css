@@ -1,4 +1,5 @@
 {
   "name": "label",
+  "description": "Renders an accessible label associated with controls.",
   "dependencies": ["@radix-ui/react-label"]
 }

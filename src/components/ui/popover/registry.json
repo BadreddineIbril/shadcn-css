@@ -1,4 +1,5 @@
 {
   "name": "popover",
+  "description": "Displays rich content in a portal, triggered by a button.",
   "dependencies": ["@radix-ui/react-popover"]
 }

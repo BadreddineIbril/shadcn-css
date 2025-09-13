@@ -1,4 +1,5 @@
 {
   "name": "sonner",
+  "description": "An opinionated toast component for React.",
   "dependencies": ["sonner", "next-themes"]
 }

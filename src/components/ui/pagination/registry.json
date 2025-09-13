@@ -1,4 +1,5 @@
 {
   "name": "pagination",
+  "description": "Pagination with page navigation, next and previous links.",
   "registryDependencies": ["button"]
 }

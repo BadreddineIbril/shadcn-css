@@ -1,3 +1,4 @@
 {
-  "name": "alert"
+  "name": "alert",
+  "description": "Displays a callout for user attention."
 }
