@@ -1,0 +1,4 @@
+{
+  "name": "sheet",
+  "dependencies": ["@radix-ui/react-dialog"]
+}

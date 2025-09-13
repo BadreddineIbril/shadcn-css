@@ -1,0 +1,4 @@
+{
+  "name": "dialog",
+  "dependencies": ["@radix-ui/react-dialog"]
+}

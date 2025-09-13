@@ -1,0 +1,4 @@
+{
+  "name": "scroll-area",
+  "dependencies": ["@radix-ui/react-scroll-area"]
+}

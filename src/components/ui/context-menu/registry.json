@@ -1,0 +1,4 @@
+{
+  "name": "context-menu",
+  "dependencies": ["@radix-ui/react-context-menu"]
+}

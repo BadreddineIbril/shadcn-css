@@ -1,0 +1,4 @@
+{
+  "name": "slider",
+  "dependencies": ["@radix-ui/react-slider"]
+}

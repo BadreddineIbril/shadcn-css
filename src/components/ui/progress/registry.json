@@ -1,0 +1,4 @@
+{
+  "name": "progress",
+  "dependencies": ["@radix-ui/react-progress"]
+}

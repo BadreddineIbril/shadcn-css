@@ -1,0 +1,4 @@
+{
+  "name": "resizable",
+  "dependencies": ["react-resizable-panels"]
+}

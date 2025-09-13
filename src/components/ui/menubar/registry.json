@@ -1,0 +1,4 @@
+{
+  "name": "menubar",
+  "dependencies": ["@radix-ui/react-menubar"]
+}

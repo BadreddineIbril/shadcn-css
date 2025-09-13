@@ -1,0 +1,4 @@
+{
+  "name": "popover",
+  "dependencies": ["@radix-ui/react-popover"]
+}

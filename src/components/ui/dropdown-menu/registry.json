@@ -1,0 +1,4 @@
+{
+  "name": "dropdown-menu",
+  "dependencies": ["@radix-ui/react-dropdown-menu"]
+}

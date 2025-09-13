@@ -1,0 +1,5 @@
+{
+  "name": "toggle-group",
+  "dependencies": ["@radix-ui/react-toggle-group"],
+  "registryDependencies": ["toggle"]
+}

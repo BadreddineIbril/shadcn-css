@@ -1,0 +1,4 @@
+{
+  "name": "avatar",
+  "dependencies": ["@radix-ui/react-avatar"]
+}

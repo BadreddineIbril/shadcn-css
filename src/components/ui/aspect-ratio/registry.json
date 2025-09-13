@@ -1,0 +1,4 @@
+{
+  "name": "aspect-ratio",
+  "dependencies": ["@radix-ui/react-aspect-ratio"]
+}

@@ -1,0 +1,4 @@
+{
+  "name": "label",
+  "dependencies": ["@radix-ui/react-label"]
+}

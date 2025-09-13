@@ -1,0 +1,4 @@
+{
+  "name": "collapsible",
+  "dependencies": ["@radix-ui/react-collapsible"]
+}

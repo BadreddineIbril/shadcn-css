@@ -1,0 +1,4 @@
+{
+  "name": "separator",
+  "dependencies": ["@radix-ui/react-separator"]
+}

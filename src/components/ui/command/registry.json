@@ -1,0 +1,4 @@
+{
+  "name": "command",
+  "dependencies": ["cmdk"]
+}

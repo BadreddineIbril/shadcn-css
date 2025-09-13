@@ -1,0 +1,4 @@
+{
+  "name": "tooltip",
+  "dependencies": ["@radix-ui/react-tooltip"]
+}

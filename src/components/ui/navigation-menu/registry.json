@@ -1,0 +1,4 @@
+{
+  "name": "navigation-menu",
+  "dependencies": ["@radix-ui/react-navigation-menu"]
+}

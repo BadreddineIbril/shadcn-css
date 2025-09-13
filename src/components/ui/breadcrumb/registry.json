@@ -1,0 +1,4 @@
+{
+  "name": "breadcrumb",
+  "dependencies": ["@radix-ui/react-slot"]
+}

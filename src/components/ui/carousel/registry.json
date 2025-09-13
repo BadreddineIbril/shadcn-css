@@ -1,0 +1,5 @@
+{
+  "name": "carousel",
+  "dependencies": ["embla-carousel-react"],
+  "registryDependencies": ["button"]
+}

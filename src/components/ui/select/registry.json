@@ -1,0 +1,4 @@
+{
+  "name": "select",
+  "dependencies": ["@radix-ui/react-select"]
+}
