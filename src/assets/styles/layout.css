@@ -1,0 +1,102 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-inline: 10%;
+  overflow-y: scroll;
+
+  /* Navigation */
+  [data-layout="navigation"] {
+    display: flex;
+    position: sticky;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 4);
+    border: 1px solid var(--border);
+    background-color: var(--color-background);
+    border-block-start: none;
+    inset-block-start: 0;
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing) * 0.5);
+
+      .logo {
+        & > svg {
+          width: calc(var(--spacing) * 5);
+          height: calc(var(--spacing) * 5);
+          color: var(--color-primary);
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing) * 0.5);
+
+      a,
+      button:last-child {
+        width: calc(var(--spacing) * 8);
+      }
+
+      [data-slot="separator"] {
+        height: calc(var(--spacing) * 6);
+        margin-inline: calc(var(--spacing) * 2);
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        height: calc(var(--spacing) * 8);
+        padding-inline: calc(var(--spacing) * 2);
+        border: none;
+        border-radius: var(--radius-sm);
+        background-color: var(--color-surface);
+        color: color-mix(in oklab, var(--surface-foreground) 60%, transparent);
+        font-size: var(--text-sm);
+        line-height: var(--text-sm--line-height);
+        gap: var(--spacing);
+
+        .commands {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing);
+
+          kbd {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(var(--spacing) * 5);
+            height: calc(var(--spacing) * 5);
+            border: 1px solid var(--color-border);
+            border-radius: 0.25rem;
+            background-color: var(--color-background);
+            color: var(--color-muted-foreground);
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+
+  /* Page */
+  [data-page] {
+    flex: 2;
+  }
+
+  /* Footer */
+  [data-layout="footer"] {
+    padding: calc(var(--spacing) * 4);
+    color: var(--color-muted-foreground);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: var(--spacing);
+    }
+  }
+}

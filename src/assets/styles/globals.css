@@ -1,4 +1,5 @@
 @import url("./tokens.css");
+@import url("./layout.css");
 
 :root {
   --radius: 0.625rem;
@@ -8,7 +9,9 @@
   --card-foreground: oklch(14.5% 0 0deg);
   --popover: oklch(100% 0 0deg);
   --popover-foreground: oklch(14.5% 0 0deg);
-  --primary: oklch(20.5% 0 0deg);
+
+  /* --primary: oklch(20.5% 0 0deg); */
+  --primary: oklch(62.3% 0.214 259.815deg);
   --primary-foreground: oklch(98.5% 0 0deg);
   --secondary: oklch(97% 0 0deg);
   --secondary-foreground: oklch(20.5% 0 0deg);
@@ -33,6 +36,14 @@
   --sidebar-accent-foreground: oklch(20.5% 0 0deg);
   --sidebar-border: oklch(92.2% 0 0deg);
   --sidebar-ring: oklch(70.8% 0 0deg);
+  --surface: oklch(98% 0 0deg);
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(96% 0 0deg);
+  --code-number: oklch(56% 0 0deg);
+  --selection: oklch(14.5% 0 0deg);
+  --selection-foreground: oklch(100% 0 0deg);
 }
 
 .dark {
@@ -67,6 +78,14 @@
   --sidebar-accent-foreground: oklch(98.5% 0 0deg);
   --sidebar-border: oklch(100% 0 0deg / 10%);
   --sidebar-ring: oklch(43.9% 0 0deg);
+  --surface: oklch(20% 0 0deg);
+  --surface-foreground: oklch(70.8% 0 0deg);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(27% 0 0deg);
+  --code-number: oklch(72% 0 0deg);
+  --selection: oklch(92.2% 0 0deg);
+  --selection-foreground: oklch(20.5% 0 0deg);
 }
 
 .sr-only {
@@ -76,7 +95,6 @@
   margin: -1px;
   padding: 0;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   border-width: 0;
   white-space: nowrap;
 }
@@ -122,8 +140,8 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--color-secondary);
+  color: var(--color-foreground);
   font-size: var(--text-base);
   line-height: var(--text-base--line-height);
 }
