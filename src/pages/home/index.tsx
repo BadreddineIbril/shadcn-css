@@ -1,9 +1,20 @@
 import "./styles.css";
-import GlobalNav from "./_components/global-nav";
-import LocalNav from "./_components/local-nav";
+import { useEffect } from "react";
+import { useComponent } from "@/contexts";
+import GlobalNav from "./_components/nav/global-nav";
+import LocalNav from "./_components/nav/local-nav";
 import Output from "./_components/output";
+import { useParams } from "react-router-dom";
+import { getComponent } from "@/components/ui";
 
 export default function Home() {
+  const { id } = useParams();
+  const { setComponent } = useComponent();
+
+  useEffect(() => {
+    if (id) setComponent(getComponent(id));
+  }, [id]);
+
   return (
     <main data-page="home">
       <GlobalNav />

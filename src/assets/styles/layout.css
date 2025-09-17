@@ -26,7 +26,7 @@
         & > svg {
           width: calc(var(--spacing) * 5);
           height: calc(var(--spacing) * 5);
-          color: var(--color-primary);
+          color: var(--color-blue-500);
         }
       }
     }
@@ -99,4 +99,97 @@
       text-underline-offset: var(--spacing);
     }
   }
+}
+
+/* Code */
+.code-box {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  .box-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing) * 3);
+    background-color: var(--color-background);
+    border-block-end: 1px solid var(--color-border);
+
+    .path,
+    .type {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing);
+      color: var(--color-muted-foreground);
+      font-family: monospace;
+      font-size: 14px;
+
+      & > svg {
+        width: calc(var(--spacing) * 5);
+        height: calc(var(--spacing) * 5);
+      }
+
+      .options {
+        display: flex;
+
+        .option {
+          font-family: monospace;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: calc(var(--spacing) * 2);
+
+      .copy {
+        width: calc(var(--spacing) * 8);
+      }
+    }
+  }
+
+  .code {
+    span {
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    &.is-fixed {
+      & > pre {
+        height: 450px;
+        overflow-y: scroll;
+        border-radius: 0;
+      }
+    }
+  }
+
+  &:not(:has(.box-head)) {
+    .copy {
+      position: absolute;
+      z-index: 49;
+      inset-block-start: calc(var(--spacing) * 3);
+      inset-inline-end: calc(var(--spacing) * 3);
+      width: calc(var(--spacing) * 8);
+    }
+  }
+}
+
+/* Preview */
+.preview-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+  overflow-y: scroll;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
+  background-image: linear-gradient(
+    to right,
+    var(--color-muted) 1px,
+    transparent 1px
+  );
+  background-size: 100px 50px;
 }

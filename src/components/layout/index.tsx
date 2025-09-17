@@ -7,7 +7,9 @@ function Layout() {
   const { pathname } = useLocation();
 
   useLayoutEffect(() => {
-    document.documentElement.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document
+      .querySelector(".output")
+      ?.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
   return (

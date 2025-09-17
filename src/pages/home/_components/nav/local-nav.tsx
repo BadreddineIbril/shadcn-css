@@ -1,20 +1,22 @@
 import Button from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { AlignJustify } from "lucide-react";
 
 export default function LocalNav() {
   return (
     <aside className="local-nav">
       <div className="category">
-        <span className="label">On this page</span>
+        <span className="label">
+          <AlignJustify /> On this page
+        </span>
         <ul className="links">
           <li className="link">
             <Button variant="link" size="sm" asChild>
-              <Link to="#">Installation</Link>
+              <a href="#installation">Installation</a>
             </Button>
           </li>
           <li className="link">
             <Button variant="link" size="sm" asChild>
-              <Link to="#">Usage</Link>
+              <a href="#usage">Usage</a>
             </Button>
           </li>
         </ul>
