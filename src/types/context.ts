@@ -1,10 +1,12 @@
+import type { ComponentType } from "react";
+
 export interface ComponentContextDefinition {
   component?: {
     id: string;
     name: string;
     description: string;
     base: {
-      preview: string;
+      preview: ComponentType<unknown>;
       code: CodeDefinition;
     };
     installation: {

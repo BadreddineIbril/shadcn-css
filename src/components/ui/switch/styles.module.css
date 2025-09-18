@@ -27,7 +27,7 @@
 
   /* State */
   &[data-state="unchecked"] {
-    background-color: var(--input);
+    background-color: var(--color-input);
 
     .switch-thumb {
       transform: translateX(0);
@@ -35,7 +35,7 @@
   }
 
   &[data-state="checked"] {
-    background-color: var(--colro-primary);
+    background-color: var(--color-primary);
 
     .switch-thumb {
       transform: translateX(calc(100% - var(--spacing) + 2px));

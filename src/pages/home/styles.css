@@ -138,6 +138,40 @@
       }
     }
 
+    /* Components */
+    .components {
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-block: 1px solid var(--color-border);
+
+        .card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: var(--text-sm);
+          line-height: var(--text-sm--line-height);
+          text-transform: capitalize;
+
+          &:not(:nth-last-child(-n + 3)) {
+            border-block-end: 1px solid var(--color-border);
+          }
+
+          &:not(:nth-child(3n)) {
+            border-inline-end: 1px solid var(--color-border);
+          }
+
+          .link {
+            padding: calc(var(--spacing) * 12);
+          }
+
+          &:hover {
+            background-color: var(--color-background);
+          }
+        }
+      }
+    }
+
     /* Pagination */
     .pagination {
       display: flex;

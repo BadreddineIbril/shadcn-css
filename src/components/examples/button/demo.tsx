@@ -1,8 +1,8 @@
 import Button from "@/components/ui/button";
 
-export default function Preview() {
+export default function ButtonDemo() {
   return (
-    <div className="preview-box">
+    <div>
       <Button>Button</Button>
     </div>
   );

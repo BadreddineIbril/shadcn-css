@@ -177,7 +177,7 @@
 }
 
 /* Preview */
-.preview-box {
+.preview-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,4 +192,10 @@
     transparent 1px
   );
   background-size: 100px 50px;
+
+  .preview-area {
+    display: flex;
+    justify-content: center;
+    width: 450px;
+  }
 }

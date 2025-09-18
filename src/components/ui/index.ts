@@ -1,5 +1,6 @@
 import type { RegistryDefinition } from "@/types/core";
 import type { ComponentContextDefinition } from "@/types/context";
+import type { ComponentType } from "react";
 
 const tsxFiles = import.meta.glob("./*/index.tsx", { as: "raw", eager: true });
 const cssFiles = import.meta.glob("./*/styles.module.css", {
@@ -7,6 +8,17 @@ const cssFiles = import.meta.glob("./*/styles.module.css", {
   eager: true,
 });
 const registries = import.meta.glob("./*/registry.json", { eager: true });
+const demoFiles = import.meta.glob("../examples/*/demo.tsx", {
+  eager: true,
+});
+const demoRawFiles = import.meta.glob("../examples/*/demo.tsx", {
+  as: "raw",
+  eager: true,
+});
+const usageFiles = import.meta.glob("../examples/*/usage.tsx", {
+  as: "raw",
+  eager: true,
+});
 
 // All Components
 export const COMPONENTS: Record<string, { id: string; name: string }> = {};
@@ -26,6 +38,12 @@ export function getComponent(
   const tsx = tsxFiles[`./${name}/index.tsx`];
   const css = cssFiles[`./${name}/styles.module.css`];
   const registry = registries[`./${name}/registry.json`] as RegistryDefinition;
+  const demo = demoFiles[`../examples/${name}/demo.tsx`] as {
+    default: ComponentType<unknown>;
+  };
+  const demoCode = demoRawFiles[`../examples/${name}/demo.tsx`];
+
+  const usage = usageFiles[`../examples/${name}/usage.tsx`];
 
   const components = Object.values(COMPONENTS);
   const index = components.findIndex((i) => i.id === COMPONENTS[name].id);
@@ -34,8 +52,8 @@ export function getComponent(
     ...COMPONENTS[name],
     description: registry.description,
     base: {
-      preview: "Preview",
-      code: { type: "tsx", content: tsx },
+      preview: demo.default,
+      code: { type: "tsx", content: demoCode },
     },
     installation: {
       manual: {
@@ -47,7 +65,7 @@ export function getComponent(
       },
     },
     usage: {
-      code: { type: "tsx", content: tsx },
+      code: { type: "tsx", content: usage },
     },
     pagination: {
       previous: components[index - 1],

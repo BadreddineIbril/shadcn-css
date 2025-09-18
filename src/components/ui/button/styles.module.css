@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
   transition: all var(--default-transition-duration)
     var(--default-transition-timing-function);
   border: 1px solid transparent;
