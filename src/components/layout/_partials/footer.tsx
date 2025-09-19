@@ -5,7 +5,7 @@ function Footer() {
       <a href="http://" target="_blank">
         shadcn
       </a>
-      . Ported to Css Modules by{" "}
+      . Ported to CSS Modules by{" "}
       <a href="http://" target="_blank">
         Badreddine Ibril
       </a>
