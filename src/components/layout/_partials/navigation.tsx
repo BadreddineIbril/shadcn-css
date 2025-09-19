@@ -33,7 +33,7 @@ function Navigation() {
           <Link to="/docs/components">Components</Link>
         </Button>
         <Button variant="ghost" size="sm" asChild>
-          <Link to="/">Colors</Link>
+          <Link to="/colors">Colors</Link>
         </Button>
       </div>
       <div className="actions">

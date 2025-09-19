@@ -1,0 +1,100 @@
+[data-page="colors"] {
+  display: flex;
+  flex-direction: column;
+  border-inline: 1px solid var(--color-border);
+
+  /* Head */
+  .head-box {
+    display: grid;
+    gap: calc(var(--spacing) * 2);
+    padding: calc(var(--spacing) * 12);
+    border-block-end: 1px solid var(--color-border);
+
+    .heading {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-semibold);
+      line-height: var(--text-3xl--line-height);
+    }
+
+    .subheading {
+      grid-column: 1 / 3;
+      color: var(--color-muted-foreground);
+      font-size: var(--text-base);
+      line-height: var(--text-base--line-height);
+      text-wrap: balance;
+    }
+  }
+
+  /* Tokens */
+  .tokens-box {
+    display: grid;
+    padding: calc(var(--spacing) * 12);
+    gap: calc(var(--spacing) * 12);
+
+    .token-wrapper {
+      display: grid;
+      gap: calc(var(--spacing) * 4);
+
+      .head {
+        .title {
+          font-size: var(--text-sm);
+          font-weight: var(--font-weight-medium);
+          line-height: var(--text-sm--line-height);
+          text-transform: capitalize;
+        }
+      }
+
+      .token-list {
+        display: grid;
+        gap: calc(var(--spacing) * 2);
+        grid-template-columns: repeat(11, 1fr);
+
+        .token-item {
+          display: grid;
+          position: relative;
+          gap: calc(var(--spacing) * 2);
+
+          .name {
+            color: var(--color-muted-foreground);
+            font-family: monospace;
+            font-size: var(--text-xs);
+            line-height: var(--text-xs--line-height);
+            text-align: center;
+          }
+
+          .color {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+          }
+
+          .copy {
+            visibility: hidden;
+            position: absolute;
+            width: calc(var(--spacing) * 6);
+            opacity: 0;
+            inset-inline-end: calc(var(--spacing) * 2);
+            inset-block-start: calc(var(--spacing) * 2);
+
+            &[data-invert="true"] {
+              filter: invert(1);
+            }
+
+            &:hover {
+              background-color: transparent;
+            }
+          }
+
+          &:hover {
+            .copy {
+              visibility: visible;
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+}
