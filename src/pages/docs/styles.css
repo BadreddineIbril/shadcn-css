@@ -99,8 +99,8 @@
       }
     }
 
-    /* Content */
-    .content {
+    /* Component */
+    .component {
       display: grid;
       gap: calc(var(--spacing) * 12);
       padding: calc(var(--spacing) * 12);
@@ -172,6 +172,12 @@
           }
         }
       }
+    }
+
+    /* Content */
+    .content {
+      padding: calc(var(--spacing) * 12);
+      border-block: 1px solid var(--color-border);
     }
 
     /* Pagination */

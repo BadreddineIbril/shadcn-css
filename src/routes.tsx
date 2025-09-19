@@ -12,7 +12,7 @@ export default function AppRouter() {
       children: [
         { path: "/", element: <Home /> },
         {
-          path: "/docs/components/:id?",
+          path: "/docs/:section/:id?",
           element: <Docs />,
         },
         {

@@ -27,7 +27,7 @@ function Navigation() {
           </Link>
         </Button>
         <Button variant="ghost" size="sm" asChild>
-          <Link to="/docs/components">Docs</Link>
+          <Link to="/docs/introduction">Docs</Link>
         </Button>
         <Button variant="ghost" size="sm" asChild>
           <Link to="/docs/components">Components</Link>

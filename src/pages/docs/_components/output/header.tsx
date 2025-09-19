@@ -4,12 +4,18 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
 export default function Header() {
-  const { id } = useParams();
+  const { section, id } = useParams();
   const { component } = useComponent();
 
   return (
     <div className="header">
-      <h1 className="heading">{!id ? "Components" : component?.name}</h1>
+      <h1 className="heading">
+        {section === "components"
+          ? !id
+            ? "Components"
+            : component?.name
+          : section}
+      </h1>
       <div className="actions">
         {component?.pagination.previous?.id && (
           <Button variant="outline" size="sm" aria-label="back" asChild>
@@ -27,9 +33,11 @@ export default function Header() {
         )}
       </div>
       <p className="subheading">
-        {!id
-          ? "Here you can find all the components available in the library. We are working on adding more components."
-          : component?.description}
+        {section === "components"
+          ? !id
+            ? "Here you can find all the components available in the library. We are working on adding more components."
+            : component?.description
+          : "Description"}
       </p>
     </div>
   );

@@ -58,7 +58,9 @@ export default function GlobalNav() {
                   variant={component?.id === link.id ? "secondary" : "ghost"}
                   size="sm"
                   asChild>
-                  <Link to={`/docs/components/${link.id}`}>{link.name}</Link>
+                  <Link to={`/docs${i < 2 ? "" : "/components"}/${link.id}`}>
+                    {link.name}
+                  </Link>
                 </Button>
               </li>
             ))}

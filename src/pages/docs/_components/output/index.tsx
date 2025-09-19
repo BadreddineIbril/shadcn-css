@@ -1,4 +1,5 @@
 import Base from "./base";
+import Content from "./content";
 import Header from "./header";
 import Installation from "./installation";
 import Pagination from "./pagination";
@@ -8,29 +9,33 @@ import { COMPONENTS } from "@/components/ui";
 import { Link, useParams } from "react-router-dom";
 
 export default function Output() {
-  const { id } = useParams();
+  const { section, id } = useParams();
 
   return (
     <div className="output">
       <Header />
-      {id ? (
-        <div className="content">
-          <Base />
-          <Installation />
-          <Usage />
-        </div>
+      {section === "components" ? (
+        id ? (
+          <div className="component">
+            <Base />
+            <Installation />
+            <Usage />
+          </div>
+        ) : (
+          <div className="components">
+            <ul className="cards">
+              {Object.values(COMPONENTS).map((item) => (
+                <li key={item.id} className="card">
+                  <Link to={`/docs/components/${item.id}`} className="link">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
       ) : (
-        <div className="components">
-          <ul className="cards">
-            {Object.values(COMPONENTS).map((item) => (
-              <li key={item.id} className="card">
-                <Link to={`/docs/components/${item.id}`} className="link">
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <Content />
       )}
       <Pagination />
       <Footer />
