@@ -75,6 +75,7 @@
             position: absolute;
             width: calc(var(--spacing) * 6);
             opacity: 0;
+            color: var(--color-black);
             inset-inline-end: calc(var(--spacing) * 2);
             inset-block-start: calc(var(--spacing) * 2);
 

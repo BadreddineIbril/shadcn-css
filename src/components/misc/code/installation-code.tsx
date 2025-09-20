@@ -13,6 +13,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useTheme } from "@/contexts";
 import { Copy } from "lucide-react";
 import { useState } from "react";
 import ShikiHighlighter, {
@@ -21,7 +22,10 @@ import ShikiHighlighter, {
 } from "react-shiki/core";
 
 const highlighter = await createHighlighterCore({
-  themes: [import("@shikijs/themes/github-light")],
+  themes: [
+    import("@shikijs/themes/github-light"),
+    import("@shikijs/themes/github-dark"),
+  ],
   langs: [import("@shikijs/langs/tsx"), import("@shikijs/langs/css")],
   engine: createOnigurumaEngine(import("shiki/wasm")),
 });
@@ -35,6 +39,7 @@ export default function InstallationCode({
   tsx: string;
   css: string;
 }) {
+  const { theme } = useTheme();
   const [type, setType] = useState<string>("tsx");
 
   return (
@@ -68,7 +73,7 @@ export default function InstallationCode({
       <ShikiHighlighter
         highlighter={highlighter}
         language={type}
-        theme="github-light"
+        theme={theme === "light" ? "github-light" : "github-dark"}
         showLanguage={false}
         showLineNumbers
         className="code is-fixed">

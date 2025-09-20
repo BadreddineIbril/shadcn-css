@@ -12,10 +12,11 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import Separator from "@/components/ui/separator";
+import { useTheme } from "@/contexts";
 
 function Navigation() {
+  const { theme, setTheme } = useTheme();
   const [search, setSearch] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   return (
     <header data-layout="navigation">
@@ -67,9 +68,7 @@ function Navigation() {
           variant="ghost"
           size="sm"
           aria-label="theme"
-          onClick={() =>
-            setTheme((prev) => (prev === "light" ? "dark" : "light"))
-          }>
+          onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
           {theme === "light" ? <Sun /> : <Moon />}
         </Button>
       </div>

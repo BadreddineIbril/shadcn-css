@@ -109,6 +109,10 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 
+  .shiki.github-dark {
+    background-color: var(--color-code) !important;
+  }
+
   .box-head {
     display: flex;
     align-items: center;
@@ -187,12 +191,10 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-background);
-  background-image: linear-gradient(
-    to right,
-    var(--color-muted) 1px,
-    transparent 1px
-  );
-  background-size: 100px 50px;
+  background-image:
+    linear-gradient(var(--color-muted) 0.5px, transparent 0.5px),
+    linear-gradient(to right, var(--color-muted) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
 
   .preview-area {
     display: flex;
@@ -338,5 +340,12 @@
       font-size: var(--text-sm);
       line-height: var(--text-sm--line-height);
     }
+  }
+}
+
+/* Dark Mode */
+.dark {
+  body {
+    background-color: var(--color-background);
   }
 }

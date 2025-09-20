@@ -4,6 +4,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useTheme } from "@/contexts";
 import { Copy } from "lucide-react";
 import ShikiHighlighter, {
   createHighlighterCore,
@@ -11,18 +12,23 @@ import ShikiHighlighter, {
 } from "react-shiki/core";
 
 const highlighter = await createHighlighterCore({
-  themes: [import("@shikijs/themes/github-light")],
+  themes: [
+    import("@shikijs/themes/github-light"),
+    import("@shikijs/themes/github-dark"),
+  ],
   langs: [import("@shikijs/langs/tsx")],
   engine: createOnigurumaEngine(import("shiki/wasm")),
 });
 
 export default function PresentationCode({ code }: { code: string }) {
+  const { theme } = useTheme();
+
   return (
     <div className="code-box">
       <ShikiHighlighter
         highlighter={highlighter}
         language="tsx"
-        theme="github-light"
+        theme={theme === "light" ? "github-light" : "github-dark"}
         showLanguage={false}
         showLineNumbers
         className="code is-fixed">
