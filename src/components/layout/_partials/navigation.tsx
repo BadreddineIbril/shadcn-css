@@ -14,7 +14,7 @@ import {
 import Separator from "@/components/ui/separator";
 import { useTheme } from "@/contexts";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { GLOBAL_NAVIGATION } from "@/utils/constants";
+import { DOCS_NAVIGATION, GLOBAL_NAVIGATION } from "@/utils/constants";
 import GlobalNav from "@/pages/docs/_components/nav/global-nav";
 
 function Navigation() {
@@ -97,10 +97,24 @@ function Navigation() {
           <CommandInput placeholder="Type a command or search..." />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions">
-              <CommandItem>Calendar</CommandItem>
-              <CommandItem>Search Emoji</CommandItem>
-              <CommandItem>Calculator</CommandItem>
+            <CommandGroup heading="Links">
+              {GLOBAL_NAVIGATION.map((link, i) => (
+                <CommandItem key={i} asChild>
+                  <Link
+                    to={link.id === "colors" ? link.id : `/docs/${link.id}`}>
+                    {link.name}
+                  </Link>
+                </CommandItem>
+              ))}
+              {DOCS_NAVIGATION.map((group, i) => (
+                <CommandGroup key={i} heading={group.name}>
+                  {group.links.map((link, j) => (
+                    <CommandItem key={j} asChild>
+                      <Link to={`/docs/${link.id}`}>{link.name}</Link>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              ))}
             </CommandGroup>
           </CommandList>
         </CommandDialog>
