@@ -76,3 +76,17 @@
     }
   }
 }
+
+:global(.dark) {
+  .input-otp {
+    .input-otp-group {
+      .input-otp-slot {
+        background-color: color-mix(
+          in oklab,
+          var(--color-input) 30%,
+          transparent
+        );
+      }
+    }
+  }
+}

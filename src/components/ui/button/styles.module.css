@@ -141,23 +141,53 @@
   /* Focus */
   &:focus-visible {
     &:not(&[data-variant="destructive"]) {
-      box-shadow:
-        0 0 #0000,
-        0 0 #0000,
-        0 0 #0000,
-        0 0 0 3px color-mix(in oklab, var(--color-ring) 50%, transparent);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--color-ring) 50%, transparent);
     }
 
     &[data-variant="destructive"] {
-      box-shadow:
-        0 0 #0000,
-        0 0 #0000,
-        0 0 #0000,
-        0 0 0 3px color-mix(in oklab, var(--color-destructive) 20%, transparent);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--color-destructive) 20%, transparent);
     }
 
     &[data-variant="outline"] {
       border-color: var(--color-ring);
+    }
+  }
+}
+
+:global(.dark) {
+  .button {
+    &[data-variant="destructive"] {
+      background-color: color-mix(
+        in oklab,
+        var(--color-destructive) 60%,
+        transparent
+      );
+    }
+
+    &[data-variant="outline"] {
+      background-color: color-mix(
+        in oklab,
+        var(--color-input) 30%,
+        transparent
+      );
+
+      &:hover {
+        background-color: color-mix(
+          in oklab,
+          var(--color-input) 50%,
+          transparent
+        );
+      }
+    }
+
+    &[data-variant="ghost"]:hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-accent) 50%,
+        transparent
+      );
     }
   }
 }

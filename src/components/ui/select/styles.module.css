@@ -119,19 +119,19 @@
   }
 
   &[data-state="open"][data-side="top"] {
-    animation-name: var(--animate-select-top);
+    animation-name: var(--animate-slide-top);
   }
 
   &[data-state="open"][data-side="bottom"] {
-    animation-name: var(--animate-select-bottom);
+    animation-name: var(--animate-slide-bottom);
   }
 
   &[data-state="open"][data-side="left"] {
-    animation-name: var(--animate-select-left);
+    animation-name: var(--animate-slide-left);
   }
 
   &t[data-state="open"][data-side="right"] {
-    animation-name: var(--animate-select-right);
+    animation-name: var(--animate-slide-right);
   }
 }
 
@@ -226,5 +226,11 @@
   & > svg {
     width: calc(var(--spacing) * 4);
     height: calc(var(--spacing) * 4);
+  }
+}
+
+:global(.dark) {
+  .select-trigger {
+    background-color: color-mix(in oklab, var(--color-input) 30%, transparent);
   }
 }

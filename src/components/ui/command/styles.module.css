@@ -9,11 +9,6 @@
   color: var(--color-popover-foreground);
 }
 
-[cmdk-dialog] {
-  padding: 0;
-  overflow: hidden;
-}
-
 .command-input-wrapper {
   display: flex;
   align-items: center;
@@ -39,6 +34,7 @@
     border-radius: var(--radius-md);
     outline: none;
     background-color: transparent;
+    color: var(--color-foreground);
     font-size: var(--text-sm);
     line-height: var(--text-sm--line-height);
 
@@ -101,8 +97,8 @@
       /* Icon */
       & > svg {
         flex-shrink: 0;
-        width: calc(var(--spacing) * 5);
-        height: calc(var(--spacing) * 5);
+        width: calc(var(--spacing) * 4);
+        height: calc(var(--spacing) * 4);
         pointer-events: none;
       }
     }
@@ -123,5 +119,30 @@
     font-size: var(--text-sm);
     line-height: var(--text-sm--line-height);
     text-align: center;
+  }
+
+  .command-shortcut {
+    margin-inline-start: auto;
+    color: var(--color-muted-foreground);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    line-height: var(--text-xs--line-height);
+  }
+}
+
+.command-dialog {
+  padding: 0 !important;
+  overflow: hidden;
+
+  .command-input-wrapper {
+    height: calc(var(--spacing) * 12);
+  }
+
+  .command-list {
+    .command-group {
+      .command-item {
+        padding-block: calc(var(--spacing) * 3);
+      }
+    }
   }
 }

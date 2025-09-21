@@ -1,4 +1,5 @@
 .accordion-item {
+  color: var(--color-neutral-800);
   border-block-end: 1px solid var(--color-border);
 
   & > [data-slot="accordion-header"] {
@@ -18,7 +19,7 @@
   border-radius: var(--radius-md);
   outline: none;
   background-color: transparent;
-  color: var(--color-neutral-800);
+  color: inherit;
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--text-sm--line-height);
@@ -63,9 +64,12 @@
 
 .accordion-content {
   overflow: hidden;
-  color: var(--color-neutral-800);
+  animation-duration: 0.2s;
+  animation-timing-function: var(--ease-out);
+  color: inherit;
   font-size: var(--text-sm);
   line-height: var(--text-sm--line-height);
+  animation-fill-mode: forwards;
 
   & > div {
     padding-block-end: calc(var(--spacing) * 4);
@@ -73,10 +77,16 @@
 
   /* State */
   &[data-state="open"] {
-    animation: var(--animate-accordion-down);
+    animation-name: var(--animate-accordion-down);
   }
 
   &[data-state="closed"] {
-    animation: var(--animate-accordion-up);
+    animation-name: var(--animate-accordion-up) !important;
+  }
+}
+
+:global(.dark) {
+  .accordion-item {
+    color: var(--color-neutral-300);
   }
 }

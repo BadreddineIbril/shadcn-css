@@ -26,7 +26,7 @@
   transition: var(--default-transition-duration)
     var(--default-transition-timing-function);
   transition-property: color, box-shadow;
-  border: 1px solid transparent var(--radius-md);
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   background-color: transparent;
   color: var(--color-foreground);
@@ -67,4 +67,20 @@
 .tabs-content {
   flex: 1;
   outline-style: none;
+}
+
+:global(.dark) {
+  .tabs-trigger {
+    color: var(--color-muted-foreground);
+
+    &[data-state="active"] {
+      border-color: var(--color-input);
+      background-color: color-mix(
+        in oklab,
+        var(--color-input) 30%,
+        transparent
+      );
+      color: var(--color-foreground);
+    }
+  }
 }

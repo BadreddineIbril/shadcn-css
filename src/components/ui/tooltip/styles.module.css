@@ -14,23 +14,23 @@
 
   /* Side */
   &[data-side="top"] {
-    animation-name: var(--animate-select-top);
+    animation-name: var(--animate-slide-top);
   }
 
   &[data-side="bottom"] {
-    animation-name: var(--animate-select-bottom);
+    animation-name: var(--animate-slide-bottom);
   }
 
   &[data-side="left"] {
-    animation-name: var(--animate-select-left);
+    animation-name: var(--animate-slide-left);
   }
 
   &[data-side="right"] {
-    animation-name: var(--animate-select-right);
+    animation-name: var(--animate-slide-right);
   }
 
   &[data-state="closed"] {
-    animation-name: var(--animate-tooltip-out);
+    animation-name: var(--animate-fade-zoom-out);
   }
 }
 

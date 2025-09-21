@@ -28,9 +28,10 @@ export default function BreadcrumbDemo() {
         <BreadcrumbItem>
           <DropdownMenu>
             <DropdownMenuTrigger
+              asChild
+              aria-label="toggle menu"
               style={{ display: "flex", alignItems: "center", gap: "4px" }}>
               <BreadcrumbEllipsis />
-              <span className="sr-only">Toggle menu</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>

@@ -59,7 +59,7 @@ export default function TabsDemo() {
               </CardDescription>
             </CardHeader>
             <CardContent style={{ display: "grid", gap: "24px" }}>
-              <div style={{ display: "grid", gap: "12" }}>
+              <div style={{ display: "grid", gap: "12px" }}>
                 <Label htmlFor="tabs-demo-current">Current password</Label>
                 <Input id="tabs-demo-current" type="password" />
               </div>

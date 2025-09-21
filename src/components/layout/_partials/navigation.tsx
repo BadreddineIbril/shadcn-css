@@ -20,10 +20,14 @@ import GlobalNav from "@/pages/docs/_components/nav/global-nav";
 function Navigation() {
   const { pathname } = useLocation();
   const { theme, setTheme } = useTheme();
+
   const [search, setSearch] = useState(false);
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
-  useEffect(() => setMobileMenuState(false), [pathname]);
+  useEffect(() => {
+    setSearch(false);
+    setMobileMenuState(false);
+  }, [pathname]);
 
   return (
     <header data-layout="navigation">

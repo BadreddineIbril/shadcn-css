@@ -38,11 +38,11 @@
 
   /* State */
   &[data-state="open"] {
-    animation-name: var(--animate-tooltip-in);
+    animation-name: var(--animate-fade-zoom-in);
   }
 
   &[data-state="closed"] {
-    animation-name: var(--animate-tooltip-out);
+    animation-name: var(--animate-fade-zoom-out);
   }
 
   .dialog-close {

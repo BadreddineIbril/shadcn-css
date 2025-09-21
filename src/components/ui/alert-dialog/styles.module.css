@@ -36,11 +36,11 @@
 
   /* State */
   &[data-state="open"] {
-    animation-name: var(--animate-tooltip-in);
+    animation-name: var(--animate-alert-dialog-in);
   }
 
   &[data-state="closed"] {
-    animation-name: var(--animate-tooltip-out);
+    animation-name: var(--animate-alert-dialog-out);
   }
 }
 
@@ -82,7 +82,11 @@
   }
 
   .alert-dialog-footer {
-    flex-direction: row-reverse;
+    flex-direction: row;
     justify-content: end;
+
+    & > button {
+      width: fit-content;
+    }
   }
 }

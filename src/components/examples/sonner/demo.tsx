@@ -7,7 +7,10 @@ export default function SonnerDemo() {
       variant="outline"
       onClick={() =>
         toast("Event has been created", {
-          description: "Sunday, December 03, 2023 at 9:00 AM",
+          description: new Date().toLocaleString("en-US", {
+            dateStyle: "full",
+            timeStyle: "short",
+          }),
           action: {
             label: "Undo",
             onClick: () => console.log("Undo"),

@@ -27,16 +27,6 @@
 
   /* Orientation */
   &[aria-orientation="horizontal"] {
-    .carousel-content {
-      & > div {
-        margin-inline-start: calc(var(--spacing) * -4);
-      }
-    }
-
-    .carousel-item {
-      margin-inline-start: calc(var(--spacing) * -4);
-    }
-
     .carousel-previous,
     .carousel-next {
       top: 50%;
@@ -56,12 +46,12 @@
     .carousel-content {
       & > div {
         flex-direction: column;
-        margin-block-start: calc(var(--spacing) * -4);
+        margin-block-start: calc(var(--spacing) * 4);
       }
     }
 
     .carousel-item {
-      margin-block-start: calc(var(--spacing) * -4);
+      margin-block-start: calc(var(--spacing) * 4);
     }
 
     .carousel-previous,

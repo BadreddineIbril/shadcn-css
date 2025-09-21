@@ -16,8 +16,8 @@ function ScrollArea({
         data-slot="scroll-area-viewport"
         className={styles["scroll-area-viewport"]}>
         {children}
+        <ScrollBar />
       </ScrollAreaPrimitive.Viewport>
-      <ScrollBar />
       <ScrollAreaPrimitive.Corner />
     </ScrollAreaPrimitive.Root>
   );

@@ -59,3 +59,11 @@
     pointer-events: none;
   }
 }
+
+:global(.dark) {
+  .switch {
+    .switch-thumb[data-state="unchecked"] {
+      background-color: var(--color-foreground);
+    }
+  }
+}

@@ -9,6 +9,7 @@
   border: 1px solid transparent;
   outline: none;
   background-color: transparent;
+  color: inherit;
   font-size: var(--text-sm);
   font-weight: var(--font-weight-medium);
   line-height: var(--text-sm--line-height);

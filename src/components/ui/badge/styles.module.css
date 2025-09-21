@@ -33,3 +33,15 @@
     background-color: var(--color-background);
   }
 }
+
+:global(.dark) {
+  .badge {
+    &[data-variant="destructive"] {
+      background-color: color-mix(
+        in oklab,
+        var(--color-destructive) 60%,
+        transparent
+      );
+    }
+  }
+}

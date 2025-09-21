@@ -51,3 +51,9 @@
     }
   }
 }
+
+:global(.dark) {
+  .textarea {
+    background-color: color-mix(in oklab, var(--color-input) 30%, transparent);
+  }
+}
