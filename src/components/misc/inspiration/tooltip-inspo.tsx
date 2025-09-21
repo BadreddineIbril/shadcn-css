@@ -8,7 +8,7 @@ import {
 export default function TooltipInspiration() {
   return (
     <div className="tooltip-box">
-      <Tooltip open>
+      <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Device Stats</Button>
         </TooltipTrigger>

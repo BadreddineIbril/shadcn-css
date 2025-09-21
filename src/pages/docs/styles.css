@@ -132,6 +132,11 @@
               font-size: var(--text-base);
               font-weight: var(--font-weight-normal);
               line-height: var(--text-base--line-height);
+
+              a {
+                text-underline-offset: 4px;
+                text-decoration: underline;
+              }
             }
           }
         }

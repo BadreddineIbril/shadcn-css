@@ -12,7 +12,9 @@ export default function Docs() {
   const { setComponent } = useComponent();
 
   useEffect(() => {
-    if (id) setComponent(getComponent(id));
+    if (id) {
+      setComponent(getComponent(id));
+    }
   }, [id]);
 
   return (

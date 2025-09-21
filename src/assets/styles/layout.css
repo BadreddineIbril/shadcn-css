@@ -227,15 +227,15 @@
     p {
       font-size: var(--text-sm);
       line-height: var(--text-sm--line-height);
+    }
 
-      code {
-        padding: 0.2rem 0.3rem;
-        border-radius: var(--radius-sm);
-        background-color: var(--color-background);
-        font-family: monospace;
-        font-size: var(--text-xs);
-        line-height: var(--text-xs--line-height);
-      }
+    code {
+      padding: 0.2rem 0.3rem;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-background);
+      font-family: monospace;
+      font-size: var(--text-xs);
+      line-height: var(--text-xs--line-height);
     }
 
     h3 {
@@ -353,6 +353,18 @@
       line-height: var(--text-sm--line-height);
     }
   }
+}
+
+/* Code Tag */
+.code-tag {
+  padding: 0.2rem 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-code);
+  color: var(--color-code-foreground);
+  font-family: monospace;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
 }
 
 /* Menu Links */

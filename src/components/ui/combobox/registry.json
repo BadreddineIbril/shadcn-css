@@ -1,0 +1,5 @@
+{
+  "name": "combobox",
+  "description": "Autocomplete input and command palette with a list of suggestions.",
+  "registryDependencies": ["popover", "command"]
+}

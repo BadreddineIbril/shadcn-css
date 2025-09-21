@@ -23,7 +23,7 @@ const usageFiles = import.meta.glob("../examples/*/usage.tsx", {
 // All Components
 export const COMPONENTS: Record<string, { id: string; name: string }> = {};
 
-for (const path in tsxFiles) {
+for (const path in registries) {
   const name = path.split("/")[1];
   COMPONENTS[name] = {
     id: name,
@@ -35,9 +35,16 @@ for (const path in tsxFiles) {
 export function getComponent(
   name: string
 ): ComponentContextDefinition["component"] {
+  const registry = registries[`./${name}/registry.json`] as
+    | RegistryDefinition
+    | undefined;
+
+  if (!registry) {
+    return undefined;
+  }
+
   const tsx = tsxFiles[`./${name}/index.tsx`];
   const css = cssFiles[`./${name}/styles.module.css`];
-  const registry = registries[`./${name}/registry.json`] as RegistryDefinition;
   const demo = demoFiles[`../examples/${name}/demo.tsx`] as {
     default: ComponentType<unknown>;
   };

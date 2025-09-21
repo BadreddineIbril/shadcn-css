@@ -1,5 +1,0 @@
-{
-  "name": "navigation-menu",
-  "description": "A collection of links for navigating websites.",
-  "dependencies": ["@radix-ui/react-navigation-menu"]
-}
