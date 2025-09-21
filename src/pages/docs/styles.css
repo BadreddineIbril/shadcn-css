@@ -168,7 +168,7 @@
           }
 
           &:hover {
-            background-color: var(--color-background);
+            background-color: var(--color-surface);
           }
         }
       }
@@ -186,6 +186,63 @@
       align-items: center;
       justify-content: space-between;
       padding: calc(var(--spacing) * 12);
+    }
+  }
+}
+
+/* Responsive  */
+@media (width <= 1280px) {
+  [data-page="docs"] {
+    grid-template-columns: 250px auto;
+
+    .local-nav {
+      display: none;
+    }
+  }
+}
+
+@media (width <= 1024px) {
+  [data-page="docs"] {
+    grid-template-columns: 1fr;
+
+    .global-nav {
+      display: none;
+    }
+
+    .output {
+      .header {
+        padding: calc(var(--spacing) * 6);
+
+        .heading {
+          font-size: var(--text-2xl);
+          line-height: var(--text-2xl--line-height);
+        }
+      }
+    }
+
+    .content,
+    .component,
+    .components,
+    .pagination {
+      padding: calc(var(--spacing) * 6) !important;
+
+      &.components {
+        padding-inline: 0 !important;
+
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+
+          .card {
+            &:not(:nth-last-child(-n + 2)) {
+              border-block-end: 1px solid var(--color-border);
+            }
+
+            &:not(:nth-child(2n)) {
+              border-inline-end: 1px solid var(--color-border);
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -40,14 +40,14 @@ export default function Colors() {
       </section>
       <div className="tokens-box">
         {TOKENS.map((token, i) => (
-          <div className="token-wrapper">
+          <div key={i} className="token-wrapper">
             <div className="head">
               <h4 className="title">{token}</h4>
             </div>
-            <ul key={i} className="token-list">
+            <ul className="token-list">
               {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].map(
                 (n) => (
-                  <li className="token-item">
+                  <li key={n} className="token-item">
                     <span
                       className="color"
                       style={{

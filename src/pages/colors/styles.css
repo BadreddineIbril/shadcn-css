@@ -99,3 +99,32 @@
     }
   }
 }
+
+/* Responsive */
+@media (width <= 1024px) {
+  [data-page="colors"] {
+    .head-box {
+      padding: calc(var(--spacing) * 6);
+
+      .heading {
+        font-size: var(--text-2xl);
+        line-height: var(--text-2xl--line-height);
+      }
+    }
+
+    .tokens-box {
+      padding: calc(var(--spacing) * 6);
+
+      .token-wrapper {
+        .token-list {
+          grid-template-columns: repeat(3, 1fr);
+
+          .token-item:first-child,
+          .token-item:last-child {
+            grid-column: 1 / 4;
+          }
+        }
+      }
+    }
+  }
+}
