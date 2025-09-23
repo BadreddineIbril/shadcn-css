@@ -25,6 +25,17 @@ function Navigation() {
   const [mobileMenuState, setMobileMenuState] = useState(false);
 
   useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearch((state) => !state);
+      }
+    };
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
+
+  useEffect(() => {
     setSearch(false);
     setMobileMenuState(false);
   }, [pathname]);
