@@ -1,4 +1,4 @@
-import PresentationCode from "@/components/misc/code/presentation-code";
+import Code from "@/components/misc/code";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useComponent } from "@/contexts";
 
@@ -20,7 +20,12 @@ export default function Base() {
           </div>
         </TabsContent>
         <TabsContent value="code">
-          <PresentationCode code={component?.base.code.content ?? ""} />
+          <Code
+            fixedHight
+            code={[
+              { lang: "tsx", content: component?.base.code.content ?? "" },
+            ]}
+          />
         </TabsContent>
       </Tabs>
     </section>

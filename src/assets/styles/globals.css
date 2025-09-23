@@ -1,5 +1,6 @@
 @import url("./tokens.css");
 @import url("./layout.css");
+@import url("./misc.css");
 
 :root {
   --radius: 0.625rem;

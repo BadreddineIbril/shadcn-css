@@ -1,8 +1,9 @@
 import "./styles.css";
+import { useEffect, useState } from "react";
 import { Check, Copy } from "lucide-react";
+import Head from "@/components/misc/head";
 import Button from "@/components/ui/button";
 import Footer from "@/components/layout/_partials/footer";
-import { useEffect, useState } from "react";
 import { copy, getCssVarValue, setMetaTags } from "@/utils/helpers";
 import {
   Select,
@@ -11,33 +12,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { COLOR_TOKENS } from "@/utils/constants";
 
 export default function Colors() {
-  const TOKENS = [
-    "neutral",
-    "stone",
-    "zinc",
-    "slate",
-    "gray",
-    "red",
-    "orange",
-    "amber",
-    "yellow",
-    "lime",
-    "green",
-    "emerald",
-    "teal",
-    "cyan",
-    "sky",
-    "blue",
-    "indigo",
-    "violet",
-    "purple",
-    "fuchsia",
-    "pink",
-    "rose",
-  ];
-
   const [format, setFormat] = useState("oklch");
   const [copied, setIsCopied] = useState<number | null>(null);
 
@@ -55,15 +32,13 @@ export default function Colors() {
 
   return (
     <main data-page="colors">
-      <section className="head-box">
-        <h1 className="heading">Colors</h1>
-        <p className="subheading">
-          Scalable color tokens to keep your UI consistent. Ready to copy and
-          paste into your project.
-        </p>
-      </section>
+      <Head
+        heading="Colors"
+        subheading="Scalable color tokens to keep your UI consistent. Ready to copy and
+          paste into your project."
+      />
       <div className="tokens-box">
-        {TOKENS.map((token, i) => (
+        {COLOR_TOKENS.map((token, i) => (
           <div key={i} className="token-wrapper">
             <div className="head">
               <h4 className="title">{token}</h4>

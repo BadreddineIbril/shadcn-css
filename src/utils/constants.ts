@@ -1,13 +1,18 @@
 import { COMPONENTS } from "@/components/ui";
+import type {
+  LinkDefinition,
+  NavigationDefinition,
+  PackageManagers,
+} from "@/types/core";
 import { Box, Puzzle, Send } from "lucide-react";
 
-const GLOBAL_NAVIGATION = [
+const GLOBAL_NAVIGATION: LinkDefinition[] = [
   { name: "Docs", id: "introduction" },
   { name: "Components", id: "components" },
   { name: "Colors", id: "colors" },
 ];
 
-const DOCS_NAVIGATION = [
+const DOCS_NAVIGATION: NavigationDefinition[] = [
   {
     icon: Send,
     name: "Getting Started",
@@ -44,4 +49,31 @@ const DOCS_NAVIGATION = [
   },
 ];
 
-export { GLOBAL_NAVIGATION, DOCS_NAVIGATION };
+const COLOR_TOKENS: string[] = [
+  "neutral",
+  "stone",
+  "zinc",
+  "slate",
+  "gray",
+  "red",
+  "orange",
+  "amber",
+  "yellow",
+  "lime",
+  "green",
+  "emerald",
+  "teal",
+  "cyan",
+  "sky",
+  "blue",
+  "indigo",
+  "violet",
+  "purple",
+  "fuchsia",
+  "pink",
+  "rose",
+];
+
+const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
+
+export { GLOBAL_NAVIGATION, DOCS_NAVIGATION, COLOR_TOKENS, PACKAGE_MANAGERS };

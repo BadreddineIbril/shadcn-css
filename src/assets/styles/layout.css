@@ -107,88 +107,6 @@
   }
 }
 
-/* Code */
-.code-box {
-  position: relative;
-  max-width: calc(100vw - calc(var(--spacing) * 12));
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-
-  .shiki.github-dark {
-    background-color: var(--color-code) !important;
-  }
-
-  .box-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: calc(var(--spacing) * 3);
-    background-color: var(--color-background);
-    border-block-end: 1px solid var(--color-border);
-
-    .path,
-    .type {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing);
-      color: var(--color-muted-foreground);
-      font-family: monospace;
-      font-size: 14px;
-
-      & > svg {
-        width: calc(var(--spacing) * 5);
-        height: calc(var(--spacing) * 5);
-      }
-
-      .options {
-        display: flex;
-
-        .option {
-          font-family: monospace;
-        }
-      }
-    }
-
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: calc(var(--spacing) * 2);
-
-      .copy {
-        width: calc(var(--spacing) * 8);
-      }
-    }
-  }
-
-  .code {
-    max-width: 100%;
-    overflow: auto;
-
-    span {
-      font-family: monospace;
-      font-size: 14px;
-    }
-
-    &.is-fixed {
-      & > pre {
-        height: 450px;
-        border-radius: 0;
-      }
-    }
-  }
-
-  &:not(:has(.box-head)) {
-    .copy {
-      position: absolute;
-      z-index: 49;
-      inset-block-start: calc(var(--spacing) * 3);
-      inset-inline-end: calc(var(--spacing) * 3);
-      width: calc(var(--spacing) * 8);
-    }
-  }
-}
-
 /* Preview */
 .preview-wrapper {
   display: flex;
@@ -224,15 +142,6 @@
     p {
       font-size: var(--text-sm);
       line-height: var(--text-sm--line-height);
-    }
-
-    code {
-      padding: 0.2rem 0.3rem;
-      border-radius: var(--radius-sm);
-      background-color: var(--color-background);
-      font-family: monospace;
-      font-size: var(--text-xs);
-      line-height: var(--text-xs--line-height);
     }
 
     h3 {

@@ -1,4 +1,4 @@
-import TsxCode from "@/components/misc/code/tsx-code";
+import Code from "@/components/misc/code";
 import { useComponent } from "@/contexts";
 
 export default function Usage() {
@@ -7,7 +7,9 @@ export default function Usage() {
   return (
     <section className="usage-box" id="usage">
       <h2 className="head">Usage</h2>
-      <TsxCode code={component?.usage.code.content ?? ""} fixedHeight={false} />
+      <Code
+        code={[{ lang: "tsx", content: component?.usage.code.content ?? "" }]}
+      />
     </section>
   );
 }

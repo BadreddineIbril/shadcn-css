@@ -1,5 +1,4 @@
-import CommandCode from "@/components/misc/code/command-code";
-import InstallationCode from "@/components/misc/code/installation-code";
+import Code from "@/components/misc/code";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useComponent } from "@/contexts";
 import { Link } from "react-router-dom";
@@ -19,13 +18,17 @@ export default function Installation() {
           <TabsTrigger value="manual">Manual</TabsTrigger>
         </TabsList>
         <TabsContent value="cli">
-          <CommandCode name={component?.id ?? ""} />
+          <Code variant="dependencies" name={component?.id ?? ""} code={[]} />
         </TabsContent>
         <TabsContent value="manual" className="manual-area">
           {dependencies && (
             <div className="dependencies-wrapper">
               <h3 className="hint">Install the following dependencies:</h3>
-              <CommandCode type="dependency" name={dependencies.toString()} />
+              <Code
+                variant="dependencies"
+                name={dependencies.toString()}
+                code={[]}
+              />
             </div>
           )}
           {code && code[0].content && (
@@ -33,10 +36,13 @@ export default function Installation() {
               <h3 className="hint">
                 Copy and paste the following code into your project.
               </h3>
-              <InstallationCode
-                name={component?.id ?? ""}
-                tsx={code[0].content ?? ""}
-                css={code[1].content ?? ""}
+              <Code
+                variant="registry"
+                name={component.id}
+                code={code.map((c) => ({
+                  lang: c.type as "tsx" | "css",
+                  content: c.content,
+                }))}
               />
             </div>
           )}

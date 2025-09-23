@@ -1,5 +1,6 @@
 import { toast } from "sonner";
 import { DOCS_NAVIGATION } from "./constants";
+import { COMPONENTS } from "@/components/ui";
 
 function formatName(id: string) {
   return (id.charAt(0).toUpperCase() + id.slice(1)).replace("-", " ");
@@ -52,4 +53,39 @@ function usePagination(pageId: string) {
   };
 }
 
-export { formatName, getCssVarValue, copy, setMetaTags, usePagination };
+function getCommands(name: string) {
+  const templates = {
+    pnpm: {
+      registry: `pnpm dlx shadcn-css add ${name}`,
+      default: `pnpm add ${name}`,
+    },
+    npm: {
+      registry: `npm shadcn-css add ${name}`,
+      default: `npm install ${name}`,
+    },
+    yarn: {
+      registry: `yarn shadcn-css add ${name}`,
+      default: `yarn add ${name}`,
+    },
+    bun: {
+      registry: `bunx --bun shadcn-css add ${name}`,
+      default: `bun add ${name}`,
+    },
+  };
+
+  return Object.fromEntries(
+    Object.entries(templates).map(([k, v]) => [
+      k,
+      v[COMPONENTS[name] ? "registry" : "default"],
+    ])
+  );
+}
+
+export {
+  formatName,
+  getCssVarValue,
+  getCommands,
+  copy,
+  setMetaTags,
+  usePagination,
+};

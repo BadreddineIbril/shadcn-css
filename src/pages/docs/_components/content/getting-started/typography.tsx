@@ -1,4 +1,4 @@
-import TsxCode from "@/components/misc/code/tsx-code";
+import Code from "@/components/misc/code";
 
 export default function Typography() {
   return (
@@ -6,33 +6,49 @@ export default function Typography() {
       <article>
         <h3>h1</h3>
         <p className="h1">Taxing Laughter: The Joke Tax Chronicles</p>
-        <TsxCode
-          code={`h1 {\n  font-size: var(--text-4xl);\n  font-weight: var(--font-weight-extrabold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-4xl--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `h1 {\n  font-size: var(--text-4xl);\n  font-weight: var(--font-weight-extrabold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-4xl--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>h2</h3>
         <p className="h2">The People of the Kingdom</p>
-        <TsxCode
-          code={`h2 {\n  font-size: var(--text-3xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-3xl--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `h2 {\n  font-size: var(--text-3xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-3xl--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>h3</h3>
         <p className="h3">The Joke Tax</p>
-        <TsxCode
-          code={`h3 {\n  font-size: var(--text-2xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-2xl--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `h3 {\n  font-size: var(--text-2xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-2xl--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>h4</h3>
         <p className="h4">People stopped telling jokes</p>
-        <TsxCode
-          code={`h4 {\n  font-size: var(--text-xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-xl--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `h4 {\n  font-size: var(--text-xl);\n  font-weight: var(--font-weight-semibold);\n  letter-spacing: var(--tracking-tight);\n  line-height: var(--text-xl--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
@@ -41,9 +57,13 @@ export default function Typography() {
           The king, seeing how much happier his subjects were, realized the
           error of his ways and repealed the joke tax.
         </p>
-        <TsxCode
-          code={`p {\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `p {\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
@@ -52,9 +72,13 @@ export default function Typography() {
           "After all," he said, "everyone enjoys a good joke, so it's only fair
           that they should pay for the privilege."
         </blockquote>
-        <TsxCode
-          code={`blockquote {\n  font-size: var(--text-sm);\n  font-style: italic;\n  line-height: var(--text-sm--line-height);\n  border-inline-start: 2px solid var(--color-border);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `blockquote {\n  font-size: var(--text-sm);\n  font-style: italic;\n  line-height: var(--text-sm--line-height);\n  border-inline-start: 2px solid var(--color-border);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
@@ -64,9 +88,13 @@ export default function Typography() {
           <li>2nd level of jokes: 10 gold coins</li>
           <li>3rd level of one-liners : 20 gold coins</li>
         </ul>
-        <TsxCode
-          code={`ul {\n  display: grid;\n  gap: calc(var(--spacing) * 2);\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n  list-style: disc;\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `ul {\n  display: grid;\n  gap: calc(var(--spacing) * 2);\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n  list-style: disc;\n}`,
+            },
+          ]}
         />
       </article>
       <article>
@@ -74,9 +102,13 @@ export default function Typography() {
         <div>
           <code>@radix-ui/react-alert-dialog</code>
         </div>
-        <TsxCode
-          code={`code {\n  padding: 0.2rem 0.3rem;\n  border-radius: var(--radius-sm);\n  background-color: var(--color-muted);\n  font-family: monospace;\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `code {\n  padding: 0.2rem 0.3rem;\n  border-radius: var(--radius-sm);\n  background-color: var(--color-muted);\n  font-family: monospace;\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
@@ -85,33 +117,49 @@ export default function Typography() {
           A modal dialog that interrupts the user with important content and
           expects a response.
         </p>
-        <TsxCode
-          code={`.lead {\n  color: var(--color-muted-foreground);\n  font-size: var(--text-xl);\n  line-height: var(--text-xl--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `.lead {\n  color: var(--color-muted-foreground);\n  font-size: var(--text-xl);\n  line-height: var(--text-xl--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>Large</h3>
         <p className="large">Are you absolutely sure?</p>
-        <TsxCode
-          code={`.large {\n  font-size: var(--text-lg);\n  font-weight: var(--font-weight-semibold);\n  line-height: var(--text-lg--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `.large {\n  font-size: var(--text-lg);\n  font-weight: var(--font-weight-semibold);\n  line-height: var(--text-lg--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>Small</h3>
         <p className="small">Email address</p>
-        <TsxCode
-          code={`.small {\n  font-size: var(--text-sm);\n  font-weight: var(--font-weight-semibold);\n  line-height: var(--text-sm--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `.small {\n  font-size: var(--text-sm);\n  font-weight: var(--font-weight-semibold);\n  line-height: var(--text-sm--line-height);\n}`,
+            },
+          ]}
         />
       </article>
       <article>
         <h3>Muted</h3>
         <p className="muted">Enter your email address.</p>
-        <TsxCode
-          code={`.muted {\n  color: var(--color-muted-foreground);\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`}
-          fixedHeight={false}
+        <Code
+          code={[
+            {
+              lang: "css",
+              content: `.muted {\n  color: var(--color-muted-foreground);\n  font-size: var(--text-sm);\n  line-height: var(--text-sm--line-height);\n}`,
+            },
+          ]}
         />
       </article>
     </div>
