@@ -110,18 +110,16 @@ function Navigation() {
                   </Link>
                 </CommandItem>
               ))}
-              {DOCS_NAVIGATION.map((group, i) => (
-                <CommandGroup key={i} heading={group.name}>
-                  {group.links.map((link, j) => (
-                    <CommandItem key={j} asChild>
-                      <Link to={`/docs/components/${link.id}`}>
-                        {link.name}
-                      </Link>
-                    </CommandItem>
-                  ))}
-                </CommandGroup>
-              ))}
             </CommandGroup>
+            {DOCS_NAVIGATION.map((group, i) => (
+              <CommandGroup key={i} heading={group.name}>
+                {group.links.map((link, j) => (
+                  <CommandItem key={j} asChild>
+                    <Link to={`/docs/components/${link.id}`}>{link.name}</Link>
+                  </CommandItem>
+                ))}
+              </CommandGroup>
+            ))}
           </CommandList>
         </CommandDialog>
         <Separator orientation="vertical" />
