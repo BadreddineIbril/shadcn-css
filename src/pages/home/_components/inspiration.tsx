@@ -6,10 +6,9 @@ export default function Inspiration() {
   return (
     <section className="inspiration">
       <div className="head">
-        <h3 className="heading">Inspiration</h3>
+        <h3 className="heading">Examples</h3>
         <p className="subheading">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque,
-          minima!
+          A few ways you can use these components in your projects.
         </p>
       </div>
       <div className="cards">

@@ -5,13 +5,19 @@ function formatName(id: string) {
   return (id.charAt(0).toUpperCase() + id.slice(1)).replace("-", " ");
 }
 
-async function copy(content: string) {
+function getCssVarValue(cssVar: string) {
+  return getComputedStyle(document.documentElement).getPropertyValue(
+    `--${cssVar}`
+  );
+}
+
+async function copy(content: string, successMessage: string) {
   if (!content) return;
 
   try {
     await navigator.clipboard.writeText(content);
 
-    toast("Component copied!");
+    toast(successMessage);
   } catch (err) {
     console.error("Failed to copy: ", err);
   }
@@ -46,4 +52,4 @@ function usePagination(pageId: string) {
   };
 }
 
-export { formatName, copy, setMetaTags, usePagination };
+export { formatName, getCssVarValue, copy, setMetaTags, usePagination };

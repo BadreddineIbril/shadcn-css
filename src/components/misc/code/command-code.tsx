@@ -54,7 +54,7 @@ export default function CommandCode({
   const [isCopied, setIsCopied] = useState(false);
 
   function onCopy() {
-    copy(COMMANDS[packageManager]);
+    copy(COMMANDS[packageManager], "Component copied!");
     setIsCopied(true);
 
     const timer = setTimeout(() => setIsCopied(false), 3000);

@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import LogoIcon from "@/assets/icons/logo";
 import Button from "@/components/ui/button";
-import { Github, Grip, Moon, Route, Sun } from "lucide-react";
+import { Github, Grip, House, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   CommandDialog,
@@ -57,7 +57,7 @@ function Navigation() {
           <GlobalNav>
             <div className="category">
               <span className="label">
-                <Route /> Menu
+                <House /> Links
               </span>
               <ul className="links">
                 <li className="link">

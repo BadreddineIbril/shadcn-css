@@ -36,11 +36,31 @@
       gap: calc(var(--spacing) * 4);
 
       .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
         .title {
           font-size: var(--text-sm);
           font-weight: var(--font-weight-medium);
           line-height: var(--text-sm--line-height);
           text-transform: capitalize;
+        }
+
+        .format {
+          display: flex;
+          align-items: center;
+          gap: calc(var(--spacing) * 2);
+
+          .label {
+            color: var(--color-muted-foreground);
+            font-size: var(--text-sm);
+            line-height: var(--text-sm--line-height);
+          }
+
+          .selector {
+            background-color: var(--color-background);
+          }
         }
       }
 
