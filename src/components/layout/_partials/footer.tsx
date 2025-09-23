@@ -2,11 +2,11 @@ function Footer() {
   return (
     <footer data-layout="footer">
       Built by{" "}
-      <a href="http://" target="_blank">
+      <a href="https://ui.shadcn.com" target="_blank">
         shadcn
       </a>
       . Ported to CSS Modules by{" "}
-      <a href="http://" target="_blank">
+      <a href="https://x.com/badr_ibril" target="_blank">
         Badreddine Ibril
       </a>
       .
