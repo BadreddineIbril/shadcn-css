@@ -132,6 +132,11 @@
     pointer-events: none;
   }
 
+  /* Active */
+  &:active {
+    scale: 0.98;
+  }
+
   /* Disabled */
   &:disabled {
     opacity: 0.5;
