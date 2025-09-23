@@ -2,6 +2,8 @@ import "./styles.css";
 import { Copy } from "lucide-react";
 import Button from "@/components/ui/button";
 import Footer from "@/components/layout/_partials/footer";
+import { useEffect } from "react";
+import { setMetaTags } from "@/utils/helpers";
 
 export default function Colors() {
   const TOKENS = [
@@ -28,6 +30,10 @@ export default function Colors() {
     "pink",
     "rose",
   ];
+
+  useEffect(() => {
+    setMetaTags("Colors");
+  }, []);
 
   return (
     <main data-page="colors">

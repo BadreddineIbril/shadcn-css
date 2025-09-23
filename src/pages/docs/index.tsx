@@ -1,21 +1,42 @@
 import "./styles.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useComponent } from "@/contexts";
 import GlobalNav from "./_components/nav/global-nav";
 import LocalNav from "./_components/nav/local-nav";
 import Output from "./_components/output";
 import { getComponent } from "@/components/ui";
+import NotFound from "@/pages/errors/not-found";
+import { formatName, setMetaTags } from "@/utils/helpers";
 
 export default function Docs() {
-  const { id } = useParams();
+  const { section, id } = useParams();
   const { setComponent } = useComponent();
+  const [isAvailable, setIsAvailable] = useState(true);
 
   useEffect(() => {
     if (id) {
-      setComponent(getComponent(id));
+      const component = getComponent(id);
+
+      if (!component) {
+        setIsAvailable(false);
+
+        return;
+      }
+
+      setMetaTags(formatName(component.id), component.description);
+      setComponent(component);
+      setIsAvailable(true);
     }
   }, [id]);
+
+  useEffect(() => {
+    if (section && section !== "components") setMetaTags(formatName(section));
+  }, [section]);
+
+  if (!isAvailable) {
+    return <NotFound />;
+  }
 
   return (
     <main data-page="docs">

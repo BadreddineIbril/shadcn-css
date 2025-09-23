@@ -2,8 +2,14 @@ import "./styles.css";
 import { Link } from "react-router-dom";
 import Separator from "@/components/ui/separator";
 import Button from "@/components/ui/button";
+import { useEffect } from "react";
+import { setMetaTags } from "@/utils/helpers";
 
 function NotFound() {
+  useEffect(() => {
+    setMetaTags("404");
+  }, []);
+
   return (
     <main data-page="404">
       <div className="content">

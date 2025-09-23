@@ -1,6 +1,7 @@
 import type { RegistryDefinition } from "@/types/core";
 import type { ComponentContextDefinition } from "@/types/context";
 import type { ComponentType } from "react";
+import { formatName } from "@/utils/helpers";
 
 const tsxFiles = import.meta.glob("./*/index.tsx", { as: "raw", eager: true });
 const cssFiles = import.meta.glob("./*/styles.module.css", {
@@ -27,7 +28,7 @@ for (const path in registries) {
   const name = path.split("/")[1];
   COMPONENTS[name] = {
     id: name,
-    name: (name.charAt(0).toUpperCase() + name.slice(1)).replace("-", " "),
+    name: formatName(name),
   };
 }
 

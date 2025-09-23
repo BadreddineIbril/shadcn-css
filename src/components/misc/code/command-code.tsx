@@ -6,7 +6,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useTheme } from "@/contexts";
-import { Copy } from "lucide-react";
+import { copy } from "@/utils/helpers";
+import { Check, Copy } from "lucide-react";
 import { useState } from "react";
 import ShikiHighlighter, {
   createHighlighterCore,
@@ -50,6 +51,16 @@ export default function CommandCode({
         : `bun add ${name}`,
   };
 
+  const [isCopied, setIsCopied] = useState(false);
+
+  function onCopy() {
+    copy(COMMANDS[packageManager]);
+    setIsCopied(true);
+
+    const timer = setTimeout(() => setIsCopied(false), 3000);
+    return () => clearTimeout(timer);
+  }
+
   return (
     <div className="code-box">
       <div className="box-head">
@@ -71,8 +82,13 @@ export default function CommandCode({
         <div className="actions">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="sm" className="copy">
-                <Copy />
+              <Button
+                variant="outline"
+                size="sm"
+                className="copy"
+                onClick={onCopy}
+                disabled={isCopied}>
+                {isCopied ? <Check /> : <Copy />}
               </Button>
             </TooltipTrigger>
             <TooltipContent>Copy to Clipboard</TooltipContent>
