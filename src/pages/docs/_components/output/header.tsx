@@ -1,11 +1,15 @@
 import Button from "@/components/ui/button";
 import { useComponent } from "@/contexts";
+import { usePagination } from "@/utils/helpers";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
 export default function Header() {
   const { section, id } = useParams();
   const { component } = useComponent();
+  const { prev, next } = usePagination(
+    section === "components" && id ? id : (section ?? "")
+  );
 
   return (
     <div className="header">
@@ -17,16 +21,18 @@ export default function Header() {
           : section}
       </h1>
       <div className="actions">
-        {component?.pagination.previous?.id && (
-          <Button variant="outline" size="sm" aria-label="back" asChild>
-            <Link to={`/docs/components/${component?.pagination.previous?.id}`}>
+        {prev?.id && (
+          <Button variant="outline" size="sm" asChild>
+            <Link
+              to={`/docs${section === "components" ? "/components" : ""}/${prev.id}`}>
               <ArrowLeft />
             </Link>
           </Button>
         )}
-        {component?.pagination.next?.id && (
-          <Button variant="outline" size="sm" aria-label="back" asChild>
-            <Link to={`/docs/components/${component?.pagination.next?.id}`}>
+        {next?.id && (
+          <Button variant="outline" size="sm" asChild>
+            <Link
+              to={`/docs${section === "components" ? "/components" : ""}/${next.id}`}>
               <ArrowRight />
             </Link>
           </Button>

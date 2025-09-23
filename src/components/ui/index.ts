@@ -53,9 +53,6 @@ export function getComponent(
 
   const usage = usageFiles[`../examples/${name}/usage.tsx`];
 
-  const components = Object.values(COMPONENTS);
-  const index = components.findIndex((i) => i.id === COMPONENTS[name].id);
-
   return {
     ...COMPONENTS[name],
     description: registry.description,
@@ -74,10 +71,6 @@ export function getComponent(
     },
     usage: {
       code: { type: "tsx", content: usage },
-    },
-    pagination: {
-      previous: components[index - 1],
-      next: components[index + 1],
     },
   };
 }

@@ -18,16 +18,6 @@ export interface ComponentContextDefinition {
     usage: {
       code: CodeDefinition;
     };
-    pagination: {
-      previous?: {
-        id: string;
-        name: string;
-      };
-      next?: {
-        id: string;
-        name: string;
-      };
-    };
   };
   setComponent: (component: ComponentContextDefinition["component"]) => void;
 }

@@ -1,24 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Button from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useComponent } from "@/contexts";
+import { usePagination } from "@/utils/helpers";
 
 export default function Pagination() {
-  const { component } = useComponent();
+  const { section, id } = useParams();
+  const { prev, next } = usePagination(
+    section === "components" && id ? id : (section ?? "")
+  );
 
   return (
     <div className="pagination">
-      {component?.pagination.previous && (
+      {prev?.id && (
         <Button variant="outline" size="sm" asChild>
-          <Link to={`/docs/components/${component?.pagination.previous.id}`}>
-            <ArrowLeft /> {component?.pagination.previous.name}
+          <Link
+            to={`/docs${section === "components" ? "/components" : ""}/${prev.id}`}>
+            <ArrowLeft /> {prev.name}
           </Link>
         </Button>
       )}
-      {component?.pagination.next && (
+      {next?.id && (
         <Button variant="outline" size="sm" asChild>
-          <Link to={`/docs/components/${component?.pagination.next.id}`}>
-            {component?.pagination.next.name}
+          <Link
+            to={`/docs${section === "components" ? "/components" : ""}/${next.id}`}>
+            {next.name}
             <ArrowRight />
           </Link>
         </Button>

@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { DOCS_NAVIGATION } from "./constants";
 
 function formatName(id: string) {
   return (id.charAt(0).toUpperCase() + id.slice(1)).replace("-", " ");
@@ -33,4 +34,16 @@ function setMetaTags(
   for (const desc of descriptions) desc.content = description;
 }
 
-export { formatName, copy, setMetaTags };
+function usePagination(pageId: string) {
+  const allLinks = DOCS_NAVIGATION.flatMap((section) => section.links);
+  const index = allLinks.findIndex((link) => link.id === pageId);
+
+  if (index === -1) return { prev: null, next: null };
+
+  return {
+    prev: allLinks[index - 1] || null,
+    next: allLinks[index + 1] || null,
+  };
+}
+
+export { formatName, copy, setMetaTags, usePagination };
