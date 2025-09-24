@@ -3,7 +3,10 @@
   display: grid;
   gap: calc(var(--spacing) * 2);
   padding: calc(var(--spacing) * 12);
-  border-block-end: 1px solid var(--color-border);
+
+  &:not(:has(.actions)) {
+    border-block-end: 1px solid var(--color-border);
+  }
 
   .heading {
     font-size: var(--text-3xl);
@@ -19,11 +22,17 @@
 
   .actions {
     display: flex;
+    flex-wrap: wrap;
     justify-content: end;
     gap: calc(var(--spacing) * 2);
 
-    & > a {
-      width: calc(var(--spacing) * 8);
+    .pages {
+      display: flex;
+      gap: calc(var(--spacing) * 2);
+
+      & > a {
+        width: calc(var(--spacing) * 8);
+      }
     }
   }
 }
@@ -104,10 +113,55 @@
   }
 }
 
+/* PREVIEW */
+[data-misc="preview"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 450px;
+  padding: calc(var(--spacing) * 10);
+  overflow-y: scroll;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
+  background-image:
+    linear-gradient(var(--color-muted) 0.5px, transparent 0.5px),
+    linear-gradient(to right, var(--color-muted) 0.5px, transparent 0.5px);
+  background-size: 80px 80px;
+
+  .preview-area {
+    display: flex;
+    justify-content: center;
+    width: 450px;
+  }
+}
+
+/* Code Tag */
+.code-tag {
+  padding: 0.2rem 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-code);
+  color: var(--color-code-foreground);
+  font-family: monospace;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+}
+
 /* Responsive */
 @media (width <= 1024px) {
   [data-misc="head"] {
+    position: sticky;
+    z-index: 2;
+    inset-block-start: -1px;
+    backdrop-filter: blur(2px);
     padding: calc(var(--spacing) * 6);
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-secondary),
+      var(--color-secondary),
+      transparent
+    );
 
     .heading {
       font-size: var(--text-2xl);
@@ -117,6 +171,23 @@
     .subheading {
       font-size: var(--text-sm);
       line-height: var(--text-sm--line-height);
+    }
+  }
+
+  [data-misc="preview"] {
+    .preview-area {
+      width: 100%;
+    }
+  }
+
+  .dark {
+    [data-misc="head"] {
+      background-image: linear-gradient(
+        to bottom,
+        var(--color-background),
+        var(--color-background),
+        transparent
+      );
     }
   }
 }

@@ -58,26 +58,32 @@ export default function Head({
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          {prev?.id && (
-            <Button
-              variant="outline"
-              size="sm"
-              aria-label="previous page"
-              asChild>
-              <Link
-                to={`/docs${section === "components" && prev.id !== "manual" ? "/components" : ""}/${prev.id}`}>
-                <ArrowLeft />
-              </Link>
-            </Button>
-          )}
-          {next?.id && (
-            <Button variant="outline" size="sm" aria-label="next page" asChild>
-              <Link
-                to={`/docs${section === "components" || section === "manual" ? "/components" : ""}/${next.id}`}>
-                <ArrowRight />
-              </Link>
-            </Button>
-          )}
+          <div className="pages">
+            {prev?.id && (
+              <Button
+                variant="outline"
+                size="sm"
+                aria-label="previous page"
+                asChild>
+                <Link
+                  to={`/docs${section === "components" && prev.id !== "manual" ? "/components" : ""}/${prev.id}`}>
+                  <ArrowLeft />
+                </Link>
+              </Button>
+            )}
+            {next?.id && (
+              <Button
+                variant="outline"
+                size="sm"
+                aria-label="next page"
+                asChild>
+                <Link
+                  to={`/docs${section === "components" || section === "manual" ? "/components" : ""}/${next.id}`}>
+                  <ArrowRight />
+                </Link>
+              </Button>
+            )}
+          </div>
         </div>
       )}
       <p className="subheading">{subheading}</p>

@@ -1,11 +1,12 @@
 import Code from "@/components/misc/code";
+import Preview from "@/components/misc/preview";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useComponent } from "@/contexts";
 
 export default function Base() {
   const { component } = useComponent();
 
-  const Preview = component?.base.preview;
+  const CodePreview = component?.base.preview;
 
   return (
     <section className="base-box">
@@ -15,9 +16,11 @@ export default function Base() {
           <TabsTrigger value="code">Code</TabsTrigger>
         </TabsList>
         <TabsContent value="preview">
-          <div className="preview-wrapper">
-            <div className="preview-area">{Preview && <Preview />}</div>
-          </div>
+          {CodePreview && (
+            <Preview>
+              <CodePreview />
+            </Preview>
+          )}
         </TabsContent>
         <TabsContent value="code">
           <Code

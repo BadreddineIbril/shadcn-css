@@ -51,8 +51,8 @@
     &.local-nav {
       .category {
         .links {
-          .link:not(:first-child) {
-            a {
+          .link {
+            a[data-active="false"] {
               color: var(--color-muted-foreground);
             }
           }
@@ -63,6 +63,8 @@
 
   /* Output */
   .output {
+    display: flex;
+    flex-direction: column;
     height: calc(100vh - 65px);
     overflow: scroll;
     scroll-behavior: smooth;
@@ -149,6 +151,7 @@
 
     /* Content */
     .content {
+      flex: 2;
       padding: calc(var(--spacing) * 12);
       border-block: 1px solid var(--color-border);
     }
@@ -159,6 +162,10 @@
       align-items: center;
       justify-content: space-between;
       padding: calc(var(--spacing) * 12);
+
+      &:not(:has(a:nth-child(2))) {
+        justify-content: flex-end;
+      }
     }
   }
 }

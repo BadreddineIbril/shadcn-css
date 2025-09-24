@@ -1,7 +1,3 @@
-@import url("./tokens.css");
-@import url("./layout.css");
-@import url("./misc.css");
-
 :root {
   --radius: 0.625rem;
   --background: oklch(100% 0 0deg);
@@ -106,11 +102,4 @@ table {
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--color-secondary);
-  color: var(--color-foreground);
-  font-size: var(--text-base);
-  line-height: var(--text-base--line-height);
 }
