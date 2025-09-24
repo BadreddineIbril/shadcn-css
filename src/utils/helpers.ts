@@ -81,10 +81,22 @@ function getCommands(name: string) {
   );
 }
 
+function getAIPrompt(model: "v0" | "gpt" | "claude") {
+  const models = {
+    v0: "https://v0.app",
+    gpt: "https://chatgpt.com",
+    claude: "https://claude.ai/new",
+  };
+  const prompt = `I'm looking at this shadcn-css documentation: ${location.href}. \nHelp me understand how to use it. Be ready to explain concepts, give examples, or help debug based on it.`;
+
+  return `${models[model]}?q=${encodeURIComponent(prompt)}`;
+}
+
 export {
   formatName,
   getCssVarValue,
   getCommands,
+  getAIPrompt,
   copy,
   setMetaTags,
   usePagination,

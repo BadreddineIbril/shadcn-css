@@ -16,6 +16,16 @@
     color: var(--color-muted-foreground);
     text-wrap: balance;
   }
+
+  .actions {
+    display: flex;
+    justify-content: end;
+    gap: calc(var(--spacing) * 2);
+
+    & > a {
+      width: calc(var(--spacing) * 8);
+    }
+  }
 }
 
 /* CODE */

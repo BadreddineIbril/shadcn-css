@@ -1,19 +1,30 @@
-import Base from "./base";
-import Content from "./content";
-import Header from "./header";
-import Installation from "./installation";
-import Pagination from "./pagination";
-import Usage from "./usage";
+import Base from "./_partials/base";
+import Content from "./_partials/content";
+import Installation from "./_partials/installation";
+import Pagination from "./_partials/pagination";
+import Usage from "./_partials/usage";
+import Head from "@/components/misc/head";
 import Footer from "@/components/layout/_partials/footer";
 import { COMPONENTS } from "@/components/ui";
 import { Link, useParams } from "react-router-dom";
+import { useComponent } from "@/contexts";
 
 export default function Output() {
   const { section, id } = useParams();
+  const { component } = useComponent();
+
+  const heading =
+    section === "components" ? (!id ? "Components" : component?.name) : section;
+  const subheading =
+    section === "components"
+      ? !id
+        ? "Here you can find all the components available in the library. We are working on adding more components."
+        : component?.description
+      : "Description";
 
   return (
     <div className="output">
-      <Header />
+      <Head heading={heading ?? ""} subheading={subheading ?? ""} withActions />
       {section === "components" ? (
         id ? (
           <div className="component">
