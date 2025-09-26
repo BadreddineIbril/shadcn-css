@@ -1,11 +1,23 @@
 {
   "name": "shadcn-css",
+  "description": "Add components to your apps.",
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "author": {
+    "name": "badreddine ibril",
+    "url": "https://x.com/badr_ibril"
+  },
+  "keywords": [
+    "components",
+    "ui",
+    "css",
+    "radix-ui",
+    "shadcn"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint:eslint": "eslint \"src/**/*.{ts,tsx,js,jsx,json}\"",
     "lint:eslint:fix": "bun run lint:eslint -- --fix",
