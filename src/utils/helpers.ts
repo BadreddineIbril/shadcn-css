@@ -92,11 +92,29 @@ function getAIPrompt(model: "v0" | "gpt" | "claude") {
   return `${models[model]}?q=${encodeURIComponent(prompt)}`;
 }
 
+function getBaseStyles() {
+  const [tokens] = Object.values(
+    import.meta.glob("../assets/styles/base/tokens.css", {
+      as: "raw",
+      eager: true,
+    })
+  );
+  const [globals] = Object.values(
+    import.meta.glob("../assets/styles/base/globals.css", {
+      as: "raw",
+      eager: true,
+    })
+  );
+
+  return { tokens, globals };
+}
+
 export {
   formatName,
   getCssVarValue,
   getCommands,
   getAIPrompt,
+  getBaseStyles,
   copy,
   setMetaTags,
   usePagination,
