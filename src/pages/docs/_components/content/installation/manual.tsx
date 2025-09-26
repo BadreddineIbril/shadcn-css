@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 export default function Manual() {
   return (
     <div data-content="manual">
-      <article>
+      <article id="add-dependencies">
         <h3>Add dependencies</h3>
         <p>Add the following dependencies to your project:</p>
         <Code variant="dependencies" name="lucide-react" code={[]} />
       </article>
-      <article>
+      <article id="configure-path-aliases">
         <h3>Configure path aliases</h3>
         <p>
           Configure the path aliases in your{" "}
@@ -28,7 +28,7 @@ export default function Manual() {
           can use other aliases if you want.
         </p>
       </article>
-      <article>
+      <article id="configure-styles">
         <h3>Configure styles</h3>
         <p>
           Add the following to your{" "}
@@ -62,7 +62,7 @@ export default function Manual() {
           ]}
         />
       </article>
-      <article>
+      <article id="create-a-component-json-file">
         <h3>Create a components.json file</h3>
         <p>
           Create a <small className="code-tag">components.json file</small> in
@@ -77,7 +77,7 @@ export default function Manual() {
           ]}
         />
       </article>
-      <article>
+      <article id="thats-it">
         <h3>That's it</h3>
         <p>You can now start adding components to your project.</p>
       </article>

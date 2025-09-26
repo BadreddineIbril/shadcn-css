@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function Cli() {
   return (
     <div data-content="cli">
-      <article>
+      <article id="init">
         <h3>init</h3>
         <p>
           Use the <small className="code-tag">init</small> command to initialize
@@ -25,7 +25,7 @@ export default function Cli() {
           ]}
         />
       </article>
-      <article>
+      <article id="add">
         <h3>add</h3>
         <p>
           Use the <small className="code-tag">add</small> command to add
@@ -46,7 +46,7 @@ export default function Cli() {
           ]}
         />
       </article>
-      <article>
+      <article id="list">
         <h3>list</h3>
         <p>
           Use the <small className="code-tag">list</small> command to list all

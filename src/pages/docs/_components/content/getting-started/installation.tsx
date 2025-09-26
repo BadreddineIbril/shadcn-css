@@ -26,7 +26,7 @@ export default function Installation() {
 
   return (
     <div data-content="installation">
-      <article>
+      <article id="pick-your-framework">
         <h3>Pick Your Framework</h3>
         <p>
           Start by selecting your framework of choice. Then follow the

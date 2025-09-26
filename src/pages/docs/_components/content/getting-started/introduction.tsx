@@ -35,7 +35,7 @@ export default function Introduction() {
           . Now it's out here, hope it helps.
         </p>
       </article>
-      <article>
+      <article id="faq">
         <h3>FAQ</h3>
         <Accordion type="multiple">
           <AccordionItem value="vs">

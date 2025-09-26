@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function Vite() {
   return (
     <div data-content="vite">
-      <article>
+      <article id="create-project">
         <h3>Create project</h3>
         <p>
           Start by creating a new React project using{" "}
@@ -12,7 +12,7 @@ export default function Vite() {
         </p>
         <Code variant="dependencies" name="create vite@latest" code={[]} />
       </article>
-      <article>
+      <article id="edit-tsconfigjson-file">
         <h3>Edit tsconfig.json file</h3>
         <p>
           The current version of Vite splits TypeScript configuration into three
@@ -35,7 +35,7 @@ export default function Vite() {
           ]}
         />
       </article>
-      <article>
+      <article id="edit-tsconfigappjson-file">
         <h3>Edit tsconfig.app.json file</h3>
         <p>
           Add the following code to the{" "}
@@ -54,7 +54,7 @@ export default function Vite() {
           ]}
         />
       </article>
-      <article>
+      <article id="update-viteconfigts">
         <h3>Update vite.config.ts</h3>
         <p>
           Add the following code to the{" "}
@@ -74,7 +74,7 @@ export default function Vite() {
           ]}
         />
       </article>
-      <article>
+      <article id="run-the-cli">
         <h3>Run the CLI</h3>
         <p>
           Run the <small className="code-tag">shadcn-css</small> init command to
@@ -82,7 +82,7 @@ export default function Vite() {
         </p>
         <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
       </article>
-      <article>
+      <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
         <Code

@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function Typography() {
   return (
     <div data-content="typography">
-      <article>
+      <article id="h1">
         <h3>h1</h3>
         <p className="h1">Taxing Laughter: The Joke Tax Chronicles</p>
         <Code
@@ -15,7 +15,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="h2">
         <h3>h2</h3>
         <p className="h2">The People of the Kingdom</p>
         <Code
@@ -27,7 +27,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="h3">
         <h3>h3</h3>
         <p className="h3">The Joke Tax</p>
         <Code
@@ -39,7 +39,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="h4">
         <h3>h4</h3>
         <p className="h4">People stopped telling jokes</p>
         <Code
@@ -51,7 +51,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="p">
         <h3>p</h3>
         <p className="p">
           The king, seeing how much happier his subjects were, realized the
@@ -66,7 +66,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="blockquote">
         <h3>blockquote</h3>
         <blockquote>
           "After all," he said, "everyone enjoys a good joke, so it's only fair
@@ -81,7 +81,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="list">
         <h3>list</h3>
         <ul>
           <li>1st level of puns: 5 gold coins</li>
@@ -97,7 +97,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="inline-code">
         <h3>Inline code</h3>
         <div>
           <code>@radix-ui/react-alert-dialog</code>
@@ -111,7 +111,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="lead">
         <h3>Lead</h3>
         <p className="lead">
           A modal dialog that interrupts the user with important content and
@@ -126,7 +126,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="large">
         <h3>Large</h3>
         <p className="large">Are you absolutely sure?</p>
         <Code
@@ -138,7 +138,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="small">
         <h3>Small</h3>
         <p className="small">Email address</p>
         <Code
@@ -150,7 +150,7 @@ export default function Typography() {
           ]}
         />
       </article>
-      <article>
+      <article id="muted">
         <h3>Muted</h3>
         <p className="muted">Enter your email address.</p>
         <Code

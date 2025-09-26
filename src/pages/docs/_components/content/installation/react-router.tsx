@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function ReactRouter() {
   return (
     <div data-content="react-router">
-      <article>
+      <article id="create-router">
         <h3>Create project</h3>
         <Code
           variant="dependencies"
@@ -11,7 +11,7 @@ export default function ReactRouter() {
           code={[]}
         />
       </article>
-      <article>
+      <article id="run-the-cli">
         <h3>Run the CLI</h3>
         <p>
           Run the <small className="code-tag">shadcn-css</small> init command to
@@ -19,7 +19,7 @@ export default function ReactRouter() {
         </p>
         <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
       </article>
-      <article>
+      <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
         <Code

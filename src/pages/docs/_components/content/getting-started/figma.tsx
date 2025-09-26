@@ -1,7 +1,7 @@
 export default function Figma() {
   return (
     <div data-content="figma">
-      <article>
+      <article id="paid">
         <h3>Paid</h3>
         <ul>
           <li>
@@ -28,7 +28,7 @@ export default function Figma() {
           </li>
         </ul>
       </article>
-      <article>
+      <article id="free">
         <h3>Free</h3>
         <ul>
           <li>

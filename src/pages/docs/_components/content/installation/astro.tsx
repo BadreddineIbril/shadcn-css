@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function Astro() {
   return (
     <div data-content="astro">
-      <article>
+      <article id="create-project">
         <h3>Create project</h3>
         <p>Start by creating a new Astro project:</p>
         <Code
@@ -12,7 +12,7 @@ export default function Astro() {
           code={[]}
         />
       </article>
-      <article>
+      <article id="edit-tsconfigjson-file">
         <h3>Edit tsconfig.json file</h3>
         <p>
           Add the following code to the{" "}
@@ -28,7 +28,7 @@ export default function Astro() {
           ]}
         />
       </article>
-      <article>
+      <article id="run-the-cli">
         <h3>Run the CLI</h3>
         <p>
           Run the <small className="code-tag">shadcn-css</small> init command to
@@ -36,7 +36,7 @@ export default function Astro() {
         </p>
         <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
       </article>
-      <article>
+      <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
         <Code

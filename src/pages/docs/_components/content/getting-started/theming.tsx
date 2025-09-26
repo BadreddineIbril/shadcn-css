@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function Theming() {
   return (
     <div data-content="theming">
-      <article>
+      <article id="convention">
         <h3>Convention</h3>
         <p>
           We use a simple <small className="code-tag">background</small> and{" "}
@@ -37,6 +37,8 @@ export default function Theming() {
             },
           ]}
         />
+      </article>
+      <article id="list-of-variables">
         <h3>List of variables</h3>
         <p>Here's the list of variables available for customization:</p>
         <Code
@@ -47,6 +49,8 @@ export default function Theming() {
             },
           ]}
         />
+      </article>
+      <article id="tokens">
         <h3>Tokens</h3>
         <Code
           fixedHight
@@ -57,6 +61,8 @@ export default function Theming() {
             },
           ]}
         />
+      </article>
+      <article id="adding-new-colors">
         <h3>Adding new colors</h3>
         <Code
           code={[

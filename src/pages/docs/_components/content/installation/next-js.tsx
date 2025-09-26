@@ -3,7 +3,7 @@ import Code from "@/components/misc/code";
 export default function NextJs() {
   return (
     <div data-content="next-js">
-      <article>
+      <article id="create-project">
         <h3>Create project</h3>
         <p>
           Run the <small className="code-tag">init</small> command to create a
@@ -11,7 +11,7 @@ export default function NextJs() {
         </p>
         <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
       </article>
-      <article>
+      <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
         <Code
