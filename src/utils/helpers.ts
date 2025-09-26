@@ -98,13 +98,13 @@ function getBaseStyles() {
       query: "?raw",
       eager: true,
     })
-  );
+  ) as [string];
   const [globals] = Object.values(
     import.meta.glob("../assets/styles/base/globals.css", {
       query: "?raw",
       eager: true,
     })
-  );
+  ) as [string];
 
   return { tokens, globals };
 }
