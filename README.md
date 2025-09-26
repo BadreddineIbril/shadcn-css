@@ -1,6 +1,6 @@
 # shadcn/css
 
-Beautifully designed components that you can copy and paste into your apps. Made with <b>CSS Modules</b> instead <b>Tailwind CSS</b>. Open source.
+Beautifully designed components that you can copy and paste into your apps. Made with <b>CSS Modules</b> instead <b><s>Tailwind CSS</s></b>. Open source.
 
 <img 
   src="https://res.cloudinary.com/db5lnd1t6/image/upload/v1758901489/Screenshot_2025-09-26_at_16.43.46_twt1ry.png" 
