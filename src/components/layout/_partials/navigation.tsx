@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import LogoIcon from "@/assets/icons/logo";
 import Button from "@/components/ui/button";
-import { Github, Grip, AlignStartVertical, Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import {
+  Github,
+  Grip,
+  AlignStartVertical,
+  Moon,
+  Sun,
+  Coffee,
+} from "lucide-react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -134,6 +141,11 @@ function Navigation() {
           </CommandList>
         </CommandDialog>
         <Separator orientation="vertical" />
+        <Button variant="ghost" size="sm" aria-label="donation" asChild>
+          <a href="https://ko-fi.com/bibril" target="_blank">
+            <Coffee />
+          </a>
+        </Button>
         <Button variant="ghost" size="sm" aria-label="github" asChild>
           <a
             href="https://github.com/BadreddineIbril/shadcn-css"

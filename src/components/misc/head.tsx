@@ -37,7 +37,7 @@ export default function Head({
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm">
-                <SparklesIcon /> Vibe coder?
+                <SparklesIcon /> Vibe coding?
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="vibe-coder">

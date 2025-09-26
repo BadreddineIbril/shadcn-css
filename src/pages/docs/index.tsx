@@ -8,6 +8,7 @@ import Output from "./_components/output";
 import { getComponent } from "@/components/ui";
 import NotFound from "@/pages/errors/not-found";
 import { formatName, setMetaTags } from "@/utils/helpers";
+import { DOCS_NAVIGATION } from "@/utils/constants";
 
 export default function Docs() {
   const { section, id } = useParams();
@@ -31,7 +32,21 @@ export default function Docs() {
   }, [id]);
 
   useEffect(() => {
-    if (section && section !== "components") setMetaTags(formatName(section));
+    if (
+      !section ||
+      (section !== "components" &&
+        !DOCS_NAVIGATION.filter(
+          (d) => d.name === "Getting Started" || d.name === "Installation"
+        )
+          .flatMap((d) => d.links)
+          .find((l) => l.id === section))
+    ) {
+      setIsAvailable(false);
+
+      return;
+    }
+
+    if (section) setMetaTags(formatName(section));
   }, [section]);
 
   if (!isAvailable) {

@@ -17,29 +17,100 @@ const DOCS_NAVIGATION: NavigationDefinition[] = [
     icon: Send,
     name: "Getting Started",
     links: [
-      { name: "Introduction", id: "introduction" },
-      { name: "Installation", id: "installation" },
-      { name: "components.json", id: "components.json" },
-      { name: "Theming", id: "theming" },
-      { name: "Dark mode", id: "dark-mode" },
-      { name: "CLI", id: "cli" },
-      { name: "Typography", id: "typography" },
-      { name: "Figma", id: "figma" },
-      { name: "Changelog", id: "changelog" },
+      {
+        name: "Introduction",
+        id: "introduction",
+        description:
+          "Beautifully designed components that you can copy and paste into your apps. Made with CSS Modules instead Tailwind CSS. Open source.",
+      },
+      {
+        name: "Installation",
+        id: "installation",
+        description: "How to install dependencies and structure your app.",
+      },
+      {
+        name: "components.json",
+        id: "components.json",
+        description: "Configuration for your project.",
+      },
+      {
+        name: "Theming",
+        id: "theming",
+        description:
+          "Use CSS Variables to customize the look and feel of your application.",
+      },
+      {
+        name: "Dark mode",
+        id: "dark-mode",
+        description: "Adding dark mode to your site.",
+      },
+      {
+        name: "CLI",
+        id: "cli",
+        description: "Use the CLI to add components to your project.",
+      },
+      {
+        name: "Typography",
+        id: "typography",
+        description: "Styles for headings, paragraphs, lists...etc",
+      },
+      {
+        name: "Figma",
+        id: "figma",
+        description:
+          "Every component recreated in Figma. With customizable props, typography and icons.",
+      },
+      {
+        name: "Changelog",
+        id: "changelog",
+        description: "Latest updates and announcements.",
+      },
     ],
   },
   {
     icon: Box,
     name: "Installation",
     links: [
-      { name: "Vite", id: "vite" },
-      { name: "Next.js", id: "next" },
-      { name: "Laravel", id: "laravel" },
-      { name: "React Router", id: "react-router" },
-      { name: "Astro", id: "astro" },
-      { name: "TanStack Start", id: "tanstack" },
-      { name: "TanStack Router", id: "tanstack-router" },
-      { name: "Manual", id: "manual" },
+      {
+        name: "Vite",
+        id: "vite",
+        description: "Install and configure shadcn/css for Vite.",
+      },
+      {
+        name: "Next.js",
+        id: "next",
+        description: "Install and configure shadcn/css for Next.js.",
+      },
+      {
+        name: "Laravel",
+        id: "laravel",
+        description: "Install and configure shadcn/css for Laravel.",
+      },
+      {
+        name: "React Router",
+        id: "react-router",
+        description: "Install and configure shadcn/css for React Router.",
+      },
+      {
+        name: "Astro",
+        id: "astro",
+        description: "Install and configure shadcn/css for Astro.",
+      },
+      {
+        name: "TanStack Start",
+        id: "tanstack",
+        description: "Install and configure shadcn/css for TankStack Start.",
+      },
+      {
+        name: "TanStack Router",
+        id: "tanstack-router",
+        description: "Install and configure shadcn/css for TankStack Router.",
+      },
+      {
+        name: "Manual",
+        id: "manual",
+        description: "Add dependencies to your project manually.",
+      },
     ],
   },
   {

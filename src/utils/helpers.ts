@@ -56,19 +56,19 @@ function usePagination(pageId: string) {
 function getCommands(name: string) {
   const templates = {
     pnpm: {
-      registry: `pnpm dlx shadcn-css add ${name}`,
+      registry: `pnpm dlx shadcn-css@latest add ${name}`,
       default: `pnpm add ${name}`,
     },
     npm: {
-      registry: `npm shadcn-css add ${name}`,
+      registry: `npx shadcn-css@latest add ${name}`,
       default: `npm install ${name}`,
     },
     yarn: {
-      registry: `yarn shadcn-css add ${name}`,
+      registry: `yarn shadcn-css@latest add ${name}`,
       default: `yarn add ${name}`,
     },
     bun: {
-      registry: `bunx --bun shadcn-css add ${name}`,
+      registry: `bunx --bun shadcn-css@latest add ${name}`,
       default: `bun add ${name}`,
     },
   };

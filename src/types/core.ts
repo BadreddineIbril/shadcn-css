@@ -10,6 +10,7 @@ export interface RegistryDefinition {
 export interface LinkDefinition {
   id: string;
   name: string;
+  description?: string;
 }
 
 export interface NavigationDefinition {

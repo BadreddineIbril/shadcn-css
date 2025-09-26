@@ -18,9 +18,9 @@ interface DependenciesProps {
 }
 
 export default function DependenciesHead({
+  name,
   pm,
   setPm,
-  name,
 }: DependenciesProps) {
   const [isCopied, setIsCopied] = useState(false);
 

@@ -25,6 +25,9 @@ const highlighter = await createHighlighterCore({
     import("@shikijs/langs/tsx"),
     import("@shikijs/langs/css"),
     import("@shikijs/langs/bash"),
+    import("@shikijs/langs/astro"),
+    import("@shikijs/langs/json"),
+    import("@shikijs/langs/ts"),
   ],
   engine: createOnigurumaEngine(import("shiki/wasm")),
 });
@@ -36,7 +39,7 @@ interface CodeProps {
   fixedHight?: boolean;
 }
 
-type Language = "tsx" | "css" | "bash";
+type Language = "tsx" | "css" | "bash" | "astro" | "json" | "ts";
 
 export default function Code({
   variant = "normal",

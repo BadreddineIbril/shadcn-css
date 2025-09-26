@@ -8,19 +8,26 @@ import Footer from "@/components/layout/_partials/footer";
 import { COMPONENTS } from "@/components/ui";
 import { Link, useParams } from "react-router-dom";
 import { useComponent } from "@/contexts";
+import { DOCS_NAVIGATION } from "@/utils/constants";
 
 export default function Output() {
   const { section, id } = useParams();
   const { component } = useComponent();
 
   const heading =
-    section === "components" ? (!id ? "Components" : component?.name) : section;
+    section === "components"
+      ? !id
+        ? "Components"
+        : component?.name
+      : DOCS_NAVIGATION.flatMap((d) => d.links).find((l) => l.id === section)
+          ?.name;
   const subheading =
     section === "components"
       ? !id
         ? "Here you can find all the components available in the library. We are working on adding more components."
         : component?.description
-      : "Description";
+      : DOCS_NAVIGATION.flatMap((d) => d.links).find((l) => l.id === section)
+          ?.description;
 
   return (
     <div className="output">

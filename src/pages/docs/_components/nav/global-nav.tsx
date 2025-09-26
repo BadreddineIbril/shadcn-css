@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Button from "@/components/ui/button";
 import { useComponent } from "@/contexts";
 import { DOCS_NAVIGATION } from "@/utils/constants";
 import type { ReactNode } from "react";
 
 export default function GlobalNav({ children }: { children?: ReactNode }) {
+  const { section } = useParams();
   const { component } = useComponent();
 
   return (
@@ -22,7 +23,12 @@ export default function GlobalNav({ children }: { children?: ReactNode }) {
               {category.links.map((link) => (
                 <li className="link" key={link.id}>
                   <Button
-                    variant={component?.id === link.id ? "secondary" : "ghost"}
+                    variant={
+                      (section === "components" ? component?.id : section) ===
+                      link.id
+                        ? "secondary"
+                        : "ghost"
+                    }
                     size="sm"
                     asChild>
                     <Link to={`/docs${i < 2 ? "" : "/components"}/${link.id}`}>
