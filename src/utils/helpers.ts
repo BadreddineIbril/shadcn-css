@@ -95,13 +95,13 @@ function getAIPrompt(model: "v0" | "gpt" | "claude") {
 function getBaseStyles() {
   const [tokens] = Object.values(
     import.meta.glob("../assets/styles/base/tokens.css", {
-      as: "raw",
+      query: "?raw",
       eager: true,
     })
   );
   const [globals] = Object.values(
     import.meta.glob("../assets/styles/base/globals.css", {
-      as: "raw",
+      query: "?raw",
       eager: true,
     })
   );
