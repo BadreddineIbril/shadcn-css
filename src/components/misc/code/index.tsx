@@ -98,7 +98,8 @@ export default function Code({
             size="sm"
             className="copy"
             onClick={onCopy}
-            disabled={isCopied}>
+            disabled={isCopied}
+            aria-label="copy">
             {isCopied ? <Check /> : <Copy />}
           </Button>
         </TooltipTrigger>
