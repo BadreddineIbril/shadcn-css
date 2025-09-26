@@ -19,3 +19,7 @@ For more information: https://shadcn-css.com/docs/cli.
 ## License
 
 Licensed under the [MIT license](https://github.com/BadreddineIbril/shadcn-css/blob/main/LICENCE.md).
+
+## Keep this project alive
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/bibril)
