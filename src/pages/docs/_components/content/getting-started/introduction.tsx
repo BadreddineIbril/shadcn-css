@@ -35,6 +35,26 @@ export default function Introduction() {
           . Now it's out here, hope it helps.
         </p>
       </article>
+      <article id="next-step">
+        <h3>What's next?</h3>
+        <p>
+          Provide all the components from the original set. Here are the ones
+          missing so far:
+        </p>
+        <ul>
+          <li>Calender</li>
+          <li>Chart</li>
+          <li>Date Picker</li>
+          <li>Navigation Menu</li>
+        </ul>
+        <p>
+          This version will be updated with any new components{" "}
+          <a href="https://ui.shadcn.com" target="_blank">
+            shadcn/ui
+          </a>{" "}
+          publishes, ensuring it stays current.
+        </p>
+      </article>
       <article id="faq">
         <h3>FAQ</h3>
         <Accordion type="multiple">
