@@ -1,4 +1,11 @@
-# shadcn/css
+<div>
+  <img 
+    src="https://raw.githubusercontent.com/BadreddineIbril/shadcn-css/main/src/assets/images/logo.ico" 
+    alt="shadcn/css"
+    width="64"
+  />
+  <h1>shadcn-css</h1>
+</div>
 
 [shadcn-css](https://shadcn-css.com) is an unofficial CSS Modules port of [shadcn/ui](https://ui.shadcn.com).
 
