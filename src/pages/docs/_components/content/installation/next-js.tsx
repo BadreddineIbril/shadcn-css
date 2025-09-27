@@ -9,16 +9,12 @@ export default function NextJs() {
           Run the <small className="code-tag">init</small> command to create a
           new Next.js project or to setup an existing one:
         </p>
-        <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
+        <Code variant="shadcn-css" name="init" code={[]} />
       </article>
       <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
-        <Code
-          variant="dependencies"
-          name="shadcn-css@latest add button"
-          code={[]}
-        />
+        <Code variant="shadcn-css" name="add button" code={[]} />
         <p>
           The command above will add the{" "}
           <small className="code-tag">Button</small> component to your project.

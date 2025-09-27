@@ -13,19 +13,21 @@ import type { PackageManagers } from "@/types/core";
 
 interface DependenciesProps {
   name: string;
+  variant: "dependencies" | "shadcn-css" | "global";
   pm: PackageManagers;
   setPm: (pm: PackageManagers) => void;
 }
 
 export default function DependenciesHead({
   name,
+  variant,
   pm,
   setPm,
 }: DependenciesProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   function onCopy() {
-    copy(getCommands(name)[pm], "Component copied!");
+    copy(getCommands(name, variant)[pm], "Component copied!");
     setIsCopied(true);
 
     const timer = setTimeout(() => setIsCopied(false), 3000);

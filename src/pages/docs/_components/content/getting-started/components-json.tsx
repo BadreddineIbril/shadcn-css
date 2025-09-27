@@ -22,7 +22,7 @@ export default function ComponentJson() {
           You can create a <small className="code-tag">components.json</small>{" "}
           file in your project by running the following command:
         </p>
-        <Code variant="dependencies" code={[]} name="shadcn-css@latest init" />
+        <Code variant="shadcn-css" code={[]} name="init" />
         <p>
           See the <Link to="/docs/cli">CLI section</Link> for more information.
         </p>

@@ -33,7 +33,7 @@ const highlighter = await createHighlighterCore({
 });
 
 interface CodeProps {
-  variant?: "registry" | "dependencies" | "normal";
+  variant?: "registry" | "dependencies" | "shadcn-css" | "global" | "normal";
   code: { lang: Language; content: string }[];
   name?: string;
   fixedHight?: boolean;
@@ -59,7 +59,7 @@ export default function Code({
       ? code[0].content
       : variant === "registry"
         ? (code.find((c) => c.lang === language)?.content ?? "")
-        : getCommands(name)[pm];
+        : getCommands(name, variant)[pm];
   }
 
   function onCopy() {
@@ -79,8 +79,10 @@ export default function Code({
           setLanguage={setLanguage}
         />
       )}
-      {variant === "dependencies" && (
-        <DependenciesHead name={name} pm={pm} setPm={setPm} />
+      {(variant === "dependencies" ||
+        variant === "shadcn-css" ||
+        variant === "global") && (
+        <DependenciesHead name={name} variant={variant} pm={pm} setPm={setPm} />
       )}
       <ShikiHighlighter
         showLineNumbers

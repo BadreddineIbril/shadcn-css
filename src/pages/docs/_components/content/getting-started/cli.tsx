@@ -14,7 +14,7 @@ export default function Cli() {
           dependencies and configures <small className="code-tag">CSS</small>{" "}
           variables for the project.
         </p>
-        <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
+        <Code variant="shadcn-css" name="init" code={[]} />
         <p>Options</p>
         <Code
           code={[
@@ -31,11 +31,7 @@ export default function Cli() {
           Use the <small className="code-tag">add</small> command to add
           components and dependencies to your project.
         </p>
-        <Code
-          variant="dependencies"
-          name="shadcn-css@latest add [component]"
-          code={[]}
-        />
+        <Code variant="shadcn-css" name="add [component]" code={[]} />
         <p>Options</p>
         <Code
           code={[
@@ -52,7 +48,7 @@ export default function Cli() {
           Use the <small className="code-tag">list</small> command to list all
           available components.
         </p>
-        <Code variant="dependencies" name="shadcn-css@latest list" code={[]} />
+        <Code variant="shadcn-css" name="list" code={[]} />
         <p>Options</p>
         <Code
           code={[

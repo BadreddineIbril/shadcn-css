@@ -10,7 +10,7 @@ export default function Vite() {
           <small className="code-tag">vite</small>. Select the <b>React</b> +
           <b>TypeScript</b> template:
         </p>
-        <Code variant="dependencies" name="create vite@latest" code={[]} />
+        <Code variant="global" name="create vite@latest" code={[]} />
       </article>
       <article id="edit-tsconfigjson-file">
         <h3>Edit tsconfig.json file</h3>
@@ -80,16 +80,12 @@ export default function Vite() {
           Run the <small className="code-tag">shadcn-css</small> init command to
           setup your project:
         </p>
-        <Code variant="dependencies" name="shadcn-css@latest init" code={[]} />
+        <Code variant="shadcn-css" name="init" code={[]} />
       </article>
       <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
-        <Code
-          variant="dependencies"
-          name="shadcn-css@latest add button"
-          code={[]}
-        />
+        <Code variant="shadcn-css" name="add button" code={[]} />
         <p>
           The command above will add the{" "}
           <small className="code-tag">Button</small> component to your project.

@@ -1,6 +1,5 @@
 import { toast } from "sonner";
 import { DOCS_NAVIGATION } from "./constants";
-import { COMPONENTS } from "@/components/ui";
 
 function formatName(id: string) {
   return (id.charAt(0).toUpperCase() + id.slice(1)).replace("-", " ");
@@ -53,31 +52,35 @@ function usePagination(pageId: string) {
   };
 }
 
-function getCommands(name: string) {
+function getCommands(
+  name: string,
+  type: "dependencies" | "shadcn-css" | "global"
+) {
   const templates = {
     pnpm: {
-      registry: `pnpm dlx shadcn-css@latest add ${name}`,
-      default: `pnpm add ${name}`,
+      ["shadcn-css"]: `pnpm dlx shadcn-css@latest ${name}`,
+      dependencies: `pnpm add ${name}`,
+      global: `pnpm ${name}`,
     },
     npm: {
-      registry: `npx shadcn-css@latest add ${name}`,
-      default: `npm install ${name}`,
+      ["shadcn-css"]: `npx shadcn-css@latest ${name}`,
+      dependencies: `npm install ${name}`,
+      global: `npm ${name}`,
     },
     yarn: {
-      registry: `yarn shadcn-css@latest add ${name}`,
-      default: `yarn add ${name}`,
+      ["shadcn-css"]: `yarn shadcn-css@latest ${name}`,
+      dependencies: `yarn add ${name}`,
+      global: `yarn ${name}`,
     },
     bun: {
-      registry: `bunx --bun shadcn-css@latest add ${name}`,
-      default: `bun add ${name}`,
+      ["shadcn-css"]: `bunx --bun shadcn-css@latest ${name}`,
+      dependencies: `bun add ${name}`,
+      global: `bun ${name}`,
     },
   };
 
   return Object.fromEntries(
-    Object.entries(templates).map(([k, v]) => [
-      k,
-      v[COMPONENTS[name] ? "registry" : "default"],
-    ])
+    Object.entries(templates).map(([k, v]) => [k, v[type]])
   );
 }
 
@@ -95,12 +98,14 @@ function getAIPrompt(model: "v0" | "gpt" | "claude") {
 function getBaseStyles() {
   const [tokens] = Object.values(
     import.meta.glob("../assets/styles/base/tokens.css", {
+      import: "default",
       query: "?raw",
       eager: true,
     })
   ) as [string];
   const [globals] = Object.values(
     import.meta.glob("../assets/styles/base/globals.css", {
+      import: "default",
       query: "?raw",
       eager: true,
     })

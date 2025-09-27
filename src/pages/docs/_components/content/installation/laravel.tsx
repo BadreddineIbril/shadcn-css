@@ -17,11 +17,7 @@ export default function Laravel() {
       <article id="add-components">
         <h3>Add Components</h3>
         <p>You can now start adding components to your project.</p>
-        <Code
-          variant="dependencies"
-          name="shadcn-css@latest add switch"
-          code={[]}
-        />
+        <Code variant="shadcn-css" name="add switch" code={[]} />
         <p>
           The command above will add the{" "}
           <small className="code-tag">Switch</small> component to

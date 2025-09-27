@@ -18,7 +18,11 @@ export default function Installation() {
           <TabsTrigger value="manual">Manual</TabsTrigger>
         </TabsList>
         <TabsContent value="cli">
-          <Code variant="dependencies" name={component?.id ?? ""} code={[]} />
+          <Code
+            variant="shadcn-css"
+            name={`add ${component?.id ?? ""}`}
+            code={[]}
+          />
         </TabsContent>
         <TabsContent value="manual" className="manual-area">
           {dependencies && (
