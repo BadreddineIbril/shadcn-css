@@ -133,7 +133,10 @@ function Navigation() {
               <CommandGroup key={i} heading={group.name}>
                 {group.links.map((link, j) => (
                   <CommandItem key={j} asChild>
-                    <Link to={`/docs/components/${link.id}`}>{link.name}</Link>
+                    <Link
+                      to={`/docs${i === 2 ? "/components" : ""}/${link.id}`}>
+                      {link.name}
+                    </Link>
                   </CommandItem>
                 ))}
               </CommandGroup>

@@ -101,7 +101,13 @@
 /* Responsive */
 @media (width <= 1024px) {
   [data-page="colors"] {
+    [data-misc="head"] {
+      inset-block-start: 64px;
+      border-block-end: none;
+    }
+
     .tokens-box {
+      border-block-start: 1px solid var(--color-border);
       padding: calc(var(--spacing) * 6);
 
       .token-wrapper {

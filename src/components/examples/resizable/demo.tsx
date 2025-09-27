@@ -9,7 +9,6 @@ export default function ResizableDemo() {
     <ResizablePanelGroup
       direction="horizontal"
       style={{
-        minWidth: "450px",
         borderRadius: "10px",
         border: "1px solid var(--color-border)",
       }}>

@@ -106,7 +106,6 @@
 
   .copy {
     position: absolute;
-    z-index: 49;
     width: calc(var(--spacing) * 8);
     inset-block-start: calc(var(--spacing) * 3);
     inset-inline-end: calc(var(--spacing) * 3);
@@ -175,6 +174,9 @@
   }
 
   [data-misc="preview"] {
+    width: calc(100vw - 48px);
+    overflow: auto;
+
     .preview-area {
       width: 100%;
     }

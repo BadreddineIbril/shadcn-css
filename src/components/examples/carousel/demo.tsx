@@ -9,7 +9,7 @@ import {
 
 export default function CarouselDemo() {
   return (
-    <Carousel style={{ width: "300px" }}>
+    <Carousel style={{ width: "200px" }}>
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>

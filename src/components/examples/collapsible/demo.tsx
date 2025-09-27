@@ -17,7 +17,7 @@ export default function CollapsibleDemo() {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "350px",
+        width: "250px",
         gap: "8px",
       }}>
       <div

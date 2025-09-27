@@ -25,7 +25,7 @@ export default function ContextMenuDemo() {
           borderRadius: "8px",
           border: "1px dashed var(--color-border)",
           fontSize: "14px",
-          width: "300px",
+          width: "250px",
           height: "150px",
         }}>
         Right click here

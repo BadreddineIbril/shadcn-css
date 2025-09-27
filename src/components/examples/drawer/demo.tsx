@@ -17,12 +17,12 @@ export default function DrawerDemo() {
         <Button variant="outline">Open Drawer</Button>
       </DrawerTrigger>
       <DrawerContent>
-        <div style={{ marginInline: "auto", width: "450px" }}>
-          <DrawerHeader style={{ textAlign: "start" }}>
+        <div style={{ marginInline: "auto", width: "300px" }}>
+          <DrawerHeader style={{ textAlign: "center" }}>
             <DrawerTitle>Drawer for React.</DrawerTitle>
-            <DrawerDescription>
+            <DrawerDescription style={{ textWrap: "balance" }}>
               This component can be used as a Dialog replacement on mobile and
-              tablet devices. You can read about why and how it was built
+              tablet devices.
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter style={{ display: "grid", gap: "8px" }}>

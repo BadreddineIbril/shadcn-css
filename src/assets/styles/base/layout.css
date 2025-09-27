@@ -361,6 +361,14 @@ body {
       .links {
         display: none;
       }
+
+      .actions {
+        .search {
+          .commands {
+            display: none;
+          }
+        }
+      }
     }
 
     [data-content] {
