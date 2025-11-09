@@ -1,0 +1,5 @@
+{
+  "name": "input-group",
+  "description": "Display additional information or actions to an input or textarea.",
+  "registryDependencies": ["button", "input", "textarea"]
+}
