@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LogoIcon from "@/assets/icons/logo";
 import Button from "@/components/ui/button";
 import {
@@ -27,6 +27,7 @@ import GlobalNav from "@/pages/docs/_components/nav/global-nav";
 function Navigation() {
   const { pathname } = useLocation();
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState(false);
   const [mobileMenuState, setMobileMenuState] = useState(false);
@@ -121,22 +122,28 @@ function Navigation() {
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup heading="Links">
               {GLOBAL_NAVIGATION.map((link, i) => (
-                <CommandItem key={i} asChild>
-                  <Link
-                    to={link.id === "colors" ? link.id : `/docs/${link.id}`}>
-                    {link.name}
-                  </Link>
+                <CommandItem
+                  onSelect={() =>
+                    navigate(
+                      link.id === "colors" ? link.id : `/docs/${link.id}`
+                    )
+                  }
+                  key={i}>
+                  {link.name}
                 </CommandItem>
               ))}
             </CommandGroup>
             {DOCS_NAVIGATION.map((group, i) => (
               <CommandGroup key={i} heading={group.name}>
                 {group.links.map((link, j) => (
-                  <CommandItem key={j} asChild>
-                    <Link
-                      to={`/docs${i === 2 ? "/components" : ""}/${link.id}`}>
-                      {link.name}
-                    </Link>
+                  <CommandItem
+                    key={j}
+                    onSelect={() =>
+                      navigate(
+                        `/docs${i === 2 ? "/components" : ""}/${link.id}`
+                      )
+                    }>
+                    {link.name}
                   </CommandItem>
                 ))}
               </CommandGroup>
