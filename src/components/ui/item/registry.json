@@ -1,0 +1,6 @@
+{
+  "name": "item",
+  "description": "A versatile component that you can use to display any content.",
+  "dependencies": ["@radix-ui/react-slot"],
+  "registryDependencies": ["separator"]
+}
