@@ -1,0 +1,5 @@
+{
+  "name": "button-group",
+  "description": "A container that groups related buttons together with consistent styling.",
+  "dependencies": ["@radix-ui/react-slot"]
+}

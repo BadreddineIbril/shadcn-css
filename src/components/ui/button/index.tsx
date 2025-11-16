@@ -10,7 +10,7 @@ type ButtonProps = ComponentProps<"button"> & {
     | "ghost"
     | "destructive"
     | "link";
-  size?: "xs" | "sm" | "md" | "lg" | "icon";
+  size?: "sm" | "md" | "lg" | "icon" | "icon-sm" | "icon-lg";
   asChild?: boolean;
 };
 

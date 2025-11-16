@@ -42,7 +42,7 @@ export default function DependenciesHead({
             <Button
               key={pack}
               variant={pm === pack ? "outline" : "ghost"}
-              size="xs"
+              size="sm"
               className="option"
               onClick={() => setPm(pack)}>
               {pack}
