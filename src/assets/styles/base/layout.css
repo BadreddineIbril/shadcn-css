@@ -325,6 +325,20 @@ body {
               color: var(--color-purple-500);
             }
           }
+
+          &[data-new="true"] {
+            a::after {
+              content: "New";
+              padding-inline: 0.3rem;
+              border: 1px solid var(--color-purple-300);
+              border-radius: var(--radius-sm);
+              background-color: var(--color-purple-100);
+              color: var(--color-purple-700);
+              font-family: monospace;
+              font-size: var(--text-xs);
+              line-height: var(--text-xs--line-height);
+            }
+          }
         }
       }
     }
@@ -335,6 +349,26 @@ body {
 .dark {
   body {
     background-color: var(--color-background);
+  }
+
+  .menu-box {
+    .global-nav {
+      .category {
+        .links {
+          .link[data-new="true"] {
+            a::after {
+              border-color: var(--color-purple-700);
+              background-color: color-mix(
+                in oklch,
+                var(--color-purple-700) 20%,
+                transparent
+              );
+              color: var(--color-purple-400);
+            }
+          }
+        }
+      }
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import Button from "@/components/ui/button";
 import { useComponent } from "@/contexts";
-import { DOCS_NAVIGATION } from "@/utils/constants";
+import { DOCS_NAVIGATION, NEW_COMPONENTS } from "@/utils/constants";
 import type { ReactNode } from "react";
 
 export default function GlobalNav({ children }: { children?: ReactNode }) {
@@ -21,7 +21,10 @@ export default function GlobalNav({ children }: { children?: ReactNode }) {
             </span>
             <ul className="links">
               {category.links.map((link) => (
-                <li className="link" key={link.id}>
+                <li
+                  className="link"
+                  data-new={!!NEW_COMPONENTS.find((c) => link.id === c)}
+                  key={link.id}>
                   <Button
                     variant={
                       (section === "components" ? component?.id : section) ===

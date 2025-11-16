@@ -147,4 +147,20 @@ const COLOR_TOKENS: string[] = [
 
 const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
 
-export { GLOBAL_NAVIGATION, DOCS_NAVIGATION, COLOR_TOKENS, PACKAGE_MANAGERS };
+const NEW_COMPONENTS: string[] = [
+  "spinner",
+  "kbd",
+  "button-group",
+  "input-group",
+  "field",
+  "item",
+  "empty",
+];
+
+export {
+  GLOBAL_NAVIGATION,
+  DOCS_NAVIGATION,
+  COLOR_TOKENS,
+  PACKAGE_MANAGERS,
+  NEW_COMPONENTS,
+};
