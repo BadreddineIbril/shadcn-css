@@ -71,7 +71,7 @@ export default function Colors() {
                     <Button
                       className="copy"
                       variant="ghost"
-                      size="xs"
+                      size="icon-sm"
                       aria-label="copy"
                       data-invert={n > 400}
                       onClick={() =>
