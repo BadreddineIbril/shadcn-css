@@ -1,24 +1,32 @@
 import "./styles.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useComponent, useLibrary } from "@/contexts";
 import GlobalNav from "./_components/nav/global-nav";
 import LocalNav from "./_components/nav/local-nav";
 import Output from "./_components/output";
 import { getComponent } from "@/components/registry";
 import NotFound from "@/pages/errors/not-found";
-import { formatName, setMetaTags } from "@/utils/helpers";
-import { DOCS_NAVIGATION } from "@/utils/constants";
+import { formatName, getComponentPath, setMetaTags } from "@/utils/helpers";
+import type { Library } from "@/types/context";
+import { DOCS_NAVIGATION, LIBRARIES } from "@/utils/constants";
 
 export default function Docs() {
-  const { section, id } = useParams();
+  const { section, base, id } = useParams();
   const { setComponent } = useComponent();
-  const { library } = useLibrary();
+  const { library, setLibrary } = useLibrary();
   const [isAvailable, setIsAvailable] = useState(true);
 
+  const isValidBase = base === undefined || LIBRARIES.includes(base as Library);
+  const activeLibrary = (base as Library | undefined) ?? library;
+
   useEffect(() => {
-    if (id) {
-      const component = getComponent(id, library);
+    if (base && isValidBase && base !== library) setLibrary(base as Library);
+  }, [base]);
+
+  useEffect(() => {
+    if (id && isValidBase) {
+      const component = getComponent(id, activeLibrary);
 
       if (!component) {
         setIsAvailable(false);
@@ -30,7 +38,7 @@ export default function Docs() {
       setComponent(component);
       setIsAvailable(true);
     }
-  }, [id, library]);
+  }, [id, activeLibrary]);
 
   useEffect(() => {
     if (
@@ -49,6 +57,14 @@ export default function Docs() {
 
     if (section) setMetaTags(formatName(section));
   }, [section]);
+
+  if (!isValidBase || (base && section !== "components")) {
+    return <NotFound />;
+  }
+
+  if (section === "components" && id && !base) {
+    return <Navigate replace to={getComponentPath(id, library)} />;
+  }
 
   if (!isAvailable) {
     return <NotFound />;

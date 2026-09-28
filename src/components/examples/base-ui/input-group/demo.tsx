@@ -28,7 +28,7 @@ import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/components/base-ui/tooltip";
 
 export default function InputGroupDemo() {
   return (
@@ -47,10 +47,11 @@ export default function InputGroupDemo() {
         </InputGroupAddon>
         <InputGroupAddon align="inline-end">
           <Tooltip>
-            <TooltipTrigger asChild>
-              <InputGroupButton className="rounded-full" size="icon-xs">
-                <Info />
-              </InputGroupButton>
+            <TooltipTrigger
+              render={
+                <InputGroupButton className="rounded-full" size="icon-xs" />
+              }>
+              <Info />
             </TooltipTrigger>
             <TooltipContent>This is content in a tooltip.</TooltipContent>
           </Tooltip>

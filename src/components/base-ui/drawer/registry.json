@@ -1,0 +1,5 @@
+{
+  "name": "drawer",
+  "description": "A drawer component for React.",
+  "dependencies": ["@base-ui/react"]
+}

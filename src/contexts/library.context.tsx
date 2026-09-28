@@ -7,7 +7,7 @@ const LibraryContext = createContext<LibraryContextDefinition | null>(null);
 
 function getStoredLibrary(): Library {
   try {
-    return localStorage.getItem(STORAGE_KEY) === "base" ? "base" : "radix";
+    return localStorage.getItem(STORAGE_KEY) === "radix" ? "radix" : "base";
   } catch {
     return "base";
   }

@@ -1,4 +1,5 @@
 import { COMPONENTS } from "@/components/registry";
+import type { Library } from "@/types/context";
 import type {
   LinkDefinition,
   NavigationDefinition,
@@ -145,6 +146,8 @@ const COLOR_TOKENS: string[] = [
   "rose",
 ];
 
+const LIBRARIES: Library[] = ["base", "radix"];
+
 const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
 
 const NEW_COMPONENTS: string[] = [
@@ -162,5 +165,6 @@ export {
   DOCS_NAVIGATION,
   COLOR_TOKENS,
   PACKAGE_MANAGERS,
+  LIBRARIES,
   NEW_COMPONENTS,
 };

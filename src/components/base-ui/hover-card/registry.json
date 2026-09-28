@@ -1,0 +1,5 @@
+{
+  "name": "hover-card",
+  "description": "For sighted users to preview content available behind a link.",
+  "dependencies": ["@base-ui/react"]
+}

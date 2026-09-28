@@ -2,6 +2,7 @@ import Code from "@/components/misc/code";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useComponent, useLibrary } from "@/contexts";
 import { Link } from "react-router-dom";
+import { getComponentPath } from "@/utils/helpers";
 
 export default function Installation() {
   const { component } = useComponent();
@@ -73,8 +74,12 @@ export default function Installation() {
                 <br />
                 <br />
                 See installation instructions for the{" "}
-                <Link to="/docs/components/popover">Popover</Link> and the{" "}
-                <Link to="/docs/components/command">Command</Link> components.
+                <Link to={getComponentPath("popover", library)}>
+                  Popover
+                </Link>{" "}
+                and the{" "}
+                <Link to={getComponentPath("command", library)}>Command</Link>{" "}
+                components.
               </h3>
             </div>
           )}
