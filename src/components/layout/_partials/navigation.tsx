@@ -19,7 +19,8 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import Separator from "@/components/ui/separator";
-import { useTheme } from "@/contexts";
+import { useLibrary, useTheme } from "@/contexts";
+import { getComponentPath } from "@/utils/helpers";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { DOCS_NAVIGATION, GLOBAL_NAVIGATION } from "@/utils/constants";
 import GlobalNav from "@/pages/docs/_components/nav/global-nav";
@@ -27,6 +28,7 @@ import GlobalNav from "@/pages/docs/_components/nav/global-nav";
 function Navigation() {
   const { pathname } = useLocation();
   const { theme, setTheme } = useTheme();
+  const { library } = useLibrary();
   const navigate = useNavigate();
 
   const [search, setSearch] = useState(false);
@@ -140,7 +142,9 @@ function Navigation() {
                     key={j}
                     onSelect={() =>
                       navigate(
-                        `/docs${i === 2 ? "/components" : ""}/${link.id}`
+                        i === 2
+                          ? getComponentPath(link.id, library)
+                          : `/docs/${link.id}`
                       )
                     }>
                     {link.name}

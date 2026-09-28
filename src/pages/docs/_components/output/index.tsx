@@ -5,14 +5,16 @@ import Pagination from "./_partials/pagination";
 import Usage from "./_partials/usage";
 import Head from "@/components/misc/head";
 import Footer from "@/components/layout/_partials/footer";
-import { COMPONENTS } from "@/components/ui";
+import { COMPONENTS } from "@/components/registry";
 import { Link, useParams } from "react-router-dom";
-import { useComponent } from "@/contexts";
+import { useComponent, useLibrary } from "@/contexts";
+import { getComponentPath } from "@/utils/helpers";
 import { DOCS_NAVIGATION } from "@/utils/constants";
 
 export default function Output() {
   const { section, id } = useParams();
   const { component } = useComponent();
+  const { library } = useLibrary();
 
   const heading =
     section === "components"
@@ -44,7 +46,9 @@ export default function Output() {
             <ul className="cards">
               {Object.values(COMPONENTS).map((item) => (
                 <li key={item.id} className="card">
-                  <Link to={`/docs/components/${item.id}`} className="link">
+                  <Link
+                    to={getComponentPath(item.id, library)}
+                    className="link">
                     {item.name}
                   </Link>
                 </li>

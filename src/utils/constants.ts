@@ -1,4 +1,5 @@
-import { COMPONENTS } from "@/components/ui";
+import { COMPONENTS } from "@/components/registry";
+import type { Library } from "@/types/context";
 import type {
   LinkDefinition,
   NavigationDefinition,
@@ -145,22 +146,17 @@ const COLOR_TOKENS: string[] = [
   "rose",
 ];
 
+const LIBRARIES: Library[] = ["base", "radix"];
+
 const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
 
-const NEW_COMPONENTS: string[] = [
-  "spinner",
-  "kbd",
-  "button-group",
-  "input-group",
-  "field",
-  "item",
-  "empty",
-];
+const NEW_LINKS: string[] = ["changelog"];
 
 export {
   GLOBAL_NAVIGATION,
   DOCS_NAVIGATION,
   COLOR_TOKENS,
   PACKAGE_MANAGERS,
-  NEW_COMPONENTS,
+  LIBRARIES,
+  NEW_LINKS,
 };

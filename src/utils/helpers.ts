@@ -1,8 +1,13 @@
 import { toast } from "sonner";
+import type { Library } from "@/types/context";
 import { DOCS_NAVIGATION } from "./constants";
 
 function formatName(id: string) {
   return (id.charAt(0).toUpperCase() + id.slice(1)).replace("-", " ");
+}
+
+function getComponentPath(id: string, library: Library) {
+  return `/docs/components/${library}/${id}`;
 }
 
 function getCssVarValue(cssVar: string) {
@@ -116,6 +121,7 @@ function getBaseStyles() {
 
 export {
   formatName,
+  getComponentPath,
   getCssVarValue,
   getCommands,
   getAIPrompt,

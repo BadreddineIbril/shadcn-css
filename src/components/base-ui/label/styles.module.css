@@ -1,0 +1,20 @@
+.label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-none);
+  user-select: none;
+
+  /* Required (asterisk) */
+  &:has(~ input:required) {
+    &::after {
+      content: " *";
+      color: var(--color-destructive);
+    }
+  }
+
+  /* Disabled */
+  &:has(~ input:disabled) {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

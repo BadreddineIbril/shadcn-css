@@ -1,0 +1,98 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  transition:
+    color var(--default-transition-duration),
+    box-shadow var(--default-transition-duration);
+  border: 1px solid transparent;
+  outline: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-sm--line-height);
+
+  /* Variant */
+  &[data-variant="default"] {
+    &:hover:not([data-pressed]) {
+      background-color: var(--color-muted);
+      color: var(--color-muted-foreground);
+    }
+  }
+
+  &[data-variant="outline"] {
+    border-color: var(--color-input);
+    box-shadow: var(--shadow-xs);
+
+    &:focus-visible {
+      border-color: var(--ring);
+    }
+
+    &:hover:not([data-pressed]) {
+      background-color: var(--color-muted);
+    }
+  }
+
+  /* Size */
+  &[data-size="sm"] {
+    height: calc(var(--spacing) * 8);
+    padding-inline: calc(var(--spacing) * 1.75);
+    border-radius: var(--radius-sm);
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+  &[data-size="md"] {
+    height: calc(var(--spacing) * 9);
+    padding-inline: calc(var(--spacing) * 2.25);
+  }
+
+  &[data-size="lg"] {
+    height: calc(var(--spacing) * 10);
+    padding-inline: calc(var(--spacing) * 2.75);
+  }
+
+  &[data-size="md"],
+  &[data-size="lg"] {
+    gap: calc(var(--spacing) * 2);
+    border-radius: var(--radius-md);
+  }
+
+  /* Icon */
+  & > svg {
+    flex-shrink: 0;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    pointer-events: none;
+  }
+
+  /* State */
+  &[data-pressed] {
+    background-color: var(--color-accent);
+    color: var(--color-accent-foreground);
+  }
+
+  /* Invalid */
+  &[aria-invalid="true"] {
+    box-shadow: 0 0 0 2px
+      color-mix(in oklab, var(--color-destructive) 20%, transparent);
+
+    &[data-variant="outline"] {
+      border-color: var(--color-destructive);
+    }
+  }
+
+  /* Focus */
+  &:focus-visible {
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  /* Disabled */
+  &:disabled,
+  &[data-disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}

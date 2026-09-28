@@ -1,0 +1,5 @@
+.spinner {
+  width: calc(var(--spacing) * 4);
+  height: calc(var(--spacing) * 4);
+  animation: var(--animate-spin);
+}

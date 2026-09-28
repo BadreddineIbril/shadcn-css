@@ -1,10 +1,12 @@
 import Code from "@/components/misc/code";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useComponent } from "@/contexts";
+import { useComponent, useLibrary } from "@/contexts";
 import { Link } from "react-router-dom";
+import { getComponentPath } from "@/utils/helpers";
 
 export default function Installation() {
   const { component } = useComponent();
+  const { library } = useLibrary();
 
   const dependencies = component?.installation.manual.dependencies;
   const code = component?.installation.manual.code;
@@ -12,6 +14,12 @@ export default function Installation() {
   return (
     <section className="installation-box" id="installation">
       <h2 className="head">Installation</h2>
+      {library === "base" && component?.library === "radix" && (
+        <p className="hint library-hint">
+          The Base UI version of this component is not available yet, showing
+          the Radix UI version instead.
+        </p>
+      )}
       <Tabs defaultValue="cli">
         <TabsList>
           <TabsTrigger value="cli">CLI</TabsTrigger>
@@ -23,6 +31,13 @@ export default function Installation() {
             name={`add ${component?.id ?? ""}`}
             code={[]}
           />
+          {component?.library === "base" && (
+            <p className="hint library-hint">
+              Components are added from the base set in your{" "}
+              <Link to="/docs/components.json">components.json</Link>. Run{" "}
+              <code className="code-tag">init --base base</code> to use Base UI.
+            </p>
+          )}
         </TabsContent>
         <TabsContent value="manual" className="manual-area">
           {dependencies && (
@@ -59,8 +74,12 @@ export default function Installation() {
                 <br />
                 <br />
                 See installation instructions for the{" "}
-                <Link to="/docs/components/popover">Popover</Link> and the{" "}
-                <Link to="/docs/components/command">Command</Link> components.
+                <Link to={getComponentPath("popover", library)}>
+                  Popover
+                </Link>{" "}
+                and the{" "}
+                <Link to={getComponentPath("command", library)}>Command</Link>{" "}
+                components.
               </h3>
             </div>
           )}

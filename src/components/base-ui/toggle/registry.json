@@ -1,0 +1,5 @@
+{
+  "name": "toggle",
+  "description": "A two-state button that can be either on or off.",
+  "dependencies": ["@base-ui/react"]
+}

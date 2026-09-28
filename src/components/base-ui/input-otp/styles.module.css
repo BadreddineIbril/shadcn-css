@@ -1,0 +1,88 @@
+.input-otp {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing) * 2);
+
+  &:has(:disabled),
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+
+  .input-otp-group {
+    display: flex;
+    align-items: center;
+
+    .input-otp-slot {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      width: calc(var(--spacing) * 9);
+      height: calc(var(--spacing) * 9);
+      padding: 0;
+      transition: all var(--default-transition-duration)
+        var(--default-transition-timing-function);
+      border: 1px solid var(--color-input);
+      border-radius: 0;
+      outline: none;
+      background-color: transparent;
+      box-shadow: var(--shadow-xs);
+      color: inherit;
+      font-family: inherit;
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+      text-align: center;
+      border-inline-start-width: 0;
+
+      /* First input */
+      &:first-child {
+        border-inline-start-width: 1px;
+        border-top-left-radius: var(--radius-md);
+        border-bottom-left-radius: var(--radius-md);
+      }
+
+      /* Last input */
+      &:last-child {
+        border-top-right-radius: var(--radius-md);
+        border-bottom-right-radius: var(--radius-md);
+      }
+
+      /* Invalid */
+      &[aria-invalid="true"],
+      &[data-invalid] {
+        border-color: var(--color-destructive);
+      }
+
+      /* Focus */
+      &:focus-visible {
+        z-index: 1;
+
+        &:not([aria-invalid="true"], [data-invalid]) {
+          border-color: var(--color-ring);
+          box-shadow: 0 0 0 3px
+            color-mix(in oklab, var(--color-ring) 50%, transparent);
+        }
+
+        &[aria-invalid="true"],
+        &[data-invalid] {
+          box-shadow: 0 0 0 3px
+            color-mix(in oklab, var(--color-destructive) 20%, transparent);
+        }
+      }
+    }
+  }
+}
+
+:global(.dark) {
+  .input-otp {
+    .input-otp-group {
+      .input-otp-slot {
+        background-color: color-mix(
+          in oklab,
+          var(--color-input) 30%,
+          transparent
+        );
+      }
+    }
+  }
+}

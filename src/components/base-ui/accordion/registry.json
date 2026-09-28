@@ -1,0 +1,5 @@
+{
+  "name": "accordion",
+  "description": "A vertically stacked set of interactive headings that each reveal a section of content.",
+  "dependencies": ["@base-ui/react"]
+}

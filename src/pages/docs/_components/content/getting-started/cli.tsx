@@ -12,7 +12,8 @@ export default function Cli() {
         <p>
           The <small className="code-tag">init</small> command installs
           dependencies and configures <small className="code-tag">CSS</small>{" "}
-          variables for the project.
+          variables for the project. It also asks which primitives your
+          components are built on: <b>Radix UI</b> or <b>Base UI</b>.
         </p>
         <Code variant="shadcn-css" name="init" code={[]} />
         <p>Options</p>
@@ -20,7 +21,7 @@ export default function Cli() {
           code={[
             {
               lang: "bash",
-              content: `Usage: shadcn-css init [options]\n\nInitialize shadcn-css in your project\n\nOptions:\n  -h, --help  display help for command`,
+              content: `Usage: shadcn-css init [options]\n\nInitialize shadcn-css in your project\n\nOptions:\n  -b, --base <base>  primitives: radix | base\n  -h, --help         display help for command`,
             },
           ]}
         />
@@ -37,7 +38,7 @@ export default function Cli() {
           code={[
             {
               lang: "bash",
-              content: `Usage: shadcn-css add [options] [components...]\n\nAdd one or more components to your project\n\nArguments:\n  components  Component names to add\n\nOptions:\n  -h, --help  display help for command`,
+              content: `Usage: shadcn-css add [options] [components...]\n\nAdd one or more components to your project\n\nArguments:\n  components         Component names to add\n\nOptions:\n  -b, --base <base>  primitives: radix | base (defaults to components.json)\n  -h, --help         display help for command`,
             },
           ]}
         />
@@ -54,7 +55,7 @@ export default function Cli() {
           code={[
             {
               lang: "bash",
-              content: `Usage: shadcn-css list [options]\n\nList all available components\n\nOptions:\n  -h, --help  display help for command`,
+              content: `Usage: shadcn-css list [options]\n\nList all available components\n\nOptions:\n  -b, --base <base>  primitives: radix | base\n  -h, --help         display help for command`,
             },
           ]}
         />

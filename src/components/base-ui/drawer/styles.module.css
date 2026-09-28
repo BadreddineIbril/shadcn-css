@@ -1,0 +1,193 @@
+.drawer-overlay {
+  position: fixed;
+  z-index: 50;
+  transition: opacity 450ms cubic-bezier(0.32, 0.72, 0, 1);
+  opacity: calc(1 - var(--drawer-swipe-progress, 0));
+  background-color: rgb(0 0 0 / 50%);
+  inset: 0;
+
+  /* State */
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+  }
+
+  &[data-swiping] {
+    transition-duration: 0ms;
+  }
+
+  &[data-ending-style] {
+    transition-duration: calc(var(--drawer-swipe-strength, 1) * 400ms);
+  }
+}
+
+.drawer-viewport {
+  display: flex;
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+
+  /* Direction */
+  &[data-direction="top"] {
+    align-items: flex-start;
+  }
+
+  &[data-direction="bottom"] {
+    align-items: flex-end;
+  }
+
+  &[data-direction="left"] {
+    justify-content: flex-start;
+  }
+
+  &[data-direction="right"] {
+    justify-content: flex-end;
+  }
+}
+
+.drawer-content {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  overflow-y: auto;
+  transition: transform 450ms cubic-bezier(0.32, 0.72, 0, 1);
+  outline: none;
+  background-color: var(--color-background);
+  overscroll-behavior: contain;
+
+  .drawer-handle {
+    display: none;
+    flex-shrink: 0;
+    width: 100px;
+    height: calc(var(--spacing) * 2);
+    margin-block-start: calc(var(--spacing) * 4);
+    margin-inline: auto;
+    border-radius: var(--radius-rounded);
+    background-color: var(--color-muted);
+  }
+
+  .drawer-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  .drawer-header {
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--spacing) * 4);
+    gap: var(--spacing);
+  }
+
+  /* State */
+  &[data-swiping] {
+    transition-duration: 0ms;
+    user-select: none;
+  }
+
+  &[data-ending-style] {
+    transition-duration: calc(var(--drawer-swipe-strength, 1) * 400ms);
+  }
+
+  /* Direction */
+  &[data-direction="top"] {
+    width: 100%;
+    max-height: 80vh;
+    transform: translateY(var(--drawer-swipe-movement-y, 0));
+    border-block-end: 1px solid var(--color-border);
+    border-end-end-radius: var(--radius-lg);
+    border-end-start-radius: var(--radius-lg);
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      transform: translateY(-100%);
+    }
+
+    .drawer-header {
+      text-align: center;
+    }
+  }
+
+  &[data-direction="bottom"] {
+    width: 100%;
+    max-height: 80vh;
+    transform: translateY(var(--drawer-swipe-movement-y, 0));
+    border-block-start: 1px solid var(--color-border);
+    border-start-end-radius: var(--radius-lg);
+    border-start-start-radius: var(--radius-lg);
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      transform: translateY(100%);
+    }
+
+    .drawer-handle {
+      display: block;
+    }
+
+    .drawer-header {
+      text-align: center;
+    }
+  }
+
+  &[data-direction="right"] {
+    width: 75%;
+    height: 100%;
+    transform: translateX(var(--drawer-swipe-movement-x, 0));
+    border-inline-start: 1px solid var(--color-border);
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      transform: translateX(100%);
+    }
+  }
+
+  &[data-direction="left"] {
+    width: 75%;
+    height: 100%;
+    transform: translateX(var(--drawer-swipe-movement-x, 0));
+    border-inline-end: 1px solid var(--color-border);
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      transform: translateX(-100%);
+    }
+  }
+
+  .drawer-footer {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: auto;
+    padding: calc(var(--spacing) * 2);
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .drawer-title {
+    color: var(--color-foreground);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .drawer-description {
+    color: var(--color-muted-foreground);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+  }
+}
+
+@media (width >= 768px) {
+  .drawer-content {
+    .drawer-header {
+      text-align: start;
+      gap: calc(var(--spacing) * 1.5);
+    }
+  }
+}
+
+@media (width >= 640px) {
+  .drawer-content {
+    &[data-direction="right"],
+    &[data-direction="left"] {
+      max-width: 24rem;
+    }
+  }
+}

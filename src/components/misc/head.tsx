@@ -1,5 +1,6 @@
 import Button from "@/components/ui/button";
-import { getAIPrompt, usePagination } from "@/utils/helpers";
+import { useLibrary } from "@/contexts";
+import { getAIPrompt, getComponentPath, usePagination } from "@/utils/helpers";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
@@ -25,6 +26,7 @@ export default function Head({
   withActions = false,
 }: HeadProp) {
   const { section, id } = useParams();
+  const { library } = useLibrary();
   const { prev, next } = usePagination(
     section === "components" && id ? id : (section ?? "")
   );
@@ -66,7 +68,11 @@ export default function Head({
                 aria-label="previous page"
                 asChild>
                 <Link
-                  to={`/docs${section === "components" && prev.id !== "manual" ? "/components" : ""}/${prev.id}`}>
+                  to={
+                    section === "components" && prev.id !== "manual"
+                      ? getComponentPath(prev.id, library)
+                      : `/docs/${prev.id}`
+                  }>
                   <ArrowLeft />
                 </Link>
               </Button>
@@ -78,7 +84,11 @@ export default function Head({
                 aria-label="next page"
                 asChild>
                 <Link
-                  to={`/docs${section === "components" || section === "manual" ? "/components" : ""}/${next.id}`}>
+                  to={
+                    section === "components" || section === "manual"
+                      ? getComponentPath(next.id, library)
+                      : `/docs/${next.id}`
+                  }>
                   <ArrowRight />
                 </Link>
               </Button>

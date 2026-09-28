@@ -27,6 +27,7 @@
     "lint:fix": "bun run lint:eslint:fix && bun run lint:stylelint:fix"
   },
   "dependencies": {
+    "@base-ui/react": "1.8.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.15",
     "@radix-ui/react-aspect-ratio": "^1.1.7",

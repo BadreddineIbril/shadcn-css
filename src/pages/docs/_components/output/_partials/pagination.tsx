@@ -1,10 +1,12 @@
 import { Link, useParams } from "react-router-dom";
 import Button from "@/components/ui/button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { usePagination } from "@/utils/helpers";
+import { useLibrary } from "@/contexts";
+import { getComponentPath, usePagination } from "@/utils/helpers";
 
 export default function Pagination() {
   const { section, id } = useParams();
+  const { library } = useLibrary();
   const { prev, next } = usePagination(
     section === "components" && id ? id : (section ?? "")
   );
@@ -14,7 +16,11 @@ export default function Pagination() {
       {prev?.id && (
         <Button variant="outline" size="sm" asChild>
           <Link
-            to={`/docs${section === "components" ? "/components" : ""}/${prev.id}`}>
+            to={
+              section === "components" && prev.id !== "manual"
+                ? getComponentPath(prev.id, library)
+                : `/docs/${prev.id}`
+            }>
             <ArrowLeft /> {prev.name}
           </Link>
         </Button>
@@ -22,7 +28,11 @@ export default function Pagination() {
       {next?.id && (
         <Button variant="outline" size="sm" asChild>
           <Link
-            to={`/docs${section === "components" ? "/components" : ""}/${next.id}`}>
+            to={
+              section === "components" || section === "manual"
+                ? getComponentPath(next.id, library)
+                : `/docs/${next.id}`
+            }>
             {next.name}
             <ArrowRight />
           </Link>
