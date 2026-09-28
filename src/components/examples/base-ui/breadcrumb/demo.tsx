@@ -12,7 +12,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/base-ui/dropdown-menu";
 import { Link } from "react-router-dom";
 
 export default function BreadcrumbDemo() {
@@ -26,11 +26,11 @@ export default function BreadcrumbDemo() {
         <BreadcrumbItem>
           <DropdownMenu>
             <DropdownMenuTrigger
-              asChild
               aria-label="toggle menu"
-              style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-              <BreadcrumbEllipsis />
-            </DropdownMenuTrigger>
+              nativeButton={false}
+              render={<BreadcrumbEllipsis />}
+              style={{ display: "flex", alignItems: "center", gap: "4px" }}
+            />
             <DropdownMenuContent align="start">
               <DropdownMenuItem>Documentation</DropdownMenuItem>
               <DropdownMenuItem>Themes</DropdownMenuItem>

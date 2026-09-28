@@ -14,7 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/base-ui/dropdown-menu";
 import {
   InputGroup,
   InputGroupAddon,
@@ -67,8 +67,8 @@ export default function InputGroupDemo() {
             <Plus />
           </InputGroupButton>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <InputGroupButton variant="ghost">Auto</InputGroupButton>
+            <DropdownMenuTrigger render={<InputGroupButton variant="ghost" />}>
+              Auto
             </DropdownMenuTrigger>
             <DropdownMenuContent side="top" align="start">
               <DropdownMenuItem>Auto</DropdownMenuItem>

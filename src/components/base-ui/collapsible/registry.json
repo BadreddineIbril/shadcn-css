@@ -1,0 +1,5 @@
+{
+  "name": "collapsible",
+  "description": "An interactive component which expands/collapses a panel.",
+  "dependencies": ["@base-ui/react"]
+}
