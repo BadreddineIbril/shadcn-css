@@ -23,6 +23,24 @@ export default function ComponentJson() {
           file in your project by running the following command:
         </p>
         <Code variant="shadcn-css" code={[]} name="init" />
+      </article>
+      <article id="base">
+        <h3>base</h3>
+        <p>
+          The primitives your components are built on:{" "}
+          <small className="code-tag">radix</small> for Radix UI or{" "}
+          <small className="code-tag">base</small> for Base UI. Components added
+          with the <Link to="/docs/cli">CLI</Link> are fetched for this base.
+          Defaults to <small className="code-tag">radix</small> when omitted.
+        </p>
+        <Code
+          code={[
+            {
+              lang: "json",
+              content: `{\n  "base": "base"\n}`,
+            },
+          ]}
+        />
         <p>
           See the <Link to="/docs/cli">CLI section</Link> for more information.
         </p>

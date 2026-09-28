@@ -1,0 +1,96 @@
+.slider {
+  width: 100%;
+
+  /* Orientation */
+  &[data-orientation="vertical"] {
+    width: auto;
+    height: 100%;
+  }
+
+  /* Disabled */
+  &[data-disabled] {
+    opacity: 0.5;
+  }
+
+  .slider-control {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 100%;
+    user-select: none;
+    touch-action: none;
+
+    /* Orientation */
+    &[data-orientation="vertical"] {
+      flex-direction: column;
+      width: auto;
+      height: 100%;
+      min-height: calc(var(--spacing) * 44);
+    }
+  }
+
+  .slider-track {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    border-radius: var(--radius-rounded);
+    background-color: var(--color-muted);
+
+    /* Orientation */
+    &[data-orientation="horizontal"] {
+      width: 100%;
+      height: calc(var(--spacing) * 1.5);
+    }
+
+    &[data-orientation="vertical"] {
+      width: calc(var(--spacing) * 1.5);
+      height: 100%;
+    }
+
+    .slider-range {
+      background-color: var(--color-primary);
+
+      /* Orientation */
+      &[data-orientation="horizontal"] {
+        height: 100%;
+      }
+
+      &[data-orientation="vertical"] {
+        width: 100%;
+      }
+    }
+  }
+
+  .slider-thumb {
+    display: block;
+    flex-shrink: 0;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    transition-property: color, box-shadow;
+    transition-duration: var(--default-transition-duration);
+    transition-timing-function: var(--default-transition-timing-function);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-rounded);
+    background-color: var(--color-background);
+    box-shadow: var(--shadow-sm);
+
+    /* Hover */
+    &:hover {
+      box-shadow: 0 0 0 4px
+        color-mix(in oklab, var(--color-ring) 50%, transparent);
+    }
+
+    /* Focus (the thumb wraps a native range input) */
+    &:has(:focus-visible) {
+      outline: none;
+      box-shadow: 0 0 0 4px
+        color-mix(in oklab, var(--color-ring) 50%, transparent);
+    }
+
+    /* Disabled */
+    &[data-disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}

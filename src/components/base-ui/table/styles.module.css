@@ -1,0 +1,99 @@
+.table-container {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+
+  .table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+
+    .table-header {
+      & > tr {
+        border-block-end: 1px solid var(--color-border);
+      }
+    }
+
+    .table-footer {
+      background-color: color-mix(
+        in oklch,
+        var(--color-muted) 50%,
+        transparent
+      );
+      font-weight: var(--font-weight-medium);
+      border-block-start: 1px solid var(--color-border);
+
+      & > tr {
+        border-block-end: 0;
+      }
+    }
+
+    .table-body {
+      & > tr:last-child {
+        border: 0;
+      }
+    }
+
+    .table-row {
+      border-block-end: 1px solid var(--color-border);
+      transition-property: color, background-color, border-color;
+      transition-duration: var(--default-transition-duration);
+      transition-timing-function: var(--default-transition-timing-function);
+
+      /* Hover */
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          var(--color-muted) 50%,
+          transparent
+        );
+      }
+
+      /* State */
+      &[data-state="selected"] {
+        background-color: var(--color-muted);
+      }
+    }
+
+    .table-head {
+      height: calc(var(--spacing) * 10);
+      padding-inline: calc(var(--spacing) * 2);
+      color: var(--color-foreground);
+      font-weight: var(--font-weight-medium);
+      text-align: start;
+      vertical-align: middle;
+      white-space: nowrap;
+
+      &:has([role="checkbox"]) {
+        padding-inline-end: 0;
+
+        & > [role="checkbox"] {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    .table-cell {
+      padding: calc(var(--spacing) * 2);
+      vertical-align: middle;
+      white-space: nowrap;
+
+      /* Has (checkbox) */
+      &:has([role="checkbox"]) {
+        padding-inline-end: 0;
+
+        & > [role="checkbox"] {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    .table-caption {
+      margin-block-start: calc(var(--spacing) * 4);
+      color: var(--color-muted-foreground);
+      font-size: var(--text-sm);
+      line-height: var(--text-sm--line-height);
+    }
+  }
+}

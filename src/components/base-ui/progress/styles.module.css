@@ -1,0 +1,25 @@
+.progress {
+  display: grid;
+  width: 100%;
+  gap: calc(var(--spacing) * 2);
+
+  .progress-track {
+    position: relative;
+    width: 100%;
+    height: calc(var(--spacing) * 2);
+    overflow: hidden;
+    border-radius: var(--radius-rounded);
+    background-color: color-mix(
+      in oklch,
+      var(--color-primary) 20%,
+      transparent
+    );
+  }
+
+  .progress-indicator {
+    height: 100%;
+    transition: width var(--default-transition-duration)
+      var(--default-transition-timing-function);
+    background-color: var(--color-primary);
+  }
+}

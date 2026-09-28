@@ -1,4 +1,4 @@
-import { COMPONENTS } from "@/components/ui";
+import { COMPONENTS } from "@/components/registry";
 import type {
   LinkDefinition,
   NavigationDefinition,

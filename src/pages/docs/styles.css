@@ -19,6 +19,14 @@
       display: grid;
       gap: calc(var(--spacing) * 2);
 
+      &.library [data-slot="toggle-group"] {
+        width: 100%;
+
+        & > * {
+          flex: 1;
+        }
+      }
+
       .label {
         display: flex;
         align-items: center;
@@ -100,6 +108,22 @@
           font-size: var(--text-xl);
           font-weight: var(--font-weight-medium);
           line-height: var(--text-xl--line-height);
+        }
+
+        .library-hint {
+          color: var(--color-muted-foreground);
+          font-size: var(--text-sm);
+          line-height: var(--text-sm--line-height);
+
+          a {
+            color: var(--color-foreground);
+            text-underline-offset: 4px;
+            text-decoration: underline;
+          }
+        }
+
+        [data-slot="tabs-content"] > .library-hint {
+          margin-block-start: calc(var(--spacing) * 4);
         }
 
         .manual-area {

@@ -5,7 +5,7 @@ import Pagination from "./_partials/pagination";
 import Usage from "./_partials/usage";
 import Head from "@/components/misc/head";
 import Footer from "@/components/layout/_partials/footer";
-import { COMPONENTS } from "@/components/ui";
+import { COMPONENTS } from "@/components/registry";
 import { Link, useParams } from "react-router-dom";
 import { useComponent } from "@/contexts";
 import { DOCS_NAVIGATION } from "@/utils/constants";
