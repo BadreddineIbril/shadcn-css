@@ -150,15 +150,7 @@ const LIBRARIES: Library[] = ["base", "radix"];
 
 const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
 
-const NEW_COMPONENTS: string[] = [
-  "spinner",
-  "kbd",
-  "button-group",
-  "input-group",
-  "field",
-  "item",
-  "empty",
-];
+const NEW_LINKS: string[] = ["changelog"];
 
 export {
   GLOBAL_NAVIGATION,
@@ -166,5 +158,5 @@ export {
   COLOR_TOKENS,
   PACKAGE_MANAGERS,
   LIBRARIES,
-  NEW_COMPONENTS,
+  NEW_LINKS,
 };

@@ -6,11 +6,17 @@ import ToggleGroupDemo from "@/components/examples/toggle-group/demo";
 import RadioGroupDemo from "@/components/examples/radio-group/demo";
 import DrawerDemo from "@/components/examples/drawer/demo";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-box">
+        <Link to="/docs/changelog" className="announcement">
+          <span className="dot" />
+          Base UI is here
+          <ArrowRight />
+        </Link>
         <h1 className="title">Build your Component Library</h1>
         <p className="description">
           Beautifully designed components that you can copy and paste into your

@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Button from "@/components/ui/button";
 import { useComponent, useLibrary } from "@/contexts";
 import type { Library } from "@/types/context";
-import { DOCS_NAVIGATION, NEW_COMPONENTS } from "@/utils/constants";
+import { DOCS_NAVIGATION, NEW_LINKS } from "@/utils/constants";
 import { getComponentPath } from "@/utils/helpers";
 import type { ReactNode } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -56,7 +56,7 @@ export default function GlobalNav({ children }: { children?: ReactNode }) {
               {category.links.map((link) => (
                 <li
                   className="link"
-                  data-new={!!NEW_COMPONENTS.find((c) => link.id === c)}
+                  data-new={!!NEW_LINKS.find((c) => link.id === c)}
                   key={link.id}>
                   <Button
                     variant={
