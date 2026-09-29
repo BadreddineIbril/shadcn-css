@@ -4,6 +4,76 @@ import { Link } from "react-router-dom";
 export default function Changelog() {
   return (
     <div data-content="changelog">
+      <article id="september-2026---new-components">
+        <h3>September 2026 - New components</h3>
+        <p>
+          shadcn/css now covers every component from the original{" "}
+          <a href="https://ui.shadcn.com/docs/components" target="_blank">
+            shadcn/ui
+          </a>
+          . The missing ones are here, each available for both Radix UI and Base
+          UI:
+        </p>
+        <ul>
+          <li>
+            <Link to="/docs/components/base/attachment">Attachment</Link>: Show
+            files and images with their upload state and actions.
+          </li>
+          <li>
+            <Link to="/docs/components/base/bubble">Bubble</Link>: Chat bubbles
+            with variants, grouping and reactions.
+          </li>
+          <li>
+            <Link to="/docs/components/base/calendar">Calendar</Link>: A date
+            picker built on React DayPicker.
+          </li>
+          <li>
+            <Link to="/docs/components/base/chart">Chart</Link>: Beautiful
+            charts built on Recharts, themed with your tokens.
+          </li>
+          <li>
+            <Link to="/docs/components/base/data-table">Data Table</Link>:
+            Sortable, filterable tables built with TanStack Table.
+          </li>
+          <li>
+            <Link to="/docs/components/base/direction">Direction</Link>: Switch
+            components between LTR and RTL.
+          </li>
+          <li>
+            <Link to="/docs/components/base/marker">Marker</Link>: Status lines
+            and separators for conversations.
+          </li>
+          <li>
+            <Link to="/docs/components/base/message">Message</Link>: Lay out
+            chat messages with an avatar, header and footer.
+          </li>
+          <li>
+            <Link to="/docs/components/base/message-scroller">
+              Message Scroller
+            </Link>
+            : A chat viewport that follows streaming replies.
+          </li>
+          <li>
+            <Link to="/docs/components/base/native-select">Native Select</Link>:
+            A styled native select element.
+          </li>
+          <li>
+            <Link to="/docs/components/base/navigation-menu">
+              Navigation Menu
+            </Link>
+            : A collection of links for navigating websites.
+          </li>
+          <li>
+            <Link to="/docs/components/base/questionnaire">Questionnaire</Link>:
+            Ask one question at a time, with choices and shortcuts.
+          </li>
+        </ul>
+        <p>
+          Charts use the new <small className="code-tag">--chart-1</small> to
+          <small className="code-tag">--chart-5</small> colors, now part of the{" "}
+          <Link to="/docs/theming">theme variables</Link>.
+        </p>
+      </article>
       <article id="september-2026---base-ui">
         <h3>September 2026 - Base UI</h3>
         <p>
