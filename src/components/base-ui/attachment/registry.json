@@ -1,0 +1,6 @@
+{
+  "name": "attachment",
+  "description": "Displays a file or image attachment with its upload state and actions.",
+  "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["button"]
+}

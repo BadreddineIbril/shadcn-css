@@ -1,0 +1,275 @@
+.attachment {
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  width: fit-content;
+  min-width: 0;
+  max-width: 100%;
+  transition: background-color var(--default-transition-duration)
+    var(--default-transition-timing-function);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-card);
+  color: var(--color-card-foreground);
+
+  /* Focus */
+  &:focus-within {
+    box-shadow: 0 0 0 1px
+      color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  /* Clickable */
+  &:has(> a, > button):hover {
+    background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+  }
+
+  /* State */
+  &[data-state="idle"] {
+    border-style: dashed;
+  }
+
+  &[data-state="error"] {
+    border-color: color-mix(
+      in oklab,
+      var(--color-destructive) 30%,
+      transparent
+    );
+  }
+
+  /* Size */
+  &[data-size="default"] {
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    gap: calc(var(--spacing) * 2);
+
+    &:has(> .attachment-media) {
+      padding: calc(var(--spacing) * 2);
+    }
+
+    &:has(> .attachment-content) {
+      padding: calc(var(--spacing) * 2) calc(var(--spacing) * 2.5);
+    }
+  }
+
+  &[data-size="sm"] {
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    gap: calc(var(--spacing) * 2.5);
+
+    &:has(> .attachment-media) {
+      padding: calc(var(--spacing) * 1.5);
+    }
+
+    &:has(> .attachment-content) {
+      padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+    }
+  }
+
+  &[data-size="xs"] {
+    border-radius: var(--radius-lg);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+    gap: calc(var(--spacing) * 1.5);
+
+    &:has(> .attachment-media) {
+      padding: var(--spacing);
+    }
+
+    &:has(> .attachment-content) {
+      padding: var(--spacing) calc(var(--spacing) * 1.5);
+    }
+  }
+
+  /* Orientation */
+  &[data-orientation="horizontal"] {
+    align-items: center;
+    min-width: calc(var(--spacing) * 40);
+  }
+
+  &[data-orientation="vertical"] {
+    flex-direction: column;
+    width: calc(var(--spacing) * 24);
+
+    &:has(> .attachment-content) {
+      width: calc(var(--spacing) * 30);
+    }
+  }
+
+  .attachment-media {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--spacing) * 10);
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
+    aspect-ratio: 1 / 1;
+
+    & svg {
+      width: calc(var(--spacing) * 4);
+      height: calc(var(--spacing) * 4);
+      pointer-events: none;
+    }
+
+    /* Image */
+    &[data-variant="image"] {
+      opacity: 0.6;
+
+      & > img {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+
+  &[data-state="done"],
+  &[data-state="idle"] {
+    .attachment-media[data-variant="image"] {
+      opacity: 1;
+    }
+  }
+
+  &[data-state="error"] .attachment-media {
+    background-color: color-mix(
+      in oklab,
+      var(--color-destructive) 10%,
+      transparent
+    );
+    color: var(--color-destructive);
+  }
+
+  &[data-size="sm"] .attachment-media {
+    width: calc(var(--spacing) * 8);
+  }
+
+  &[data-size="xs"] .attachment-media {
+    width: calc(var(--spacing) * 7);
+    border-radius: var(--radius-md);
+
+    & svg {
+      width: calc(var(--spacing) * 3.5);
+      height: calc(var(--spacing) * 3.5);
+    }
+  }
+
+  &[data-orientation="vertical"] .attachment-media {
+    width: 100%;
+
+    & svg {
+      width: calc(var(--spacing) * 6);
+      height: calc(var(--spacing) * 6);
+    }
+  }
+
+  .attachment-content {
+    flex: 1;
+    min-width: 0;
+    max-width: 100%;
+    line-height: var(--leading-tight);
+  }
+
+  &[data-orientation="vertical"] .attachment-content {
+    padding-inline: var(--spacing);
+  }
+
+  .attachment-title,
+  .attachment-description {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .attachment-title {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &:is([data-state="uploading"], [data-state="processing"]) .attachment-title {
+    animation: shimmer 2s linear infinite;
+    background-image: linear-gradient(
+      90deg,
+      var(--color-muted-foreground) 0%,
+      var(--color-foreground) 50%,
+      var(--color-muted-foreground) 100%
+    );
+    background-clip: text;
+    background-size: 200% 100%;
+    color: transparent;
+  }
+
+  .attachment-description {
+    margin-block-start: calc(var(--spacing) * 0.5);
+    color: var(--color-muted-foreground);
+    font-size: var(--text-xs);
+    line-height: var(--text-xs--line-height);
+  }
+
+  &[data-state="error"] .attachment-description {
+    color: color-mix(in oklab, var(--color-destructive) 80%, transparent);
+  }
+
+  .attachment-actions {
+    display: flex;
+    position: relative;
+    z-index: 20;
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  &[data-orientation="vertical"] .attachment-actions {
+    position: absolute;
+    top: calc(var(--spacing) * 3);
+    gap: var(--spacing);
+    inset-inline-end: calc(var(--spacing) * 3);
+  }
+
+  .attachment-action {
+    width: calc(var(--spacing) * 6);
+    height: calc(var(--spacing) * 6);
+  }
+
+  .attachment-trigger {
+    position: absolute;
+    z-index: 10;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    inset: 0;
+  }
+}
+
+.attachment-group {
+  display: flex;
+  min-width: 0;
+  padding-block: var(--spacing);
+  overflow-x: auto;
+  gap: calc(var(--spacing) * 3);
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--spacing);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+
+  & > .attachment {
+    flex: none;
+    scroll-snap-align: start;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: -100% 0;
+  }
+}

@@ -15,6 +15,8 @@ export default function Hero() {
         <Link to="/docs/changelog" className="announcement">
           <span className="dot" />
           Base UI is here
+          <span className="separator" />
+          All components covered
           <ArrowRight />
         </Link>
         <h1 className="title">Build your Component Library</h1>

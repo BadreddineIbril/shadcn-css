@@ -65,6 +65,21 @@ export default function Installation() {
               />
             </div>
           )}
+          {component?.id === "data-table" && (
+            <div className="files-wrapper">
+              <h3 className="hint">
+                The Data Table is built using the{" "}
+                <code className="code-tag">{`<Table />`}</code> component and{" "}
+                <a href="https://tanstack.com/table" target="_blank">
+                  TanStack Table
+                </a>
+                . Install{" "}
+                <code className="code-tag">@tanstack/react-table</code> and the{" "}
+                <Link to={getComponentPath("table", library)}>Table</Link>{" "}
+                component, then build your own table from the example above.
+              </h3>
+            </div>
+          )}
           {component?.id === "combobox" && (
             <div className="files-wrapper">
               <h3 className="hint">

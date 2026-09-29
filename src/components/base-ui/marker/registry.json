@@ -1,0 +1,5 @@
+{
+  "name": "marker",
+  "description": "A status line or divider for conversations, like typing indicators and date separators.",
+  "dependencies": ["@base-ui/react"]
+}

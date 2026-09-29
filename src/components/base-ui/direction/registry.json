@@ -1,0 +1,5 @@
+{
+  "name": "direction",
+  "description": "Sets the reading direction (LTR or RTL) for the components inside it.",
+  "dependencies": ["@base-ui/react"]
+}

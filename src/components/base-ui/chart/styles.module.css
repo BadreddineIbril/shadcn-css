@@ -1,0 +1,160 @@
+.chart {
+  display: flex;
+  justify-content: center;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  aspect-ratio: 16 / 9;
+
+  /* Recharts defaults adapted to the theme */
+  :global(.recharts-cartesian-axis-tick) text {
+    fill: var(--color-muted-foreground);
+  }
+
+  :global(.recharts-cartesian-grid) line[stroke="#ccc"] {
+    stroke: color-mix(in oklab, var(--color-border) 50%, transparent);
+  }
+
+  :global(.recharts-curve.recharts-tooltip-cursor),
+  :global(.recharts-polar-grid) [stroke="#ccc"],
+  :global(.recharts-reference-line) [stroke="#ccc"] {
+    stroke: var(--color-border);
+  }
+
+  :global(.recharts-dot)[stroke="#fff"],
+  :global(.recharts-sector)[stroke="#fff"] {
+    stroke: transparent;
+  }
+
+  :global(.recharts-radial-bar-background-sector),
+  :global(.recharts-rectangle.recharts-tooltip-cursor) {
+    fill: var(--color-muted);
+  }
+
+  :global(.recharts-layer),
+  :global(.recharts-sector),
+  :global(.recharts-surface) {
+    outline: none;
+  }
+}
+
+.chart-tooltip {
+  display: grid;
+  align-items: start;
+  min-width: 8rem;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2.5);
+  border: 1px solid color-mix(in oklab, var(--color-border) 50%, transparent);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background);
+  box-shadow: var(--shadow-xl);
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  gap: calc(var(--spacing) * 1.5);
+
+  .chart-tooltip-label {
+    font-weight: var(--font-weight-medium);
+  }
+
+  .chart-tooltip-items {
+    display: grid;
+    gap: calc(var(--spacing) * 1.5);
+  }
+
+  .chart-tooltip-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    gap: calc(var(--spacing) * 2);
+
+    &[data-indicator="dot"] {
+      align-items: center;
+    }
+
+    & > svg {
+      width: calc(var(--spacing) * 2.5);
+      height: calc(var(--spacing) * 2.5);
+      color: var(--color-muted-foreground);
+    }
+  }
+
+  .chart-tooltip-indicator {
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    background-color: var(--color-bg);
+
+    &[data-indicator="dot"] {
+      width: calc(var(--spacing) * 2.5);
+      height: calc(var(--spacing) * 2.5);
+    }
+
+    &[data-indicator="line"] {
+      width: var(--spacing);
+    }
+
+    &[data-indicator="dashed"] {
+      width: 0;
+      border-width: 1.5px;
+      border-style: dashed;
+      background-color: transparent;
+
+      &[data-nested="true"] {
+        margin-block: calc(var(--spacing) * 0.5);
+      }
+    }
+  }
+
+  .chart-tooltip-row {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 1;
+
+    &[data-nested="true"] {
+      align-items: flex-end;
+    }
+  }
+
+  .chart-tooltip-name {
+    color: var(--color-muted-foreground);
+  }
+
+  .chart-tooltip-value {
+    color: var(--color-foreground);
+    font-family: var(--font-mono, monospace);
+    font-weight: var(--font-weight-medium);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block-start: calc(var(--spacing) * 3);
+  gap: calc(var(--spacing) * 4);
+
+  &[data-vertical-align="top"] {
+    padding-block: 0 calc(var(--spacing) * 3);
+  }
+
+  .chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 1.5);
+
+    & > svg {
+      width: calc(var(--spacing) * 3);
+      height: calc(var(--spacing) * 3);
+      color: var(--color-muted-foreground);
+    }
+  }
+
+  .chart-legend-indicator {
+    flex-shrink: 0;
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+    border-radius: 2px;
+  }
+}

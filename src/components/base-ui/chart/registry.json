@@ -1,0 +1,6 @@
+{
+  "name": "chart",
+  "description": "Beautiful charts. Built using Recharts. Copy and paste into your apps.",
+  "dependencies": ["recharts@3.8.0"],
+  "registryDependencies": ["card"]
+}

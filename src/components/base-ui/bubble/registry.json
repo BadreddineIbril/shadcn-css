@@ -1,0 +1,5 @@
+{
+  "name": "bubble",
+  "description": "A chat bubble with variants, grouping and reactions.",
+  "dependencies": ["@base-ui/react"]
+}

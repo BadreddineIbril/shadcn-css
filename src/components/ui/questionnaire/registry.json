@@ -1,0 +1,6 @@
+{
+  "name": "questionnaire",
+  "description": "A step-by-step form that asks one question at a time, with choices, free text, validation and keyboard shortcuts.",
+  "dependencies": ["@shadcn/react"],
+  "registryDependencies": ["button"]
+}

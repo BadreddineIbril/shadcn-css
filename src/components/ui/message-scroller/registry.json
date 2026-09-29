@@ -1,0 +1,6 @@
+{
+  "name": "message-scroller",
+  "description": "A chat viewport that follows streaming messages, anchors new turns and shows a jump-to-latest button.",
+  "dependencies": ["@shadcn/react"],
+  "registryDependencies": ["button"]
+}

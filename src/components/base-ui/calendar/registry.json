@@ -1,0 +1,6 @@
+{
+  "name": "calendar",
+  "description": "A date field component that allows users to enter and edit date.",
+  "dependencies": ["react-day-picker", "date-fns"],
+  "registryDependencies": ["button"]
+}
