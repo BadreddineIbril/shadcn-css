@@ -1,0 +1,247 @@
+.bubble-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: calc(var(--spacing) * 2);
+}
+
+.bubble {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 0;
+  max-width: 80%;
+  gap: var(--spacing);
+
+  /* Align */
+  &[data-align="end"] {
+    align-self: flex-end;
+
+    & > .bubble-content {
+      align-self: flex-end;
+    }
+  }
+
+  .bubble-content {
+    width: fit-content;
+    min-width: 0;
+    max-width: 100%;
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 3);
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-radius: var(--radius-xl);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    overflow-wrap: break-word;
+
+    /* Interactive content */
+    &:is(button, a) {
+      transition: background-color var(--default-transition-duration)
+        var(--default-transition-timing-function);
+      outline: none;
+      color: inherit;
+      font-family: inherit;
+      text-align: start;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:focus-visible {
+        border-color: var(--color-ring);
+        box-shadow: 0 0 0 3px
+          color-mix(in oklab, var(--color-ring) 50%, transparent);
+      }
+    }
+  }
+
+  /* Variant */
+
+  /* Brand purple (same as the logo) */
+  &[data-variant="default"] > .bubble-content {
+    background-color: var(--color-purple-500);
+    color: var(--color-white, #fff);
+
+    &:is(button, a):hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-purple-500) 80%,
+        transparent
+      );
+    }
+  }
+
+  &[data-variant="secondary"] > .bubble-content {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-foreground);
+
+    &:is(button, a):hover {
+      background-color: color-mix(
+        in oklch,
+        var(--color-secondary),
+        var(--color-foreground) 5%
+      );
+    }
+  }
+
+  &[data-variant="muted"] > .bubble-content {
+    background-color: var(--color-muted);
+    color: var(--color-foreground);
+
+    &:is(button, a):hover {
+      background-color: color-mix(
+        in oklch,
+        var(--color-muted),
+        var(--color-foreground) 5%
+      );
+    }
+  }
+
+  &[data-variant="tinted"] > .bubble-content {
+    background-color: color-mix(
+      in oklab,
+      var(--color-purple-500) 15%,
+      var(--color-background)
+    );
+    color: var(--color-foreground);
+
+    &:is(button, a):hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-purple-500) 22%,
+        var(--color-background)
+      );
+    }
+  }
+
+  &[data-variant="outline"] > .bubble-content {
+    border-color: var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+
+    &:is(button, a):hover {
+      background-color: var(--color-muted);
+    }
+  }
+
+  &[data-variant="ghost"] {
+    max-width: 100%;
+
+    & > .bubble-content {
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+
+      &:is(button, a):hover {
+        background-color: var(--color-muted);
+      }
+    }
+  }
+
+  &[data-variant="destructive"] > .bubble-content {
+    background-color: color-mix(
+      in oklab,
+      var(--color-destructive) 10%,
+      transparent
+    );
+    color: var(--color-destructive);
+
+    &:is(button, a):hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-destructive) 20%,
+        transparent
+      );
+    }
+  }
+
+  .bubble-reactions {
+    display: flex;
+    position: absolute;
+    z-index: 10;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: calc(var(--spacing) * 0.5) calc(var(--spacing) * 1.5);
+    border-radius: var(--radius-rounded);
+    background-color: var(--color-muted);
+    box-shadow: 0 0 0 3px var(--color-card);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+    gap: var(--spacing);
+
+    &:has(button) {
+      padding: 0;
+    }
+
+    /* Side */
+    &[data-side="top"] {
+      top: 0;
+      translate: 0 -75%;
+    }
+
+    &[data-side="bottom"] {
+      bottom: 0;
+      translate: 0 75%;
+    }
+
+    /* Align */
+    &[data-align="start"] {
+      inset-inline-start: calc(var(--spacing) * 3);
+    }
+
+    &[data-align="end"] {
+      inset-inline-end: calc(var(--spacing) * 3);
+    }
+  }
+}
+
+/* Inside an end-aligned message */
+[data-slot="message"][data-align="end"] .bubble {
+  align-self: flex-end;
+}
+
+:global(.dark) {
+  .bubble {
+    &[data-variant="tinted"] > .bubble-content {
+      background-color: color-mix(
+        in oklab,
+        var(--color-purple-500) 25%,
+        var(--color-background)
+      );
+
+      &:is(button, a):hover {
+        background-color: color-mix(
+          in oklab,
+          var(--color-purple-500) 32%,
+          var(--color-background)
+        );
+      }
+    }
+
+    &[data-variant="outline"] > .bubble-content:is(button, a):hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-input) 30%,
+        transparent
+      );
+    }
+
+    &[data-variant="ghost"] > .bubble-content:is(button, a):hover {
+      background-color: color-mix(
+        in oklab,
+        var(--color-muted) 50%,
+        transparent
+      );
+    }
+
+    &[data-variant="destructive"] > .bubble-content {
+      background-color: color-mix(
+        in oklab,
+        var(--color-destructive) 20%,
+        transparent
+      );
+    }
+  }
+}

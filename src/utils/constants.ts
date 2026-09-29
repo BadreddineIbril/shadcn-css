@@ -150,7 +150,21 @@ const LIBRARIES: Library[] = ["base", "radix"];
 
 const PACKAGE_MANAGERS: PackageManagers[] = ["pnpm", "npm", "yarn", "bun"];
 
-const NEW_LINKS: string[] = ["changelog"];
+const NEW_LINKS: string[] = [
+  "changelog",
+  "attachment",
+  "bubble",
+  "calendar",
+  "chart",
+  "data-table",
+  "direction",
+  "marker",
+  "message",
+  "message-scroller",
+  "native-select",
+  "navigation-menu",
+  "questionnaire",
+];
 
 export {
   GLOBAL_NAVIGATION,

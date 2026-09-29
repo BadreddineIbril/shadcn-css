@@ -1,0 +1,4 @@
+{
+  "name": "message",
+  "description": "A layout for chat messages with an avatar, content, header and footer."
+}

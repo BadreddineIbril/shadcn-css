@@ -1,0 +1,313 @@
+.questionnaire {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  gap: calc(var(--spacing) * 4);
+
+  /* Parts that aren't active are hidden by the primitive */
+  [hidden] {
+    display: none !important;
+  }
+}
+
+.questionnaire-progress {
+  width: fit-content;
+  min-width: 14ch;
+  min-height: 1lh;
+  color: var(--color-muted-foreground);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--text-xs--line-height);
+  font-variant-numeric: tabular-nums;
+}
+
+.questionnaire-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  gap: calc(var(--spacing) * 4);
+}
+
+.questionnaire-title {
+  padding: 0;
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-snug);
+  text-wrap: pretty;
+
+  &:not(:has(~ [data-slot="questionnaire-description"])) {
+    margin-block-end: calc(var(--spacing) * 4);
+  }
+}
+
+.questionnaire-description {
+  color: var(--color-muted-foreground);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  text-wrap: pretty;
+}
+
+.questionnaire-choices {
+  display: grid;
+  min-width: 0;
+  gap: calc(var(--spacing) * 2);
+}
+
+.questionnaire-choice {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  min-height: calc(var(--spacing) * 11);
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 3);
+  transition: background-color var(--default-transition-duration)
+    var(--default-transition-timing-function);
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-lg);
+  outline: none;
+  background-color: transparent;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  text-align: start;
+  cursor: pointer;
+  user-select: none;
+  gap: calc(var(--spacing) * 2.5);
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-muted) 50%, transparent);
+  }
+
+  /* Focus (the real input covers the whole choice) */
+  &:has(> input:focus-visible) {
+    border-color: var(--color-ring);
+    box-shadow: 0 0 0 3px
+      color-mix(in oklab, var(--color-ring) 50%, transparent);
+  }
+
+  /* States */
+  &[data-invalid] {
+    border-color: var(--color-destructive);
+  }
+
+  &[data-checked] {
+    border-color: color-mix(in oklab, var(--color-primary) 40%, transparent);
+    background-color: var(--color-muted);
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .questionnaire-choice-input {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    inset: 0;
+  }
+
+  .questionnaire-choice-indicator {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--spacing) * 4);
+    height: calc(var(--spacing) * 4);
+    border: 1px solid var(--color-input);
+    border-radius: 4px;
+    pointer-events: none;
+    translate: 0 calc(var(--spacing) * 0.45);
+
+    .questionnaire-choice-indicator-dot {
+      display: none;
+      width: calc(var(--spacing) * 2);
+      height: calc(var(--spacing) * 2);
+      border-radius: var(--radius-rounded);
+      background-color: var(--color-primary-foreground);
+    }
+
+    .questionnaire-choice-indicator-check {
+      display: none;
+      width: calc(var(--spacing) * 3.5);
+      height: calc(var(--spacing) * 3.5);
+    }
+  }
+
+  &[data-type="radio"] .questionnaire-choice-indicator {
+    border-radius: var(--radius-rounded);
+  }
+
+  &[data-checked] .questionnaire-choice-indicator {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  &[data-checked][data-type="radio"] .questionnaire-choice-indicator-dot,
+  &[data-checked][data-type="checkbox"] .questionnaire-choice-indicator-check {
+    display: block;
+  }
+
+  .questionnaire-choice-label {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    line-height: var(--leading-snug);
+    gap: calc(var(--spacing) * 0.5);
+  }
+
+  .questionnaire-choice-shortcut {
+    display: none;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--spacing) * 5);
+    height: calc(var(--spacing) * 5);
+    margin-inline-start: auto;
+    border: 1px solid var(--color-input);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background);
+    color: var(--color-muted-foreground);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.625rem;
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    pointer-events: none;
+    translate: 0 calc(var(--spacing) * 0.45);
+  }
+
+  &[data-shortcut] .questionnaire-choice-shortcut {
+    display: inline-flex;
+  }
+
+  &:has([data-slot="questionnaire-choice-description"]) {
+    .questionnaire-choice-indicator,
+    .questionnaire-choice-shortcut {
+      translate: 0 calc(var(--spacing) * 0.5);
+    }
+  }
+}
+
+.questionnaire-choice-description {
+  color: var(--color-muted-foreground);
+}
+
+.questionnaire-input-wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+
+  .questionnaire-input {
+    width: 100%;
+    min-width: 0;
+    min-height: calc(var(--spacing) * 8);
+    padding-inline: calc(var(--spacing) * 3);
+    transition-property: color, box-shadow, background-color;
+    transition-duration: var(--default-transition-duration);
+    border: 1px solid var(--color-input);
+    border-radius: var(--radius-lg);
+    outline: none;
+    background-color: transparent;
+    color: var(--color-foreground);
+    font-size: var(--text-sm);
+    line-height: var(--text-sm--line-height);
+
+    &::placeholder {
+      color: var(--color-muted-foreground);
+    }
+
+    &::selection {
+      background-color: var(--color-primary);
+      color: var(--color-primary-foreground);
+    }
+
+    &:focus-visible {
+      border-color: var(--color-ring);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--color-ring) 50%, transparent);
+    }
+
+    &[aria-invalid="true"] {
+      border-color: var(--color-destructive);
+      box-shadow: 0 0 0 3px
+        color-mix(in oklab, var(--color-destructive) 20%, transparent);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}
+
+.questionnaire-error {
+  margin-block-start: calc(var(--spacing) * 2);
+  color: var(--color-destructive);
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+}
+
+.questionnaire-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  width: 100%;
+  gap: calc(var(--spacing) * 2);
+
+  .questionnaire-previous {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    justify-self: start;
+  }
+
+  .questionnaire-skip {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    justify-self: end;
+  }
+
+  .questionnaire-next,
+  .questionnaire-submit {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    justify-self: end;
+  }
+}
+
+:global(.dark) {
+  .questionnaire-choice {
+    background-color: color-mix(in oklab, var(--color-input) 20%, transparent);
+
+    &[data-checked] {
+      background-color: var(--color-muted);
+    }
+
+    .questionnaire-choice-indicator {
+      background-color: color-mix(
+        in oklab,
+        var(--color-input) 30%,
+        transparent
+      );
+    }
+
+    &[data-checked] .questionnaire-choice-indicator {
+      background-color: var(--color-primary);
+    }
+  }
+
+  .questionnaire-input-wrapper .questionnaire-input {
+    background-color: color-mix(in oklab, var(--color-input) 30%, transparent);
+  }
+}

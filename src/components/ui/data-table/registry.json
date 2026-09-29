@@ -1,0 +1,12 @@
+{
+  "name": "data-table",
+  "description": "Powerful table and datagrids built using TanStack Table.",
+  "dependencies": ["@tanstack/react-table"],
+  "registryDependencies": [
+    "table",
+    "button",
+    "checkbox",
+    "dropdown-menu",
+    "input"
+  ]
+}

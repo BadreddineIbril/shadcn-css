@@ -1,0 +1,88 @@
+import { FileCodeIcon, XIcon } from "lucide-react";
+import {
+  Attachment,
+  AttachmentAction,
+  AttachmentActions,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentGroup,
+  AttachmentMedia,
+  AttachmentTitle,
+} from "@/components/ui/attachment";
+import Spinner from "@/components/ui/spinner";
+
+const images = [
+  {
+    name: "workspace.png",
+    meta: "PNG · 820 KB",
+    src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900&auto=format&fit=crop&q=80",
+    alt: "Workspace",
+  },
+  {
+    name: "desk-reference.jpg",
+    meta: "JPG · 1.1 MB",
+    src: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=900&auto=format&fit=crop&q=80",
+    alt: "Desk",
+  },
+  {
+    name: "office-reference.jpg",
+    meta: "JPG · 940 KB",
+    src: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&auto=format&fit=crop&q=80",
+    alt: "Office",
+  },
+];
+
+export default function AttachmentDemo() {
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "12px",
+        width: "100%",
+        maxWidth: "384px",
+      }}>
+      <AttachmentGroup>
+        {images.map((image) => (
+          <Attachment key={image.name} orientation="vertical">
+            <AttachmentMedia variant="image">
+              <img src={image.src} alt={image.alt} />
+            </AttachmentMedia>
+            <AttachmentContent>
+              <AttachmentTitle>{image.name}</AttachmentTitle>
+              <AttachmentDescription>{image.meta}</AttachmentDescription>
+            </AttachmentContent>
+          </Attachment>
+        ))}
+      </AttachmentGroup>
+      <Attachment state="uploading" style={{ width: "100%" }}>
+        <AttachmentMedia>
+          <Spinner />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>sales-dashboard.pdf</AttachmentTitle>
+          <AttachmentDescription>Uploading · 64%</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Cancel upload">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+      <Attachment style={{ width: "100%" }}>
+        <AttachmentMedia>
+          <FileCodeIcon />
+        </AttachmentMedia>
+        <AttachmentContent>
+          <AttachmentTitle>message-renderer.tsx</AttachmentTitle>
+          <AttachmentDescription>TypeScript · 12 KB</AttachmentDescription>
+        </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Remove message-renderer.tsx">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
+      </Attachment>
+    </div>
+  );
+}
